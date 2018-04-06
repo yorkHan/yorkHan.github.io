@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>使用Github和Hexo搭建自己的博客 | York&#39;s Blog</title>
+  <title>命令行的基础操作 | York&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -44,16 +44,24 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2018-04-06T11:06:05.000Z" itemprop="datePublished">
+      <time datetime="2018-04-06T11:47:41.000Z" itemprop="datePublished">
           2018-04-06
       </time>
     
 </span>
-    <h1 class="post-title">使用Github和Hexo搭建自己的博客</h1>
+    <h1 class="post-title">命令行的基础操作</h1>
     <section class="post-content">
-      <p> </p><p>1.使用命令行进入一个安全目录，比如<small style="background-color:aqua">cd ～/.Desktop</small>或者<small style="background-color:aqua">cd ~/.Documents</small>,(注意不要在根目录)</p><br> <p>2.在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（请将你的用户名替换成真正的用户名）</p><br> <p>3.命令行输入<small style="background-color:aqua">npm install -g hexo-cli</small>，安装 Hexo</p><br> <p>4.命令行输入<small style="background-color:aqua">hexo init myBlog</small></p><br> <p>5.命令行输入<small style="background-color:aqua">cd myBlog</small></p><br> <p>6.命令行输入<small style="background-color:aqua">npm i</small></p><br> <p>7.命令行输入<small style="background-color:aqua">hexo new </small>+你的微博标题，你会看到一个 md 文件的路径</p><br> <p>8.<small style="background-color:aqua">start xxxxxxxxxxxxxxxxxxx.md </small>，编辑这个 md 文件，内容自己想（Ubuntu 系统用<small style="background-color:aqua">xdg-open xxxxxxxxxxxxxxxxxxx.md </small></p><br> <p>9.命令行输入<small style="background-color:aqua">start _config.yml </small>，编辑网站配置<br> <ul><br>    <li>(1) 把第 6 行的 title 改成你想要的名字</li><br>    <li>(2) 把第 9 行的 author 改成你的大名</li><br>    <li>(3) &lt;把最后一行的 type 改成 <small style="background-color:aqua">type: git</small>/li&gt;<br>    </li><li>(4) 在最后一行后面新增一行，左边与 type 平齐，加上一行 <small style="background-color:aqua">repo: 仓库地址</small> （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 开头你知道吧？不知道？不知道的话现在你知道了）</li><br>    <li>(5) 第 4 步的 repo: 后面有个空格，不要眼瞎。</li><br> </ul><br> </p><br> <p>10.命令行输入<small style="background-color:aqua">npm install hexo-deployer-git –save</small>,安装 git 部署插件</p><br> <p>11.命令行输入<small style="background-color:aqua">hexo deploy</small></p><br> <p>12.进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接</p><p></p>
-<p>13.你现在应该看到了你的博客！</p>
-
+      <p></p><h1>命令行的commands</h1><p></p>
+<p><table></table></p>
+<p><tr><br>    <td><b>命令</b></td><br>    <td><b>全写</b></td><br>    <td><b>缩写</b></td><br></tr></p>
+<p><tr><br>    <td>创建目录</td><br>    <td>make directory</td><br>    <td>mkdir</td><br></tr></p>
+<p><tr><br>    <td>删除</td><br>    <td>remove</td><br>    <td>rm</td><br></tr></p>
+<p><tr><br>    <td>移动 / 重命名</td><br>    <td>move</td><br>    <td>mv</td><br></tr></p>
+<p><tr><br>    <td>复制</td><br>    <td>copy</td><br>    <td>cp</td><br></tr></p>
+<p><tr><br>    <td>罗列</td><br>    <td>list</td><br>    <td>ls</td><br></tr></p>
+<p><tr><br>    <td>改变目录</td><br>    <td>change directory</td><br>    <td>cd</td><br></tr><br></p>
+<p></p><h2>使用一下</h2><p></p>
+<div><small style="background:aqua">cd ~/Desktop</small>进入桌面</div><br><div><small style="background:aqua">mkdir demo-1</small>创建目录，这时你可以切到桌面，看到 demo-1 目录</div><br><div><small style="background:aqua">rm -rf demo-1</small>删除目录</div><br><div><small style="background:aqua">touch 1.txt</small>创建文件，如果你发现文件后缀不见了，请让该死的 Windows 显示文件后缀</div><br><div><small style="background:aqua">mv 1.txt 2.txt</small>这样我们就把 1.txt 移到 2.txt 了，也就是重命名</div><br><h2>explainshell网站的使用</h2><br><h4><a href="https://explainshell.com/" target="_blank" rel="noopener">explainshell</a>可以解释命令的用法</h4><br><div>1. 打开<a href="https://explainshell.com/" target="_blank" rel="noopener">explainshell</a>网站</div><br><div>2. 在搜索框输入你想查询的命令，点击EXPLAIN按钮</div><br><div>3. 弹出的窗口里面命令下面的红框就是命令的用法</div>
     </section>
     <footer class="post-footer">
       <section class="author">
@@ -62,18 +70,18 @@
 </section>
       <section class="share">
     <h4>Share this post</h4>
-    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/" target="_blank">
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/06/命令行的基础操作/" target="_blank">
         <span class="hidden">weibo</span>
     </a>
-    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/"
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/06/命令行的基础操作/"
        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <span class="hidden">Twitter</span>
     </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/"
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/06/命令行的基础操作/"
        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <span class="hidden">Facebook</span>
     </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/"
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/06/命令行的基础操作/"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <span class="hidden">Google+</span>
     </a>
@@ -83,14 +91,10 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2018/04/06/命令行的基础操作/">
-        ← 命令行的基础操作
-    </a>
-    
     <span class="icon-logo">•</span>
     
-    <a class="older-posts" href="/2018/04/06/git入门/">
-        Git入门 →
+    <a class="older-posts" href="/2018/04/06/使用Github和Hexo搭建自己的博客/">
+        使用Github和Hexo搭建自己的博客 →
     </a>
     
 </nav>
