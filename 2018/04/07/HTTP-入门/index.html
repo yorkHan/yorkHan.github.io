@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>HTTP-入门 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-07T10:08:36.000Z" itemprop="datePublished">
+          2018-04-07
+      </time>
+    
+</span>
+    <h1 class="post-title">HTTP-入门</h1>
+    <section class="post-content">
+      <p></p><h3>WWW 的发明</h3><br>Tim Berners-Lee（下文中称为李爵士） 在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。<br>主要包含三个概念<ol><li>URI，俗称网址</li><li>HTTP，两个电脑之间传输内容的协议</li><li>HTML，超级文本，主要用来做页面跳转</li></ol>URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。<p></p>
+<p></p><h3><a href="https://baike.baidu.com/item/URI/2901761?fr=aladdin" target="_blank" rel="noopener">URI 是什么<a></a></a></h3><br>在电脑术语中，统一资源标识符（Uniform Resource Identifier，或URI)是一个用于标识某一互联网资源名称的字符串。 该种标识允许用户对任何（包括本地和互联网）的资源通过特定的协议进行交互操作。<br>URI 分为 URL 和 URN，我们一般使用 URL 作为网址。<p></p>
+<p></p><h5>URN</h5><br>统一资源名称 (Uniform Resource Name, URN)，是URI两种形式之一。唯一标识一个实体的标识符，但是不能给出实体的位置。<p></p>
+<p></p><h5>URL</h5><br>统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。<br>包含协议，域名，路径，查询参数，秒点，端口。<p></p>
+<p></p><h3>DNS</h3><br>DNS（Domain Name System，域名系统），万维网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。<ul><li>输入域名</li><li>输出 IP</li></ul><p></p>
+<p></p><h3>Server + Client + HTTP</h3><br>服务器与浏览器的交互<ul><li>浏览器负责发起请求</li><li>服务器在 80 端口接收请求</li><li>服务器负责返回内容（响应）</li><li>浏览器负责下载响应内容</li></ul>HTTP 的作用就是指导浏览器和服务器如何进行沟通。<p></p>
+<p></p><h3>用 curl 创造一个请求，并得到响应</h3><br>命令行输入<small style="background-color:#f6f8fa;">curl -s -v -H “Frank: xxx” – “https://www.baidu.com”</small><br>请求的内容<br><small style="background-color:#f6f8fa;">GET / HTTP/1.1<br>Host: www.baidu.com<br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx</small><br>命令行输入<small style="background-color:#f6f8fa;">curl -X POST -s -v -H “Frank: xxx” – “https://www.baidu.com”</small><br>请求的内容<br><small style="background-color:#f6f8fa;">POST / HTTP/1.1<br>Host: www.baidu.com<br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx</small><br>命令行输入<small style="background-color:#f6f8fa;">curl -X POST -d “1234567890” -s -v -H “Frank: xxx” – “https://www.baidu.com”</small><br>请求的内容为<br><small style="background-color:#f6f8fa;">POST / HTTP/1.1<br>Host: www.baidu.com<br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx<br>Content-Length: 10<br>Content-Type: application/x-www-form-urlencoded<p></p>
+<p>1234567890</p></small><p></p>
+<p></p><h5>请求的格式</h5><br><small style="background-color:#f6f8fa;">1 动词 路径 协议/版本<br>2 Key1: value1<br>2 Key2: value2<br>2 Key3: value3<br>2 Content-Type: application/x-www-form-urlencoded<br>2 Host: www.baidu.com<br>2 User-Agent: curl/7.54.0<br>3<br>4 要上传的数据</small><p></p>
+<ol><li>请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）</li><li>第三部分永远都有个回车(/n),区分第二和第四部分</li><li>动词有GET(请求) POST(新增/上传) PUT(整体更新) PATCH(局部更新) DELETE(删除) HEAD() OPTIONS()等</li><li>这里的路径包括「查询参数」，但不包括「锚点」<br></li><li>如果你没有写路径，那么路径默认为 /</li><li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li></ol><br><h5>用 Chrome 发请求</h5><br><ol><li>打开 Network</li><li>地址栏输入网址</li><li>在 Network 点击，查看 request，点击「view source」</li><li>点击「view source」</li><li>点击「view source」</li><li>点击「view source」</li><li>终于点了？可以看到请求的前三部分了</li><li>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</li></ol><br><h5>请求的格式</h5><br><small style="background-color:#f6f8fa;">1 协议/版本号 状态码 状态解释<br>2 Key1: value1<br>2 Key2: value2<br>2 Content-Length: 17931<br>2 Content-Type: text/html<br>3<br>4 要下载的内容</small><br>状态码要背，是服务器对浏览器说的话<br>1xx 不常用<br>2xx 成功(200表示普通成功-GET，204表示创建成功-POST)<br>3xx 表示滚(301表示永久搬走+location，302表示临时不存在+location，304表示上次和这次一样的)<br>4xx 表示你错了(服务器给客户端)<br>5xx 表示服务器自己错了<br>第 2 部分中的 Content-Type 标注了第 4 部分的格式,遵循 MIME 规范.<br>Content-Type：application(表示是个应用数据)/(后面是我的子类)x-(没有被写入规范的格式/实验属性)www(万维网)-form(表单)-urlencoded(用的urlencoded形式压缩一下)<br><h5>用 Chrome 查看响应</h5><br><ol><li>打开 Network</li><li>地址栏输入网址</li><li>选中第一个响应</li><li>查看 Response Headers，点击「view source」，点击「view source」，点击「view source」<br></li><li>点击「view source」</li><li>点击「view source」</li><li>终于点了？你会看到响应的前两部分</li><li>查看 Response 或者 Preview，你会看到响应的第 4 部分</li></ol>
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/07/HTTP-入门/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/07/HTTP-入门/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/07/HTTP-入门/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/07/HTTP-入门/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/06/入门-脚本/">
+        入门-脚本 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
