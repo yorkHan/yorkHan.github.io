@@ -61,11 +61,12 @@
 <p><ul><li>target=”_self”打开当前窗口或iframe</li><li>target=”_blank”打开新窗口</li><li>target=”_parent”打开父级窗口或iframe</li><li>target=”_top”打开顶层窗口或iframe</li></ul></p>
 <p></p><h5>a标签 href属性：</h5><p></p>
 <p><ul><li>href=””当前页面刷新</li><li>href=”#”页面锚点变成#,并且滚动到顶部</li><li>href=”/..”浏览器发起 GET/HTTP/1.1的请求</li><li>href=”javascript:alert(1);”可以在用户点击a时执行一段javascript代码，href=”javascript:;”为伪协议，可以实现“点击后没有任何动作的a标签”，满足一些奇葩需求</li><li>href=”qq.com”浏览器会根据当前协议，补全无协议链接的协议，如果用file:// 协议浏览页面，就会访问到 file://qq.com，这是一个不存在的路径，应该尽量不适用file：//协议预览网页，以免无协议链接出错</li></ul></p>
-<p></p><h5>form标签的常见属性:</h5>action属性的作用：指定请求路径<br>method属性的作用：指定请求动词<p></p>
+<p></p><h5>form标签:</h5>action属性的作用：指定请求路径<br>method属性的作用：指定请求动词<p></p>
 <p>form可以在下列情况下可以被用户提交：(input和button的区别，input没有子元素，button是有子元素的)<br><strong>form标签里面的input不加name属性，那么在表单提交时，input的值就不会出现在请求里。</strong></p>
 <p><ul><li>form标签里面有一个input type=submit的元素</li><li>form标签里面有一个button元素，button的type属性为空</li></ul><br>input的type=checkbox 同一个name属性checkbox是多选框,radio属性是单选框，给同一个name属性，就会两个只能选一个。<br>label与input建立关联有两种方法：</p>
-<p><ul><li>input type=”checkbox” id=”xxx” label for=”xxx” 爱我 /label 点爱我两字会勾选,label for与input id是一对</li><li>label input /input /label也会建立关联</li></ul><br>select 里的option里的disable就是不能选了，selected是默认选择 value=“”就是没有值的。<br>select里的mutiple属性就是可以多选。<br>textarea css 里的resize：none就是不可以用户拉框,宽高可以用css里的width，height或者属性cols，rows控制.</p>
-<p></p><h5>table标签的常见属性:</h5>thead tbody tfoot之间的顺序是无关的,浏览器会根据thead tbody tfoot顺序展示。<br>tr的全称是table row<br>td的全称是table data<br>td里面是个数据 th是个表头<br>colgrounp 里面的col width属性，控制每列的宽度，css里面的border-collapse：collapse，border没有空隙；<p></p>
+<p><ul><li>input type=”checkbox” id=”xxx” label for=”xxx” 爱我 /label 点爱我两字会勾选,label for与input id是一对</li><li>label input /input /label也会建立关联</li></ul><br>select 里的option里的disable就是不能选了，selected是默认选择 value=“”就是没有值的。<br>select里的mutiple属性就是可以多选。</p>
+<p></p><h4>总结：a和form标签的功能都是跳转页面，a标签一般是HTTP GET请求，form标签一般是HTTP POST请求</h4><br>textarea css 里的resize：none就是不可以用户拉框,宽高可以用css里的width，height或者属性cols，rows控制.<p></p>
+<p></p><h5>table标签:</h5>用来展示数据。<br>thead tbody tfoot之间的顺序是无关的,浏览器会根据thead tbody tfoot顺序展示。<br>tr的全称是table row<br>td的全称是table data<br>td里面是个数据 th是个表头<br>colgrounp 里面的col width属性，控制每列的宽度，css里面的border-collapse：collapse，border没有空隙；<p></p>
 <p></p><h4>什么是空标签</h4><br>HTML中，从开始标签（start tag）到结束标签（end tag）的所有代码，被称为HTML元素。<br>由于HTML元素的内容是开始标签与结束标签之间的内容。而某些 HTML 元素具有空内容。（empty content），那些含有空内容的HTML元素，就是空元素。空元素是在开始标签中关闭的。<br>在 HTML 中有以下这些空元素：<p></p>
 <p><ul><li>area</li><li>base</li><li>br</li><li>col</li><li>colgrounp when the span is present</li><li>command</li><li>embed</li><li>hr</li><li>img</li><li>input</li><li>keygen</li><li>link</li>meta<li>param</li><li>source</li><li>track</li><li>wbr</li></ul></p>
 <p></p><h4>可替换元素</h4><br>CSS 里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类 外观渲染独立于CSS的 外部对象。 典型的可替换元素有 img、 object、 video 和 表单元素，如textarea、 input 。 某些元素只在一些特殊情况下表现为可替换元素，例如 audio 和 canvas 。 通过 CSS content 属性来插入的对象 被称作 匿名可替换元素（anonymous replaced elements）。<br>CSS在某些情况下会对可替换元素做特殊处理，比如计算外边距和一些auto值。<br>需要注意的是，一部分（并非全部）可替换元素，本身具有尺寸和基线（baseline），会被像vertical-align之类的一些 CSS 属性用到。<p></p>
