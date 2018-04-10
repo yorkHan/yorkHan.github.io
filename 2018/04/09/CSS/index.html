@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>CSS | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-09T05:03:46.000Z" itemprop="datePublished">
+          2018-04-09
+      </time>
+    
+</span>
+    <h1 class="post-title">CSS</h1>
+    <section class="post-content">
+      <p></p><h3>css的历史</h3><p></p>
+<p><ol><li>1994年哈肯·维姆·莱提出了CSS的最初建议。伯特·波斯（Bert Bos）当时正在设计一个叫做“Argo”的浏览器，他们决定一起合作设计CSS。</li><li>1997年初，W3C内组织了专门管CSS的工作组，其负责人是克里斯·里雷。W3C 开始接管 CSS</li><li>1998年5月W3C发表了CSS2,CSS2.1修改了CSS2中的一些错误，删除了其中基本不被支持的内容和增加了一些已有的浏览器的扩展内容。</li><li>从 2011 年开始 CSS 被分为多个模块单独升级，统称为 CSS 3。这些模块有：<ul><li>CSS 选择器 level 3</li><li>CSS 媒体查询 level 3</li><li>CSS Color level 3</li><li>更多请 搜索 <a href="https://www.google.com/search?q=css+spec&oq=css+spec&aqs=chrome..69i57j69i60l5.1235j0j7&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">CSS spec</a></li></ul></li></ol></p>
+<p></p><h3>CSS周边工具</h3><p></p>
+<p><ul><li><a href="https://www.google.com/search?q=less+css+%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">LESS CSS</a><br>一种简化、功能更多的 CSS 语言</li><li><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="noopener">SASS</a><br>一种简化、功能更多的 CSS 语言</li><li>PostCSS<br>一种 CSS 处理程序</li></ul></p>
+<p></p><h3>css</h3><p></p>
+<p><ul><li>Google: 关键字 MDN</li><li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS Tricks</a></li><li><a href="https://www.google.com/search?q=%E9%98%AE%E4%B8%80%E5%B3%B0+css" target="_blank" rel="noopener">Google: 阮一峰 css</a></li><a target="_blank" href="http://www.zhangxinxu.com/wordpress/category/css/page/25/" title="null">张鑫旭的 240 多篇 CSS 博客</a><li><a target="_blank" href="https://tympanus.net/codrops/category/playground/" title="null">Codrops 炫酷 CSS 效果</a></li><li><a target="_blank" href="http://www.ituring.com.cn/book/1695" title="null">CSS揭秘</a></li><li><a target="_blank" href="http://cndevdocs.com/" title="null">CSS 2.1 中文 spec</a></li><li><a target="_blank" href="http://adamschwartz.co/magic-of-css/" title="null">Magic of CSS</a></li></ul><br>css引用</p>
+<p><ol><li>内联样式 style属性</li><li>style标签方法</li><li>用link标签的方式引入stylesheet，外部样式</li><li>import url（./b.css）</li></ol><br>如何让导航栏变成一行，给每个子元素加上float一定会有BUG，给父元素加上class=clearfix</p>
+<p><div>.clearfix::after{<br>    content: ‘’;<br>    display: block;<br>    clear: both;<br>}</div><br>font-size默认16px<br>开发者工具：<br>style展示所有样式<br>computed展示计算出来的样式<br>不同<br>color是可以继承的<br>div块级元素的高度 由其内部文档流元素的高度总和决定，多个span在一起，由最高的span决定<br>文档流：文档内元素的流动方向<br>1.内联元素从左往右流动，如果宽度不够，换行继续流（英语单词不换行）style样式 word-break：break-all<br>2.块级元素从上往下依次流动，每个块占一行<br>span内联元素的高度 字体和字体设计师设计的参数<br>font-size 字体最高点和最低点的大小<br>脱离文档流 1.postion：fixed<br>元素一旦脱离文档流，父元素高度就不包含这个元素了<br>max-width比width好的属性<br>div水平居中margin-left：auto。margin-right：auto；<br>css布局想要BUG少，尽量不要写width和height；<br>css画个三角形：div{border:10px solid transparent;width:0;border-left-color:red;bored-top-width:0px;}<br>子元素css样式写postion：absolute，父元素要写postion：relative；<br>css-tricks<br>::before ::after 伪元素<br>必须给content：‘’；<br>::before ::after 只能一个<br>：hover ：nth-child 伪类<br>display：inline-block一定要加vertical-align:top</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/09/CSS/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/09/CSS/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/09/CSS/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/09/CSS/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/08/HTML/">
+        HTML →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
