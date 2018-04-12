@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>入门-算法初级 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-11T03:24:05.000Z" itemprop="datePublished">
+          2018-04-11
+      </time>
+    
+</span>
+    <h1 class="post-title">入门-算法初级</h1>
+    <section class="post-content">
+      <p></p><h4>结构化编程</h4><ol><li>一行一行执行</li><li>有条件控制语句 if…else…</li><li>有循环控制语句 while(exp) do…</li></ol><p></p>
+<p></p><h4>伪代码的好处</h4><ol><li>不用纠结于语法的细节，因为语法是你自己定的</li><li>可以体会语言设计者的想法，因为语法是你自己定的</li></ol><p></p>
+<p></p><h4>什么是算法</h4><br>以下是高德纳在他的著作《计算机程序设计艺术》里对算法的特征归纳：<ul><li>输入：一个算法必须有零个或以上输入量。</li><li>输出：一个算法应有一个或以上输出量，输出量是算法计算的结果。</li><li>明确性：算法的描述必须无歧义，以保证算法的实际执行结果是精确地匹配要求或期望，通常要求实际运行结果是确定的。</li><li>有限性：依据图灵的定义，一个算法是能够被任何图灵完备系统模拟的一串运算，而图灵机只有有限个状态、有限个输入符号和有限个转移函数（指令）。而一些定义更规定算法必须在有限个步骤内完成任务</li><li>有效性：又称可行性。能够实现，算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现。<br></li></ul><p></p>
+<p></p><h4>什么是数据结构</h4><p></p>
+<p></p><h6>数据结构就是数据的结构</h6><br>一般来说是这样的：<ol><li>我们要解决一个跟数据相关的问题</li><li>分析这个问题，想出对应的数据结构</li><li>分析数据结构，想出算法</li></ol><br>数据结构和算法是互相依存、不可分开的<br>你学习完排序算法，就能了解常见的数据结构<p></p>
+<p></p><h6>大分类</h6><ul><li>分治法：把一个问题分区成互相独立的多个部分分别求解的思路。这种求解思路带来的好处之一是便于进行并行计算。</li><li>动态规划法：当问题的整体最优解就是由局部最优解组成的时候，经常采用的一种方法。</li><li>贪婪算法：常见的近似求解思路。当问题的整体最优解不是（或无法证明是）由局部最优解组成，且对解的最优性没有要求的时候，可以采用的一种方法。<br></li><li>线性规划法：见词条。</li><li>简并法：把一个问题通过逻辑或数学推理，简化成与之等价或者近似的、相对简单的模型，进而求解的方法。<br></li></ul><br>我们前端主要使用分治法——分而治之。<p></p>
+<p></p><h4>排序算法</h4><br>1.冒泡排序<br><img src="/2018/04/11/算法初级和数据结构/冒泡排序2.png" alt="冒泡排序"><p></p>
+<p>1.哈希表(Hash Table)<br>所有满足’键‘:’值’:结构的就是hash（哈希)</p>
+<p>a&lt;- {<br>    ‘0’:0,<br>    ‘1’:1,<br>    ‘2’:2,<br>    ‘key’:’value’,<br>    ‘键’:’值’<br>}</p>
+<p>冒泡排序，选择排序，插扑克排序统称为比较排序，极限 最快的时比较排序时间复杂度是NLogN（N×2的对数）<br>数组也是hash，不是数据结构<br>计数排序缺点 1.必须有个hash做个计数工具，2.计数排序无法对小数和负数排序<br>桶排序，一个桶放一个范围的数字，在桶里做比较排序，计数排序浪费桶，不用做二次排序；排序要么浪费空间，要么浪费时间，只能选择一个做优化<br>基数排序<br>10的倍数，个位十位百位千位依次排序，可以适应特别大的数字，桶的个数是固定的，拍数次数看最大数的位数<br>所有与站队相关的模型都应该用队列这种先进先出的模式，a.push a.shift  基数排序也用到队列<br>栈 stack.push stack.pop<br>链表是动态的数组，数组查询第n项很快，链表删除比较快，不经常删除或删除头尾使用数组，经常删除中间的用链表<br>head第一个hash对象（链表的表头），其他的叫做node节点，表头也是node<br>只要用到层级结构就要用到树<br>满足这种结构的叫做树<br>不分叉的是链表，分叉的是树<br>深度是一共有多少层<br>每个hash就是一个节点，没有子节点的叫叶子节点<br>二叉树，每次最多分两个叉，从0层开始，第i层最多有2^i节点，最多总共有(2^(i+1))-1个节点，有(2^(i+1))-1个节点的树叫满二叉树，特点是每个层数的节点数都是最大节点数，除了最后一层，其余层节点数都是满的，并且最后一层或者是满的，或者是在右边缺少连续若干加点(一般都是从左往右写的)，称为完全二叉树；<br>完全二叉树和满二叉树：a[1,   2,3,   4,5,6,7,   8,9,10,11,12,13,14,15]<br>如果要取第i层的第k个数字(从第0层开始) a[(2^i-1)-1]+k-1<br>堆：所有子节点的数字都小于父节点的数字的特殊的树叫做堆<br>把堆变成最大堆的过程叫做最大堆调整，堆排序就是做最大堆调整，子节点先做对比，大的和父节点做对比</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/11/算法初级和数据结构/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/11/算法初级和数据结构/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/11/算法初级和数据结构/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/11/算法初级和数据结构/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/11/入门-算法初级/">
+        ← 入门-算法初级
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/09/CSS/">
+        CSS →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>命令行的基础操作 | York&#39;s Blog</title>
+  <title>入门-算法初级 | York&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -44,14 +44,15 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2018-04-06T11:47:41.000Z" itemprop="datePublished">
-          2018-04-06
+      <time datetime="2018-04-11T03:24:05.000Z" itemprop="datePublished">
+          2018-04-11
       </time>
     
 </span>
-    <h1 class="post-title">命令行的基础操作</h1>
+    <h1 class="post-title">入门-算法初级</h1>
     <section class="post-content">
-      <div><table><tr><td><b>命令</b></td><td><b>全写</b></td><td><b>缩写</b></td></tr><tr><td>创建目录</td><td>make directory</td><td>mkdir</td></tr><tr><td>删除</td><td>remove</td><td>rm</td></tr><tr><td>移动 / 重命名</td><td>move</td><td>mv</td></tr><tr><td>复制</td><td>copy</td><td>cp</td></tr><tr><td></td><td>list</td><td>ls</td></tr><tr><td>改变目录</td><td>change directory</td><td>cd</td></tr></table></div><br>echo”hi”&gt;1.txt 添加<br>echo”hi”&gt;&gt;1.txt 追加<br>echo”hi”&gt;!1.txt 强制覆盖<br><h2>使用一下</h2><br><div><small style="background:aqua">cd ~/Desktop</small>进入桌面</div><br><div><small style="background:aqua">mkdir demo-1</small>创建目录，这时你可以切到桌面，看到 demo-1 目录</div><br><div><small style="background:aqua">rm -rf demo-1</small>删除目录</div><br><div><small style="background:aqua">touch 1.txt</small>创建文件，如果你发现文件后缀不见了，请让该死的 Windows 显示文件后缀</div><br><div><small style="background:aqua">mv 1.txt 2.txt</small>这样我们就把 1.txt 移到 2.txt 了，也就是重命名</div><br><h2>explainshell网站的使用</h2><br><h4><a href="https://explainshell.com/" target="_blank" rel="noopener">explainshell</a>可以解释命令的用法</h4><br><div>1. 打开<a href="https://explainshell.com/" target="_blank" rel="noopener">explainshell</a>网站</div><br><div>2. 在搜索框输入你想查询的命令，点击EXPLAIN按钮</div><br><div>3. 弹出的窗口里面命令下面的红框就是命令的用法</div>
+      <p>a&lt;- {<br>    ‘0’:0,<br>    ‘1’:1,<br>    ‘2’:2,<br>    ‘key’:’value’,<br>    ‘键’:’值’<br>}<br>所有满足’键‘:’值’:结构的就是hash（哈希)<br>冒泡排序，选择排序，插扑克排序统称为比较排序，极限 最快的时比较排序时间复杂度是NLogN（N×2的对数）<br>数组也是hash，不是数据结构<br>计数排序缺点 1.必须有个hash做个计数工具，2.计数排序无法对小数和负数排序<br>桶排序，一个桶放一个范围的数字，在桶里做比较排序，计数排序浪费桶，不用做二次排序；排序要么浪费空间，要么浪费时间，只能选择一个做优化<br>基数排序<br>10的倍数，个位十位百位千位依次排序，可以适应特别大的数字，桶的个数是固定的，拍数次数看最大数的位数<br>所有与站队相关的模型都应该用队列这种先进先出的模式，a.push a.shift  基数排序也用到队列<br>栈 stack.push stack.pop<br>链表是动态的数组，数组查询第n项很快，链表删除比较快，不经常删除或删除头尾使用数组，经常删除中间的用链表<br>head第一个hash对象（链表的表头），其他的叫做node节点，表头也是node<br>只要用到层级结构就要用到树<br>满足这种结构的叫做树<br>不分叉的是链表，分叉的是树<br>深度是一共有多少层<br>每个hash就是一个节点，没有子节点的叫叶子节点<br>二叉树，每次最多分两个叉，从0层开始，第i层最多有2^i节点，最多总共有(2^(i+1))-1个节点，有(2^(i+1))-1个节点的树叫满二叉树，特点是每个层数的节点数都是最大节点数，除了最后一层，其余层节点数都是满的，并且最后一层或者是满的，或者是在右边缺少连续若干加点(一般都是从左往右写的)，称为完全二叉树；<br>完全二叉树和满二叉树：a[1,   2,3,   4,5,6,7,   8,9,10,11,12,13,14,15]<br>如果要取第i层的第k个数字(从第0层开始) a[(2^i-1)-1]+k-1<br>堆：所有子节点的数字都小于父节点的数字的特殊的树叫做堆<br>把堆变成最大堆的过程叫做最大堆调整，堆排序就是做最大堆调整，子节点先做对比，大的和父节点做对比</p>
+
     </section>
     <footer class="post-footer">
       <section class="author">
@@ -60,18 +61,18 @@
 </section>
       <section class="share">
     <h4>Share this post</h4>
-    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/06/命令行的基础操作/" target="_blank">
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/11/入门-算法初级/" target="_blank">
         <span class="hidden">weibo</span>
     </a>
-    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/06/命令行的基础操作/"
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/11/入门-算法初级/"
        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <span class="hidden">Twitter</span>
     </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/06/命令行的基础操作/"
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/11/入门-算法初级/"
        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <span class="hidden">Facebook</span>
     </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/06/命令行的基础操作/"
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/11/入门-算法初级/"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <span class="hidden">Google+</span>
     </a>
@@ -81,14 +82,10 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2018/04/06/入门-脚本/">
-        ← 入门-脚本
-    </a>
-    
     <span class="icon-logo">•</span>
     
-    <a class="older-posts" href="/2018/04/06/使用Github和Hexo搭建自己的博客/">
-        使用Github和Hexo搭建自己的博客 →
+    <a class="older-posts" href="/2018/04/11/算法初级和数据结构/">
+        入门-算法初级 →
     </a>
     
 </nav>
