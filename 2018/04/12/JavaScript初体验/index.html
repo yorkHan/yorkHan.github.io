@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>JavaScript初体验 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-12T07:17:30.000Z" itemprop="datePublished">
+          2018-04-12
+      </time>
+    
+</span>
+    <h1 class="post-title">JavaScript初体验</h1>
+    <section class="post-content">
+      <p>数组就是对象<br>[‘a’,’b’,’c’,’d’,’e’]和{0:’a’,1:’b’,2:’c’,3:’d’,4:’e’, length:5}是一样的<br>Uncaught SyntaxError没有被处理的语法错误<br>居中：如果是内联元素，父元素加个text-align：center<br>如果是块级元素，宽度固定，加margin：0 auto<br>document.onkeypress=function(a){<br>}<br>a容纳了所需要知道的所有细节<br>key就是用户按的哪个键<br>altKey:true 用户在按键盘的时候有没有同时按alt<br>location：href在本页面打开网址<br>window.open（“http://”+website,’_blank’）在新窗口打开<br>target<br>prompt() 弹窗输入框<br>localStorage.setItem（‘变量名’，JSON.stringify()）js的变量存到浏览器里面 浏览器必须是127.0.0.1:8080才可以存进js变量，localhost：8080无法存变量<br> JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串，如果指定了replacer是一个函数，则可以替换值，或者如果指定了replacer是一个数组，可选的仅包括指定的属性。<br>localStorage.getItem（‘变量名’）拿出存在浏览器里的js变量<br>JSON.parse 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。提供可选的reviver函数用以在返回之前对所得到的对象执行变换(操作)。<br>前端<br>及格60分 符合要求80分 0-60分要花三分努力，60-80分要花八分努力，80分到90分要十二分努力<br>github上最好带上预览；键盘字居中<br>display:flex;<br>align-items:center;<br>justify-content:center;<br>100vh;就是屏幕视口的高度， vh-viewport height<br>background:grey url(./wall.jpg) no-repeat center center;<br>background-size: cover;调整壁纸自适应窗口大小<br>/favicon.ico<br>img.onerror=function 监听错误<br>.previousSibling 寻找元素前一个同一级元素<br>优化-<br>function tag(element,attributes){<br>        var ele=document.createElement(element)<br>        for(var key in attributes){<br>            ele[key]=attributes[key]<br>        }<br>        return ele<br>}<br>key–&gt;className:’row’<br>while循环的特点1.初始声明 2.判断表达式 2.给初始声明加1或减1<br>var a=11<br>if(a&lt;10)<br>console.log(‘a是一位数’)<br>console.log(‘a是小于10’)<br>答案是console.log(‘a是小于10’)，因为if判断如果没加{}，只能接一句<br>var a=1<br>if(a=3)<br>console.log(‘a是等于3’)<br>答案是console.log(‘a是等于3’)，因为()里是赋值语句<br>语句(statement)和表达式(expression)的区别在于，前者主要为了进行某种操作，一般情况下不需要值；后者则是为了得到值，一定会得到一个值<br>console.log(x)<br>var x=1<br>等价于<br>var x<br>console.log(x)<br>x=1</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/12/JavaScript初体验/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/12/JavaScript初体验/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/12/JavaScript初体验/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/12/JavaScript初体验/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/13/Canvas画板/">
+        ← Canvas画板
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/11/算法初级和数据结构/">
+        算法初级和数据结构 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

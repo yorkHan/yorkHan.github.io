@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Canvas画板 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-13T11:34:54.000Z" itemprop="datePublished">
+          2018-04-13
+      </time>
+    
+</span>
+    <h1 class="post-title">Canvas画板</h1>
+    <section class="post-content">
+      <p>document.onmousedown 按下鼠标<br>写代码的精髓就是有事log一下<br>client X client Y 文档的位置<br>鼠标左键button:0 鼠标中键button:1 鼠标右键button:2<br>document.onmousemove 鼠标动了<br>document.onmouseup 松开鼠标<br>一定不要忘了position：relative 和absolute；<br>left和top后面要加个空格在加上变量<br>postion要和left或top放在一个“”里<br>document.getElementById document.createElement newDiv.style document.onmousedown document.onmouseup 是一个API<br>别人提供给你调用的东西就API<br>canvas是inline-block元素<br><code>&lt;canvas id=&quot;draw&quot; height= 500 width= 500&gt;&lt;/canvas&gt;</code>调整canvas的大小<br>canvas画图 ，onmousedown onmousemove onmouseup必须是跟着canvas；<br>getContext(‘2d’)获取2d平面的上下文<br>ctx.fill就是填充；ctx.stroke就是描边<br>ctx.fillStyle=’green’;画出来的颜色，先写fillStyle<br>ctx.fillRect(10,10,100,100);   ctx.fillRect填充出一个矩形出来，前两个10是填充矩形的左上角两个坐标，前两个100是填充矩形的右下角两个坐标<br>用css如果放大，会等比例缩放，不建议用css控制canvas的初始宽高<br>strokeRect，绘制一个矩形的边框； strokeStyle  绘制矩形边框的颜色<br>clearRect，清除一个矩形；<br>除了矩形，其他都要beginPath()为开头<br>context.arc(150,150,10,0,MATH.PI*2)画出一个圆心坐标为(150,150)半径为10，从0到360度的圆 PI=3.1415926等于180<br>画线<br>  context.beginPath() 开始画画<br>  context.moveTo(0,0) 起点<br>  context.lineWidth=5 线的宽度<br>  context.lineTo(x,y) 终点<br>  context.stroke()<br>  context.closePath() 结束画画<br>页面宽度document.documentElement.clientWidth<br>页面高度document.documentElement.clientHeight<br>window.onresize 用户重新调整窗口<br>尽量一个按钮做一件事<br>WAP是一种语言，是一种简化的HTML<br>手机;<br>1.页面缩写<br>2.双击放大<br>阻止手机模拟宽度 980px<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width(页面宽度等于设备宽度), use-scalable=no(用户是否可以缩放),initial-scale=1.0(初始缩放比例1:1),maximum-scale=1.0(最大缩放比例1:1),minimum-scale=1.0(最小缩放比例1:1)&quot;&gt;</code><br>手机的事件ontouchstart开始摸屏幕 ontouchmove边摸边动 ontouchend不摸屏幕<br>if(document.body.ontouchstart==undefined)特性检测</p>
+<p>手机支持多指触控<br>电脑：clientX 手机touches[0].clientX<br>电脑：clientY 手机touches[0].clientY<br>开发者工具模拟手机，直接刷新页面，<br>document.body.ontouchstart！==undefined不会从false变为true</p>
+<p>transform: scale(1.2);变大1.2倍<br>transition-duration:0.3s;变形过渡0.3s<br>document.body.ontouchstart=function(a){<br>    a.preventDefault()<br>}禁止页面滚动<br>overflow: hidden;禁止出现滚动条</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/13/Canvas画板/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/13/Canvas画板/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/13/Canvas画板/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/13/Canvas画板/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/12/JavaScript初体验/">
+        JavaScript初体验 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
