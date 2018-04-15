@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>JS的对象 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-15T11:01:40.000Z" itemprop="datePublished">
+          2018-04-15
+      </time>
+    
+</span>
+    <h1 class="post-title">JS的对象</h1>
+    <section class="post-content">
+      <p>JS里面的对象</p>
+<p></p><h4>全局对象window</h4><br>在标准里面叫global 浏览器里面叫window<br>window的属性分为两类 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window" target="_blank" rel="noopener">window MDN</a><br>所有的函数，如果是以window.开头，window.可以省掉<br>1.ECMAScript规：比如parseInt，parseFloat，number()，String()，Boolean()，Object(),setTimeout()等<br>2.浏览器私有的（chrome/Firefox）：document(文档,有自己的规范DOM，是由W3C制定的)history(浏览器BOM)alert（弹框提示）prompt（用户填写）confirm（确认)console（开发者）等<p></p>
+<p></p><h4>全局函数</h4><br>number()<br>1.number(‘1’)变化为数字<br>2.声明一个number对象 var n=new number(1) ==&gt;{valueOf():1,},包装成对象，有很多便捷的操作可以用<br>基本类型没有属性<br>妙计：临时转换 var n=1；n.toString() ==&gt; temp=new Nummber(n);temp.toString(),用完后把temp对象干掉<br><img src="/2018/04/15/JS的对象/临时转换.png" alt="临时转换"><br>String()<br>1.String(‘1’)变化为字符串<br>2.声明一个String对象 var a=new String(‘Hi’)基本类型声明成对象，有很多便捷的操作可以用<br>妙计：临时转换<br>charAt获取某个索引对应的字符 chatCodeAt获取摸个索引对应的字符的编码<br>‘a’.charCodeAt(0)==&gt;97:a的十进制的unicode是97,<br>‘a’.charCodeAt(0).toString(16)==&gt;’61’：a的十六进制的unicode是’61’<br>trim()去掉字符串里的空格,trim的意思：裁剪修剪<br>concat()连接字符串 连接两个字符串<br>slice()切片 slice(0,2)包括第0位不包括第2位<br>replace()替换 replace(‘e’,’o’)把字符e替换成o；<br>Boolean()<br>1.var b=true变化为boolean值<br>2.声明一个Boolean对象 var n=new Boolean(false)基本类型声明成对象，有很多便捷的操作可以用<br>妙计：临时转换<br>Object()<br>var a={};var a=new Object() 所有新声明的对象都是不相等的<p></p>
+<p></p><h4>共用的属性藏在哪</h4><br><img src="/2018/04/15/JS的对象/浏览器初始就有了.png" alt="浏览器初始就有了"><br>都有toString函数，都有valueOf函数  ，不要浪费重复的属性<br>当声明一个对象时，生成一个隐藏的key <code>__proto__</code>,他的value指向共用属性<br>object的共用属性是所有对象的共用属性<br>object.prototype就是object的共有属性，object的原型<br>var n1=new Number(1)<br>n1.<code>__proto__</code>===Number.prototype<br>n1.<code>__proto__</code>.<code>__proto__</code>===Object.prototype<br>var s1=new String(‘hi’)<br>s1.<code>__proto__</code>===String.prototype<br>s1.<code>__proto__</code>.<code>__proto__</code>===Object.prototype<br>var b1=new Boolean(true)<br>b1.<code>__proto__</code>===Boolean.prototype<br>b1.<code>__proto__</code>.<code>__proto__</code>===Object.prototype<br><img src="/2018/04/15/JS的对象/object共用属性和原型链.png" alt="object共用属性和原型链"><p></p>
+<p>var _  =  new _ ()<br>类型:对象 类型:函数对象<br>var 对象 = new 函数   对象.<code>__proto__</code>===函数.prototype<br>Function.<code>__proto__</code>===Function.prototype<br>toString是哪来的——原型链</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/15/JS的对象/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/15/JS的对象/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/15/JS的对象/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/15/JS的对象/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/15/JS的类型/">
+        JS的类型 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>JS的数据 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-15T01:23:37.000Z" itemprop="datePublished">
+          2018-04-15
+      </time>
+    
+</span>
+    <h1 class="post-title">JS的数据</h1>
+    <section class="post-content">
+      <p>Branden Eich JS之夫 擅长函数式 第一次叫Mocha，第二次叫LiveScript，最终叫JavaScript ，表面看起来像Java，只花了十天时间，1995年圣诞节左右发布<br>发布的时候 Unicode还没有发布，所以有编码BUG<br>1996年网景开源Firefox，并且向ECMA(欧洲计算机制造协会)申报标准,行业标准叫做ECMAScript<br>IE5.5 微软推出JS发请求<br>2004年Gmail，使用微软的技术发明网页上的程序，开启JS真正的编程语言，前端(Front-end)以js为生也出现了<br>2010年左右中国知道前端开发 ，ECMAScript3 不行1.全是全局变量(没有模块化)2.标准库不行(内置代码少)<br>ECMAScript 5步子太小了<br>Rails社区 Ruby–&gt;coffee script(JS改良版)，添加了类，箭头函数，opional chain语法<br>ECMAScript 6步子合适 增加了60个东西 ，抄袭了coffee script，集大家之所长，js终于变成现代编程语言<br>js之父评价，JS原创之处并不优秀，优秀之处并非原创<br>JS每年更新一次，ES7更新2个特性，ES8更新了10个特性，Wepback打包ES next<br>我们学的是从ES3开始–&gt;ES5–&gt;ES6,没有发布的特性就已经被使用了，没有规范的Babel使用转义<br>opional chain语法<br>console.log(obj？.a?.b?.c?.name)&lt;==&gt;<code>if(obj.a !== undefined&amp;&amp;obj.a.b !==undefined&amp;&amp;obj.a.b.c !== undefined&amp;&amp;obj.a.b.c.name !== undefined)}
+{ 
+    console.log(obj.a.b.c.name)
+}</code><br>js数据类型<br>有7种数据类型</p>
+<p></p><h5>1.数字(number)</h5><br>十进制 1.23e2==&gt;1.23*10^2 ，二进制 0b开头的 八进制0开头 011==&gt;9 十六进制0x开头<p></p>
+<p></p><h5>2.字符串(string)</h5><br> “你好” ‘你好’， ‘’ “”空字符串length为0，’ ‘ “ “空格字符串length为1，转义 var a= “‘“==&gt;’\’’(a赋值单引号)，\就是转义符 \n–&gt;回车 \t–&gt;制表符(tab键) \–&gt;斜杠==&gt;length为1<br> 多行字符串(不是字符串里有回车)<br> <code>var s=&#39;12356\   \后面不能有空格,坑人语法
+        67890&#39;</code><br><code>var s2=&#39;12356’+  这个比较好
+        ‘67890&#39;</code><br><code>var s3=&#39;12356
+        67890&#39;</code>会报错<br>ES6推出<br>var s4=反引号开头可以写多行字符串反引号结尾，里面不能有空格，回车是一个字符，length=1<p></p>
+<p></p><h5>3.布尔(boolean)</h5><br>数学家Boolean发明的逻辑学(下雨上课没带伞，得了肺病去世了)<br>布尔值 true(真) false假() &amp;&amp;与运算 ||或运算<br>真值表 a&amp;&amp;b 只有a和b都是真，结果才是真，其他都是假，a||b 只有a和b都是假，结果才是假，其他都是真<br> <h5>4.symbol(符号)</h5><br> <h5>5.null</h5> 空值，意思什么也没有 js原创<br> <h5>6.undefined</h5> 空值，意思什么也没有 js原创<br>null和undefined区别:<br>1.变量没有赋值–&gt;undefined<br>2.有一个对象object，现在不想赋值，那么推荐就给个null(var obj=null)，有一个非对像，不想给值，推荐初始化undefined<p></p>
+<p></p><h5> 7.对象(object)</h5><br>array(数组）,function(函数)属于object,哈希(hash) ,哈希表{“key”:”value”}<br>其他6个类型都叫基本类型(简单类型)，object叫复杂类型。是由简单类型组成的<br>var name=’york’     语法是var person = {‘name’:’frank’<br>var age=24      ==&gt;             ‘age=24’,<br>var gender=’male’               ‘gender’:’male’}<br>单引号可以省略，冒号前边都是字符串，person[‘name’]==&gt;person.name(特例) 单引号不能省略<br>var name=’fuck’， person[name]==&gt;person[‘fuck’]<br>1.delete person[‘name’]，person.name\undefined,’name’ in person\false 把key和value都删了<br>2.person.name=undefined,’name’ in person\true 只把value删了<br>for(var key in person) 遍历对象,key打印出key，person[key]打印出value<br>{self=person}可以包含自己 person.self.self.self.self.name 也是可以成立的<br>{可以包含 字符串：undefined||null||布尔||对象}<br>key是空字符串，{‘’：’York’}。引用person[‘’]<br>标识符原则(变量名)：1.变量第一个字符不能是数字，字符串可以 2.中间不能是空格3.必须是合法字符<br>{9a:’york’} 如果key不加引号，那么必须按照标识符原则(变量名)，9a和a b必须加引号，要不然会报错<br>变量的类型 typeof 识别变量的类型<br>t={} ;typeof t;”object”<br>BUG: 1.typeof null ;”object” 2.typeof fn; “function”<br>我想知道变量 a 是否已经声明过（值为 undefined 不代表没有声明过），应该用 if (‘a’ in window) { … }<p></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/15/JS的数据/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/15/JS的数据/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/15/JS的数据/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/15/JS的数据/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/15/JS的类型/">
+        ← JS的类型
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/13/Canvas画板/">
+        Canvas画板 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

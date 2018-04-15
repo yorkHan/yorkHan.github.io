@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>JS的类型 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-15T05:53:02.000Z" itemprop="datePublished">
+          2018-04-15
+      </time>
+    
+</span>
+    <h1 class="post-title">JS的类型</h1>
+    <section class="post-content">
+      <p>number–&gt;string toString 也可以+’’空字符串和window.String()<br>boolean–&gt;string toString 也可以+’’空字符串和window.String()<br>null–&gt;string toString报错 可以+’’空字符串和window.String 变成’null’()<br>undefined–&gt;string toString报错 可以+’’空字符串和window.String 变成’undefined’()<br>object–&gt;string toString,也可以+’’空字符串和window.String() “[object Object]”<br>console.log() 只能接受字符串 浏览器会瞎打，字符串的引号没了</p>
+<p>number–&gt;boolean Boolean(1)–&gt;true;Boolean(0)–&gt;false; 可以用!!1得到boolean<br>Boolean(‘’)空字符串–&gt;false;Boolean(‘ ‘)空格字符串–&gt;true 可以用!!‘’得到boolean<br>null–&gt;boolean Boolean(null)–&gt;false; 可以用!!null得到boolean<br>undefined–&gt;boolean Boolean(undefined)–&gt;false; 可以用!!undefined得到boolean<br>object–&gt;boolean Boolean({})–&gt;true;Boolean({name:’york’})–&gt;true 可以用!!{}得到boolean<br>js里面其他值变成boolean，只有五个特殊值(falsy值)，number里面0和NaN是false；字符串里’’空字符串是false；null和undefined是false，所有的object对象都是true。</p>
+<p>“1”–&gt;1 的方法<br>1.Number(‘1’)===1;<br>2.parseInt(‘1’,10)===1,”1”按照十进制来转换；  parse 解析的意思<br>3.parseFloat(‘1.233’)===1.233，浮点数转换<br>4.’1’-0 ===1 ‘1.23’-0===1.23<br>5.+’1’===1 +’-1’===-1 取正<br>6.valueOf 只能到自己的值     ‘1’.valueOf()===’1’ (1).valueOf()===1<br>parseInt(‘011’)===11;parseInt(‘s’)===NaN;parseInt(‘1s’)===1</p>
+<p>内存图<br>特点：一旦断电，内容就全空了，速度很快<br>外存：机械硬盘容易坏10年寿命坏了一点就还可以用，ssd固态硬盘不易坏，坏了一点就全坏<br>占内存：操作系统：512M，浏览器：1G分配给多个页面 ，页面分配内存给1.HTML+CSS；2.JS；3.网络模块 HTTP；4.其他(插件，定时器)<br>JS的内存使用：分成两个区。一个代码区存代码，一个数据区存数据：var a=1，a存在代码区，1存在数据区，通过a拿到1；<br>数据分为两个区：stack栈内存，Heap堆内存 ，ECMAScript规定数字是64位的，字符是16位的，ES3之后字符可以是64位<br>值分为7种类型的数据，简单的存在stack里面，复杂的(object)存Heap地址存入stack<br><img src="/2018/04/15/JS的类型/内存图.png" alt="内存图"><br>浏览器第一步做变量提升，js里面所有数字都是以64位浮点数存在，如果直接按顺序存对象，一旦你要改对象，就会发生翻天覆地的变化，一个字节B存8个01 ，64个01可以表示2^64,堆里的内存不按顺序存对象<br>stack栈内存和Heap堆内存 o2=o 把o的地址复制给o2，并不是多出来一个对象<br>引用 object存入地址100，object是对象的引用<br><img src="/2018/04/15/JS的类型/对象的引用.png" alt="对象的引用"><br><img src="/2018/04/15/JS的类型/对象的引用1.png" alt="对象的引用"><br><img src="/2018/04/15/JS的类型/对象的引用2.png" alt="对象的引用"><br><img src="/2018/04/15/JS的类型/对象的引用3.png" alt="对象的引用"><br><img src="/2018/04/15/JS的类型/对象的引用4.png" alt="对象的引用"><br><img src="/2018/04/15/JS的类型/self循环引用.png" alt="对象的引用"><br>GC 垃圾回收 如果一个对象没有被引用，它就是垃圾，将被回收<br>IE6有BUG内存泄露，关掉当前页面，并不会把document引用的对象视为垃圾，除非整个IE关闭 <code>window.onunload=function (){document.body.onclick=null}</code></p>
+<p></p><h5>浅拷贝V.S.深拷贝</h5><br>基本类型，赋值就是深拷贝  a=b ,b变a不变就是深拷贝，b变a也变就是浅拷贝<p></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/15/JS的类型/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/15/JS的类型/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/15/JS的类型/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/15/JS的类型/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/15/JS的对象/">
+        ← JS的对象
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/15/JS的数据/">
+        JS的数据 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
