@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>JS的数组 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-17T02:33:07.000Z" itemprop="datePublished">
+          2018-04-17
+      </time>
+    
+</span>
+    <h1 class="post-title">JS的数组</h1>
+    <section class="post-content">
+      <p>浏览器提供的接口叫API<br>JavaScript Array对象是用于构造数组的全局对象<br>var a=Array(3) 生成一个length为3的每个都是undefined的数组 [undefined,undefined,undefined]<br>var a=Array(3,3) 生成一个length为2 的每个都是3的数组 [3,3]<br>上面两行体现了JS的不一致性就是垃圾<br>Number String Boolean 不加new 返回一个基本类型的值，加new返回复杂类型(对象)<br>Object Array Function 加new不加new都一样，是返回复杂类型(对象)<br>var 声明一个变量<br>function 声明一个函数 关键字 等同于 if else var function<br>Function 全局对象 var f=new Function(‘a’,’b’,’return a+b’)<br>具名函数 function f(x,y){       匿名函数function (x,y){<br>    return x,y                        return x,y<br>}                                     }<br>数组和对象的本质区别就是<code>__proto__</code>指向的是不是Array.prototype(push pop shift)<br>伪数组的定义如果 你与Array.prototype没有关系（原型链中没有Array.prototype这一环）或者没有.push .pop .shift方法<br>arguments是伪数组 </p>
+<p></p><h4>数组最常用的API</h4> <p></p>
+<p></p><h5>a.forEach需要接受一个函数</h5><br>a=[‘a’,’b’,’c’,’d’,’e’]<br>a.forEach(function(){}) ==&gt; a.forEach.call(a,function(){})<br>a.forEach(function(x,y,z){console.log(x,y,z)}) x的参数是value，y的参数是key,z就是a自己<br><code>function forEach(array,x){ 
+    for(let i=0;i&lt;array.length;i++){
+        x(array[i],i)
+    }
+}</code><p></p>
+<p></p><h5>a.sort()默认从小到大</h5><br>a.sort(function(x,y){return x-y})从小到大，把数组自己改变<br>a.sort(function(x,y){return y-x)从大到小<br>a.sort接受一个函数，返回的值如果是0，那么位置一样，如果结果是正数，前面的大，放后面，如果结果是负数，前面的小，放前面 sort就是快速排序<p></p>
+<p></p><h5>a.join()</h5> : var a=[1,2,3]   a.join(‘york’)   “1york2york3york” join把数组变成字符串<p></p>
+<p></p><h5>a.concat()连接多个数组</h5> var a=[1,2,3],b=[4,5,6];  var c=a.concat(b); c[1,2,3,4,5,6];<br>a.concat()复制一个数组 利用concat会返回一个新数组，var a=[1,2,3],b=a.concat([]);b=[1,2,3]; a===b false<p></p>
+<p></p><h5>a.map</h5>a.map和a.forEach的区别，a.forEach返回undefined，a.map返回把函数返回的每一个值都收集起来组成新的数组 a.map(function(value，key){return value×2})<p></p>
+<p></p><h5>a.filter</h5>return的是boolean，如果值是true就要，是false就不要<br>var a=[1,2,3,4,5,6,7,8,9,10];a.filter(function(value,key){return value&gt;=5})<br>[5,6,7,8,9,10] <p></p>
+<p></p><h5>a.reduce</h5>遍历这个数组，每次取一个结果放在下一个身上<br>var a=[1,2,3,4,5,6,7,8,9,10];a.reduce(function(sum,n){return sum+n},0) 求和55<br>总结<br>map可以用reduce表示<br>var a=[1,2,3] a.reduce(function(arr,n){arr.push(n*2);return arr},[])[2,4,6]<br>filter可以用reduce表示<br>var a=[1,2,3] a.reduce(function(arr,n){if(n%2===0){arr.push(n);return arr},[])[2]<p></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/17/JS的数组/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/17/JS的数组/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/17/JS的数组/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/17/JS的数组/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/18/函数/">
+        ← 函数
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/16/JS小技巧/">
+        JS小技巧 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>函数 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-18T01:54:52.000Z" itemprop="datePublished">
+          2018-04-18
+      </time>
+    
+</span>
+    <h1 class="post-title">函数</h1>
+    <section class="post-content">
+      <p></p><h3>函数的5种声明</h3><p></p>
+<p></p><h5>所有的函数都有name属性</h5><p></p>
+<p></p><h4>1.function x(输入1，输入2){ return undefined }</h4>   function是关键字，和var差不多都是声明的意思  var 变量可以是七种 ，function x只能是函数  console.log(字符串) ，如果接受的不是字符串，会自动调用x.toString，console.log()永远return undefined，打印什么和返回什么一点关系都没有 x.name=’x’<p></p>
+<p></p><h4>2.var x=function (输入1，输入2){ return undefined }</h4> 匿名函数 x.name=’x’<p></p>
+<p></p><h4>3.var x=function y(输入1，输入2){ return undefined }</h4> console.log(y)会报错，不一致，JS垃圾 x.name=’y’<p></p>
+<p></p><h4>4.window.Function函数对象 </h4><br>var fn = new Function(‘x’,’y’,’return x+y’) ==&gt; var n=1;new Function(‘x’,’y’,’return x’+n+’+y’) fn.name=’anonymous’  anonymous翻译为匿名<p></p>
+<p></p><h4>5.var f =   (x,y)=&gt;{return x+y}</h4> 箭头函数一定是匿名函数 ;<br>只有一句话，return和{}可以一起去除 sum=(x,y)=&gt;x+y ;<br>只有一个参数，()可以去除 var n2 = n=&gt;n*n<p></p>
+<p></p><h3>如何调用函数</h3><p></p>
+<p></p><h5>可以执行代码的对象就叫  函数</h5><br>call翻译为调用 f指的是这个对象 f.call()执行f这个函数体<br><img src="/2018/04/18/函数/call.png" alt="call"><br><img src="/2018/04/18/函数/Function.prototype.png.png" alt="Function.prototype"><br>eval()给个字符串，当代码执行 eval(“1+1”)==&gt;2<br>f(1,2) === f.call(undefinef,1,2);f(1,2)糖sweet， f.call(undefinef,1,2)真正的调用,硬核hardcore<p></p>
+<p></p><h3>this 和 arguments</h3><br>f.call(undefinef,1,2) undefined=&gt;this , [1,2]=&gt;arguments<p></p>
+<p></p><h5>1.call的第一个参数可以用this得到。 </h5><br>JavaScript为了长得像Java 1.new 2.this<br>如果在普通模式下，如果this是undefined，浏览器会自动把this变成window；<br>如果在严格模式下，如果this是undefined，this就是undefined<p></p>
+<p></p><h5>2.call的后面的参数可以用arguments(伪数组)得到。</h5><br>arguments(伪数组)内存像数组，但是原型链中没有Array.prototype<p></p>
+<p></p><h3>什么是call stack</h3><br>call stack(调用堆栈)先入后出<br><img src="/2018/04/18/函数/call stack.png" alt="call stack"><br>递归<br>stack overflow call.stack长度固定的是9641<br>每次进一个函数就要压一次stack<p></p>
+<p></p><h3>作用域</h3><p></p>
+<p><ul><li>只要 有个函数就有个作用域 就近原则</li><li>我们只能确定变量是哪个变量，但是不能确定变量的值</li></ul><br><code>var a = 1
+function f1(){
+    alert(a) // a是undefined
+    var a = 2
+}
+f1.call()</code><br><code>var a = 1
+function f1(){
+    var a = 2
+    f2.call()
+}
+function f2(){
+    console.log(a) // 是1
+}
+f1.call()</code><br><code>var liTags = document.querySelectorAll(&#39;li&#39;)
+for(var i = 0; i&lt;\liTags.length; i++){
+    liTags[i].onclick = function(){
+        console.log(i) // 点击第3个 li 时，打印 6
+    }
+}</code></p>
+<p></p><h5>拿到代码直接做——必然会错。请先提升声明</h5><br>如果一个函数，使用了它范围外的变量，那么（这个函数+这个变量）就叫做闭包<p></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/18/函数/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/18/函数/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/18/函数/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/18/函数/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/18/DOM-API/">
+        ← DOM-API
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/17/JS的数组/">
+        JS的数组 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

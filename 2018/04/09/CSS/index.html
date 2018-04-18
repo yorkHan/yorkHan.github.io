@@ -71,6 +71,9 @@
 <p></p><h4>9.CSS 属性position取值：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position" target="_blank" rel="noopener">CSS position MDN</a></h4><ol><li>absolute：绝对定位-不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。</li><li>relative：相对定位-该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）</li><li>fixed：固定定位-不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。</li><li>static：普通定位-该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。</li><li>sticky：粘性定位-盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下（即便被定位元素为 table 时），该元素定位均不对后续元素造成影响。</li></ol><br>子元素css样式写postion：absolute，父元素要写postion：relative；<p></p>
 <p></p><h4>如何做左右横向布局（float + clearfix）:</h4><br>给每个子元素加上float一定会有BUG，给父元素加上class=clearfix<p></p>
 <p><div>.clearfix::after{<br>    content: ‘’;<br>    display: block;<br>    clear: both;<br>}</div></p>
+<p></p><h4>上下左右居中:</h4><br>给父级元素加上样式:<br><code>display: flex;
+justify-content:center;
+align-items:center;</code><p></p>
 <p></p><h4>div水平居中</h4>{margin-left：auto。margin-right：auto；}<p></p>
 <p></p><h4>垂直居中：line-height</h4>div高度为 30px，div 里有一行字垂直居中，字的大小为 14px：<ul><li>给div的样式为font-size：14px；line-height：20px;padding:5px 0;</li><li>给div的样式为font-size：14px；line-height：24px;padding:3px 0;</li><li>给div的样式为font-size:14px;line-height:30px</li></ul><p></p>
 <p></p><h4>css画个三角形</h4>：div{border:10px solid transparent;width:0;border-left-color:red;bored-top-width:0px;}<p></p>
