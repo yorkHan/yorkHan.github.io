@@ -59,7 +59,7 @@
 <p></p><h4>4.window.Function函数对象 </h4><br>var fn = new Function(‘x’,’y’,’return x+y’) ==&gt; var n=1;new Function(‘x’,’y’,’return x’+n+’+y’) fn.name=’anonymous’  anonymous翻译为匿名<p></p>
 <p></p><h4>5.var f =   (x,y)=&gt;{return x+y}</h4> 箭头函数一定是匿名函数 ;<br>只有一句话，return和{}可以一起去除 sum=(x,y)=&gt;x+y ;<br>只有一个参数，()可以去除 var n2 = n=&gt;n*n<p></p>
 <p></p><h3>如何调用函数</h3><p></p>
-<p></p><h5>可以执行代码的对象就叫  函数</h5><br>call翻译为调用 f指的是这个对象 f.call()执行f这个函数体<br><img src="/2018/04/18/函数/call.png" alt="call"><br><img src="/2018/04/18/函数/Function.prototypes.png" alt="Function.prototype"><br>eval()给个字符串，当代码执行 eval(“1+1”)==&gt;2<br>f(1,2) === f.call(undefinef,1,2);f(1,2)糖sweet， f.call(undefinef,1,2)真正的调用,硬核hardcore<p></p>
+<p></p><h5>可以执行代码的对象就叫  函数</h5><br>call翻译为调用 f指的是这个对象 f.call()执行f这个函数体<br><img src="/2018/04/18/函数/call.png" alt="call"><br><img src="/2018/04/18/函数/Function_prototype.png" alt="Function.prototype"><br>eval()给个字符串，当代码执行 eval(“1+1”)==&gt;2<br>f(1,2) === f.call(undefinef,1,2);f(1,2)糖sweet， f.call(undefinef,1,2)真正的调用,硬核hardcore<p></p>
 <p></p><h3>this 和 arguments</h3><br>f.call(undefinef,1,2) undefined=&gt;this , [1,2]=&gt;arguments<p></p>
 <p></p><h5>1.call的第一个参数可以用this得到。 </h5><br>JavaScript为了长得像Java 1.new 2.this<br>如果在普通模式下，如果this是undefined，浏览器会自动把this变成window；<br>如果在严格模式下，如果this是undefined，this就是undefined<p></p>
 <p></p><h5>2.call的后面的参数可以用arguments(伪数组)得到。</h5><br>arguments(伪数组)内存像数组，但是原型链中没有Array.prototype<p></p>
