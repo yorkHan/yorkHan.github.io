@@ -51,7 +51,7 @@
 </span>
     <h1 class="post-title">jQuery</h1>
     <section class="post-content">
-      <p>封装一个函数<br><code>function getSiblings(node){}</code><br><img src="/2018/04/18/jQuery/getSiblings.png" alt="getSiblings"><br>再封装一个<br><code>function addClass(node, classes){}</code><br><img src="/2018/04/18/jQuery/addClass.png" alt="addClass"><br>addClass(优化后)<br><img src="/2018/04/18/jQuery/addClass(优化后" alt="addClass">.png</p>
+      <p>封装一个函数<br><code>function getSiblings(node){}</code><br><img src="/2018/04/18/jQuery/getSiblings.png" alt="getSiblings"><br>再封装一个<br><code>function addClass(node, classes){}</code><br><img src="/2018/04/18/jQuery/addClass.png" alt="addClass"><br>addClass(优化后)<br>![addClass](jQuery/addClass_优化后.png</p>
 <p></p><h4>命名空间</h4><br><img src="/2018/04/18/jQuery/命名空间.png" alt="命名空间"><p></p>
 <p></p><h4>能不能把 node 放在前面</h4><br>方法一：扩展 Node 接口<br>直接在 Node.prototype 上加函数<br><img src="/2018/04/18/jQuery/node_prototype.png" alt="node_prototype"><br>方法二：新的接口 BetterNode<br><img src="/2018/04/18/jQuery/Node2.png" alt="Node2"><br>通过选择器获取元素<br><img src="/2018/04/18/jQuery/选择器.png" alt="选择器"><br>获取多个元素<br><img src="/2018/04/18/jQuery/nodes.png" alt="nodes"><br>代码优化：如果出现类似的代码，就存在优化的可能<br>jQuery是个构造函数，接受一个参数，这个参数可能是节点或者选择器，返回方法对象来操作这个节点<br>jQuery的基本类型<br><img src="/2018/04/18/jQuery/jQuery的基本类型.png" alt="jQuery的基本类型"><br>链式操作<br><img src="/2018/04/18/jQuery/链式操作.png" alt="链式操作"><p></p>
 <p></p><h4>jQuery的各种版本</h4><br>1.混淆版(压缩版)，内部没有空格、回车、注释等，变量名比较短，节约空间。84.6k<br>2.未混淆版(不压缩版)，比较大一些，人可以看得懂源代码。261k<br>3.source map 文件,出错后会chrome会显示原始代码。128k<br><img src="/2018/04/18/jQuery/jQuery下载地址.png" alt="jQuery下载地址"><br>如果对象是由jQuery构造出来的，变量名前最好加$<p></p>
