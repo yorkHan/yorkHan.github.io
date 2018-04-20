@@ -55,7 +55,8 @@
     console.log(1);
     xxx.removeEventListener(&#39;click&#39;,f1) 
 }
-xxx.addEventListener(&#39;click&#39;,f1)</code><br>事件模型<br><img src="/2018/04/19/DOM-Events/事件模型.png" alt="事件模型"><br>事件捕获和事件冒泡.png<br><img src="/2018/04/19/DOM-Events/事件捕获和事件冒泡.png" alt="事件捕获和事件冒泡"><br>如果一个事件既有捕获也有冒泡，那就先冒泡，如果是最后节点，谁先写谁先执行<br>DOM Level3 没有对Events做修订了</p>
+xxx.addEventListener(&#39;click&#39;,f1)</code><br>事件模型<br><img src="/2018/04/19/DOM-Events/事件模型.png" alt="事件模型"><br>事件捕获和事件冒泡.png<br><img src="/2018/04/19/DOM-Events/事件捕获和事件冒泡.png" alt="事件捕获和事件冒泡"><br>如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行<br><img src="/2018/04/19/DOM-Events/document一次事件监听.png" alt="document一次事件监听"><br><code>function(e) {e.stopPropagation()}</code> 阻止冒泡</p>
+<p>#####document等会执行<br><img src="/2018/04/19/DOM-Events/document等会执行.png" alt="document等会执行"><br>DOM Level3 没有对Events做修订了</p>
 
     </section>
     <footer class="post-footer">
