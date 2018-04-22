@@ -94,8 +94,38 @@
 <li>CORS 可以告诉浏览器，我俩一家的，别阻止他</li>
 </ol>
 <h4 id="CORS-Cross-Origin-Resource-Sharing-跨-站-源-资源共享"><a href="#CORS-Cross-Origin-Resource-Sharing-跨-站-源-资源共享" class="headerlink" title="CORS(Cross-Origin Resource Sharing)跨(站/源)资源共享"></a>CORS(Cross-Origin Resource Sharing)跨(站/源)资源共享</h4><p>突破同源策略 === 跨域<br>respon.setHeader(‘Access-Control-Allow-Origin’,’<a href="http://frank.com:8001&#39;" target="_blank" rel="noopener">http://frank.com:8001&#39;</a>) 在后端服务器添加CORS,可以让不同源的访问</p>
+<p>chrome认为GET请求理论上不会有request.body，所有它不展示</p>
+<h3 id="AJAX-的所有功能"><a href="#AJAX-的所有功能" class="headerlink" title="AJAX 的所有功能"></a>AJAX 的所有功能</h3><ul>
+<li>客户端的JS发起请求（浏览器上的）</li>
+<li>服务端的JS发送响应（Node.js上的）</li>
+</ul>
+<ol>
+<li>JS 可以设置任意HTTP请求 header 吗<br> 第一部分 request.open(‘get’, ‘/xxx’)<br> 第二部分 request.setHeader(‘content-type’,’x-www-form-urlencoded’)<br> 第四部分 request.send(‘a=1&amp;b=2’)</li>
+<li>JS 可以获取任意HTTP响应 header 吗？<br> 第一部分 request.status / request.statusText<br> 第二部分 request.getResponseHeader() / request.getAllResponseHeaders()<br> 第四部分 request.responseText</li>
+</ol>
+<h3 id="写-window-jQuery-ajax"><a href="#写-window-jQuery-ajax" class="headerlink" title="写 window.jQuery.ajax"></a>写 window.jQuery.ajax</h3><p><img src="/2018/04/22/AJAX/封装AJAX函数.png" alt="封装AJAX函数"></p>
+<p>AJAX接受两种参数</p>
+<p><img src="/2018/04/22/AJAX/AJAX接受两种参数.png" alt="AJAX接受两种参数"></p>
+<h4 id="ES6析构赋值"><a href="#ES6析构赋值" class="headerlink" title="ES6析构赋值"></a>ES6析构赋值</h4><p><img src="/2018/04/22/AJAX/ES6析构赋值.png" alt="ES6析构赋值"></p>
+<h4 id="回调是啥"><a href="#回调是啥" class="headerlink" title="回调是啥"></a>回调是啥</h4><p>call a function<br>call a function back<br>callback</p>
+<h4 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h4><p>问题是每个程序员的回调名不一样</p>
+<h4 id="Promise-解决了这个问题"><a href="#Promise-解决了这个问题" class="headerlink" title="Promise 解决了这个问题"></a>Promise 解决了这个问题</h4><p>`<br>function xxx(){<br>    return new Promise((f1, f2) =&gt; {<br>        doSomething()<br>        setTimeout(()=&gt;{<br>            // 成功就调用 f1，失败就调用 f2<br>        },3000)<br>    })<br>}</p>
+<p>xxx().then(success, fail)</p>
+<p>// 链式操作<br>xxx().then(success, fail).then(success, fail)<br>`<br>return new Promise(function(resolve,reject){}) 如果成功就调用resolve，如果失败就调用reject</p>
+<h4 id="结构化编程"><a href="#结构化编程" class="headerlink" title="结构化编程"></a>结构化编程</h4><ol>
+<li>顺序执行</li>
+<li>if…else…</li>
+<li>while/for循环</li>
+</ol>
+<p>TCP/IP<br>HTML/CSS/JS/JSON 是基于HTTP传输的，HTTP是基于TCP/IP传输的<br>TCP建立连接要确定四个条件</p>
+<ol>
+<li>浏览器可以发请求</li>
+<li>浏览器可以收请求</li>
+<li>服务器可以发请求</li>
+<li>服务器可以收请求<br><img src="/2018/04/22/AJAX/客户端与服务器.png" alt="客户端与服务器"></li>
+</ol>
 <p>在<code>onsole.time()；
-console.timeend()</code>中间放入代码，可以得到代码运行的时间</p>
+console.timeend()</code>中间放入代码，可以得到代码运行的时间<br>因为jQuery发现你的返回值的content-type是text/json，他就会自动把字符串转成对象(window.JSON.parse)</p>
 
     </section>
     <footer class="post-footer">
