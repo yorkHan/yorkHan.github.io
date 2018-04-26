@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>MVC | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-23T07:25:39.000Z" itemprop="datePublished">
+          2018-04-23
+      </time>
+    
+</span>
+    <h1 class="post-title">MVC</h1>
+    <section class="post-content">
+      <h4 id="MVC-Model-View-Control"><a href="#MVC-Model-View-Control" class="headerlink" title="MVC(Model View Control)"></a>MVC(Model View Control)</h4><p><img src="/2018/04/23/MVC/MVC.png" alt="MVC"><br>MVC 是一种设计模式（或者软件架构），把系统分为三层：Model数据、View视图和Controller控制器。</p>
+<ol>
+<li>Model 数据管理，包括数据逻辑、数据请求、数据存储等功能。前端 Model 主要负责 AJAX 请求或者 LocalStorage 存储</li>
+<li>View 负责用户界面，前端 View 主要负责 HTML 渲染。</li>
+<li>Controller 负责处理 View 的事件，并更新 Model；也负责监听 Model 的变化，并更新 View，Controller 控制其他的所有流程。</li>
+</ol>
+<p>代码说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var model = &#123;</span><br><span class="line">    data: null,</span><br><span class="line">    init()&#123;&#125;</span><br><span class="line">    fetch()&#123;&#125;</span><br><span class="line">    save()&#123;&#125;</span><br><span class="line">    update()&#123;&#125;</span><br><span class="line">    delete()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">view = &#123;</span><br><span class="line">    init() &#123;&#125;</span><br><span class="line">    template: &apos;&lt;h1&gt;hi&lt;/h1&apos;&gt;</span><br><span class="line">&#125;</span><br><span class="line">controller = &#123;</span><br><span class="line">    view: null,</span><br><span class="line">    model: null,</span><br><span class="line">    init(view, model)&#123;</span><br><span class="line">        this.view = view</span><br><span class="line">        this.model = model</span><br><span class="line">        this.bindEvents()</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        this.view.querySelector(&apos;name&apos;).innerText = this.model.data.name</span><br><span class="line">    &#125;,</span><br><span class="line">    bindEvents()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MVC三部分可以有效将程序的不同功能进行职责分离，提高模块的兼容性和复用性。</p>
+<p>ES6之前只有函数里有局部变量，不能直接用{}包起来，因为会变量提升，用函数包起来成为局部变量</p>
+<h4 id="如何使用立即执行函数"><a href="#如何使用立即执行函数" class="headerlink" title="如何使用立即执行函数"></a>如何使用立即执行函数</h4><p><img src="/2018/04/23/MVC/立即执行函数.png" alt="立即执行函数"></p>
+<ol>
+<li>我们不想要全局变量</li>
+<li>我们要使用局部变量</li>
+<li>ES 5 里面，只有函数有局部变量</li>
+<li>于是我们声明一个 function xxx，然后 xxx.call()</li>
+<li>这个时候 xxx 是全局变量（全局函数）</li>
+<li>所以我们不能给这个函数名字</li>
+<li>function(){}.call()</li>
+<li>但是 Chrome 报错，语法错误</li>
+<li><p>试出来一种方法可以不报错:</p>
+<ol>
+<li>!function(){}.call() (我们不在乎这个匿名函数的返回值，所以加个 ! 取反没关系)</li>
+<li><p>(function(){}).call() 不推荐</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx    </span><br><span class="line">(function()&#123;&#125;).call() 报错</span><br></pre></td></tr></table></figure>
+<p>3.frank192837192463981273912873098127912378.call() 不推荐</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>闭包对数据隐藏细节，访问控制，<br>闭包要和立即执行函数一起用<br>箭头函数()=&gt;{}内外,this不变<br>用户看的见的东西，这就是view<br>如果你是一个对象调用一个函数，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var controller=&#123;&#125;</span><br><span class="line">controller.init(view)==&gt;controller.init.call(controller,view)</span><br></pre></td></tr></table></figure></p>
+<p>这个call里面this就是这个对象</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/23/MVC/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/23/MVC/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/23/MVC/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/23/MVC/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/24/面向对象/">
+        ← 面向对象
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/22/AJAX/">
+        AJAX →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

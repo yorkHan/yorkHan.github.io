@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>面向对象 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-24T12:19:08.000Z" itemprop="datePublished">
+          2018-04-24
+      </time>
+    
+</span>
+    <h1 class="post-title">面向对象</h1>
+    <section class="post-content">
+      <p>面向：以…..为主<br>面向对象(Object-Oriented)是一个经验的知识<br>命名空间(name space)<br>或（a||b）且（&amp;&amp;d）值基本上不可能是true/false，是truy或falsy的值，<br>如果是&amp;&amp;，结果是看第一个falsy值，falsy值后面的就不看了<br>如果是||，结果是看第一个truy值，truy值后面的就不看了<br><code>var a=1</code>//危险代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var  app=app||&#123;&#125; //兜底写法</span><br><span class="line">if(app)&#123;</span><br><span class="line">    app=app //废话，没什么作用</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    app=&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果app存在就运行app，如果app不存在就app={}</p>
+<p>Class 类<br>定义对象的特征。它是对象的属性和方法的模板定义.<br>Object 对象<br>类的一个实例。<br>Property 属性<br>对象的特征，比如颜色。<br>Method 方法<br>对象的能力，比如行走。<br>Constructor 构造函数<br>对象初始化的瞬间, 被调用的方法. 通常它的名字与包含它的类一致.<br>Inheritance 继承<br>一个类可以继承另一个类的特征。<br>Encapsulation 封装<br>一种把数据和相关的方法绑定在一起使用的方法.<br>Abstraction 抽象<br>结合复杂的继承，方法，属性的对象能够模拟现实的模型。<br>Polymorphism 多态<br>多意为‘许多’，态意为‘形态’。不同类可以定义相同的方法或属性。</p>
+<h3 id="封装-Model-View-Controller"><a href="#封装-Model-View-Controller" class="headerlink" title="封装 Model View Controller"></a>封装 Model View Controller</h3><ol>
+<li>controller === object</li>
+<li>controller.init(view, model)<br>controller.init.call(controller, view, model)<br>那么 controller.init 里面的 this 当然 TM 是 controller<br>也就是这个1里面的object<br>controller.init 里面的 this 就是 object<br>object.init 里面的 this 就是 object</li>
+<li>initB.call(this)<br>initB 里面的 this === call 后面的this<br>call 后面 this === 第二条里的 this<br>第二条里面的 this === object<br>=&gt; initB 里面的 this 就是 object</li>
+</ol>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p>this是什么，call的第一个参数，看call谁调用的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">button.onclick = function f1()&#123;</span><br><span class="line">    console.log(this) // 触发事件的元素。  button</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button.onclick.call(&#123;name: &apos;frank&apos;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">button.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">    console.log(this) // 该元素的引用 button</span><br><span class="line">&#125;</span><br><span class="line">2 结果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$(&apos;ul&apos;).on(&apos;click&apos;, &apos;li&apos; /*selector*/, function()&#123;</span><br><span class="line">    console.log(this) //this 则代表了与 selector 相匹配的元素。</span><br><span class="line">    // li 元素</span><br><span class="line">&#125;)</span><br><span class="line">3 结果</span><br><span class="line">去看 on 的源码呀 -&gt; 做不到</span><br><span class="line">jQuery 的开发者知道 onclick 的源码，f1.call(???)</span><br><span class="line">jQuery 的开发者写了文档</span><br><span class="line">看文档呀</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function X()&#123;</span><br><span class="line">    return object = &#123;</span><br><span class="line">        name: &apos;object&apos;,</span><br><span class="line">        options: null,</span><br><span class="line">        f1(x)&#123;</span><br><span class="line">            this.options = x</span><br><span class="line">            this.f2()</span><br><span class="line">        &#125;,</span><br><span class="line">        f2()&#123;</span><br><span class="line">            this.options.f2.call(this)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var options = &#123;</span><br><span class="line">    name: &apos;options&apos;,</span><br><span class="line">    f1()&#123;&#125;,</span><br><span class="line">    f2()&#123;</span><br><span class="line">        console.log(this) // this 是啥 ?</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var x = X()</span><br><span class="line">x.f1(options)</span><br></pre></td></tr></table></figure>
+<h3 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a>new 的作用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var object = new Object()</span><br><span class="line"></span><br><span class="line">自有属性 空</span><br><span class="line">object.proto === Object.prototype</span><br><span class="line"></span><br><span class="line">var array = new Array(&apos;a&apos;,&apos;b&apos;,&apos;c&apos;)</span><br><span class="line"></span><br><span class="line">自有属性 0:&apos;a&apos; 1:&apos;b&apos; 2:&apos;c&apos;,length:3</span><br><span class="line">array.proto === Array.prototype</span><br><span class="line">Array.prototype.proto === Object.prototype</span><br><span class="line"></span><br><span class="line">var fn = new Function(&apos;x&apos;, &apos;y&apos;, &apos;return x+y&apos;)</span><br><span class="line">自有属性 length:2, 不可见的函数体: &apos;return x+y&apos;</span><br><span class="line">fn.proto === Function.prototype</span><br><span class="line"></span><br><span class="line">Array is a function</span><br><span class="line">Array = function()&#123;...&#125;</span><br><span class="line">Array.proto === Function.prototype</span><br></pre></td></tr></table></figure>
+<p>human 这个对象本身具有属性 name 和 city<br>human.<strong>proto</strong> 对应的对象（也就是原型）具有物种（species）、走（walk）和使用工具（useTools）这几个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Human(options)&#123;</span><br><span class="line">    this.name = options.name</span><br><span class="line">    this.city = options.city</span><br><span class="line"></span><br><span class="line">&#125; // 构造函数结束</span><br><span class="line"></span><br><span class="line">Human.prototype.species = &apos;Human&apos; </span><br><span class="line">Human.prototype.walk = function()&#123;&#125;</span><br><span class="line">Human.prototype.useTools = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">var human = new Human(&#123;name:&apos;Frank&apos;, city: &apos;Hangzhou&apos;&#125;)</span><br><span class="line">var human2 = new Human(&#123;name:&apos;Jack&apos;, city: &apos;Hangzhou&apos;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>human.<strong>proto</strong>.constructor === Human 为 true</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/24/面向对象/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/24/面向对象/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/24/面向对象/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/24/面向对象/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/23/MVC/">
+        MVC →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
