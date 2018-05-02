@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>MVVM | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-01T00:56:26.000Z" itemprop="datePublished">
+          2018-05-01
+      </time>
+    
+</span>
+    <h1 class="post-title">MVVM</h1>
+    <section class="post-content">
+      <p>axois</p>
+<ol>
+<li>比jQuery.ajax功能更多</li>
+<li>除了ajax功能之外，没有其他功能(更专注ajax)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">let book=&#123;</span><br><span class="line">    name:&apos;javascript 高级程序设计&apos;</span><br><span class="line">    number:2,</span><br><span class="line">    id:1</span><br><span class="line">    &#125;</span><br><span class="line">    //interceptors:在真正返回response之前使用</span><br><span class="line">axios.interceptors.response.use(function(response)&#123;</span><br><span class="line">    let config=response.config</span><br><span class="line">    let &#123;method,url,data&#125;=config //data是请求的data</span><br><span class="line">    if(url===&apos;/book/1&apos;&amp;&amp;method===&apos;get&apos;)&#123;</span><br><span class="line">    response.data=book</span><br><span class="line">    &#125;else if(url===&apos;/book/1&apos;&amp;&amp;method===&apos;put&apos;)&#123;</span><br><span class="line">    Object.assign(book,data)</span><br><span class="line">    /*Object.assign(obj,&#123;&#125;) Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。*/</span><br><span class="line">    response.data=book</span><br><span class="line">    &#125;</span><br><span class="line">    return response</span><br><span class="line">&#125;)</span><br><span class="line">/*上面是假的后台*/</span><br><span class="line">axios.get(&apos;/book/1&apos;).then((data)=&gt;&#123;</span><br><span class="line">    let originalHtml=$(&apos;#app&apos;).html()</span><br><span class="line">    let newHtml=originalHtml.replace(&apos;__name__&apos;,data.name).replace(&apos;__number__&apos;,data.number)</span><br><span class="line">    $(&apos;#app&apos;).html(newHtml)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(&apos;#app&apos;).on(&apos;click&apos;,&apos;#addOne&apos;,function()&#123;</span><br><span class="line">    var oldNumber=$(&apos;#number&apos;).text()</span><br><span class="line">    var newNumber=oldNumber-0+1</span><br><span class="line">    axios.put(&apos;/book/1&apos;,&#123;</span><br><span class="line">    number:newNumber</span><br><span class="line">    &#125;).then(function()&#123;</span><br><span class="line">    $(&apos;#number&apos;).text(newNumber)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>意大利面条式代码，是软件工程中反面模式的一种，是指一个源代码的控制流程复杂、混乱而难以理解，尤其是用了很多GOTO、例外、线程、或其他无组织的分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">fakeData()</span><br><span class="line">/*上面是假的后台*/</span><br><span class="line"></span><br><span class="line">let model=&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">    name:&apos;&apos;,</span><br><span class="line">    number:0,</span><br><span class="line">    id:&apos;&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    fetch(id)&#123;</span><br><span class="line">    return axios.axios.get(`/book/$&#123;id&#125;`).then((response)=&gt;&#123;</span><br><span class="line">    this.data=response.data</span><br><span class="line">    return response</span><br><span class="line">    &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    updata(data)&#123;</span><br><span class="line">    let id=this.data.id</span><br><span class="line">    return axios.put(`/book/$&#123;id&#125;`,data).then((response)=&gt;&#123;</span><br><span class="line">    this.data=response.data</span><br><span class="line">    return response</span><br><span class="line">    &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let view=&#123;</span><br><span class="line">    el:&apos;#app&apos;,</span><br><span class="line">    template:</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    书名：《__name__》</span><br><span class="line">    数量：&lt;span id=number&gt;__number__&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button id=&quot;addOne&quot;&gt;加1&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    ,</span><br><span class="line">    render:(data)=&gt;&#123;</span><br><span class="line">    let html=this.template.replace(&apos;__name__&apos;,data.name).replace(&apos;__number__&apos;,data.number)</span><br><span class="line">    $(this.el).html(html)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let controller=&#123;</span><br><span class="line">    init(options)&#123;</span><br><span class="line">    let view=options.view</span><br><span class="line">    let model=options.model</span><br><span class="line">    this.view=view</span><br><span class="line">    this.model=model</span><br><span class="line">    this.view.render(this.model.data)</span><br><span class="line">    this.bindEvents()</span><br><span class="line">    this.model.fetch(1).then(()=&gt;&#123;this.view.render(this.model.data)&#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    addOne()&#123;</span><br><span class="line">    var oldNumber=$(&apos;#number&apos;).text()</span><br><span class="line">    var newNumber=oldNumber-0+1</span><br><span class="line">    this.model.updata(&#123;</span><br><span class="line">    number:newNumber</span><br><span class="line">    &#125;).then(function()&#123;</span><br><span class="line">    this.view.render(this.model.data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    bindEvents:()=&gt;&#123;</span><br><span class="line">    $(this.view.el).on(&apos;click&apos;,&apos;#addOne&apos;,this.addOne.bind(this))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">controller.init(&#123;view:view,model:model&#125;)</span><br><span class="line"></span><br><span class="line">function fakeData()&#123;</span><br><span class="line">let book=&#123;</span><br><span class="line">    name:&apos;javascript 高级程序设计&apos;</span><br><span class="line">    number:2,</span><br><span class="line">    id:1</span><br><span class="line">    &#125;</span><br><span class="line">    //interceptors:在真正返回response之前使用</span><br><span class="line">axios.interceptors.response.use(function(response)&#123;</span><br><span class="line">    let config=response.config</span><br><span class="line">    let &#123;method,url,data&#125;=config //data是请求的data</span><br><span class="line">    if(url===&apos;/book/1&apos;&amp;&amp;method===&apos;get&apos;)&#123;</span><br><span class="line">    response.data=book</span><br><span class="line">    &#125;else if(url===&apos;/book/1&apos;&amp;&amp;method===&apos;put&apos;)&#123;</span><br><span class="line">    data=JSON.parse(data)</span><br><span class="line">    Object.assign(book,data)</span><br><span class="line">    /*Object.assign(obj,&#123;&#125;) Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。*/</span><br><span class="line">    response.data=book</span><br><span class="line">    &#125;</span><br><span class="line">    return response</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用MVC改写代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">function Model(options)&#123;</span><br><span class="line">    this.data=options.data</span><br><span class="line">    this.resource=options.resource</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.fetch=function(id)&#123;</span><br><span class="line">    return axios.axios.get(`/book/$&#123;id&#125;`).then((response)=&gt;&#123;</span><br><span class="line">    this.data=response.data</span><br><span class="line">    return response</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.update=function(data)&#123;</span><br><span class="line">    let id=this.data.id</span><br><span class="line">    return axios.put(`/$&#123;this.resource&#125;s/$&#123;id&#125;`,data).then((response)=&gt;&#123;</span><br><span class="line">    this.data=response.data</span><br><span class="line">    return response</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function View(&#123;el,template&#125;)&#123;</span><br><span class="line">    this.el=el</span><br><span class="line">    thie.template=template</span><br><span class="line">&#125;</span><br><span class="line">View.prototype.render=function(data)&#123;</span><br><span class="line">    let html=this.template</span><br><span class="line">    for(let key in data)</span><br><span class="line">    &#123;</span><br><span class="line">    html=html.replace(`__$&#123;key&#125;__`,data.[key])</span><br><span class="line">    &#125;</span><br><span class="line">    $(this.el).html(html)</span><br><span class="line">&#125;</span><br><span class="line">//--------上面是MVC类，下面是MVC对象------------//</span><br><span class="line">let bookModel=new Model(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">    name:&apos;&apos;,</span><br><span class="line">    number:0,</span><br><span class="line">    id:&apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    resource:&apos;book&apos;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let view=new View(&#123;</span><br><span class="line">    el:&apos;#app&apos;,</span><br><span class="line">    template:</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    书名：《__name__》</span><br><span class="line">    数量：&lt;span id=number&gt;__number__&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button id=&quot;addOne&quot;&gt;加1&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>用构造函数重写Model和view<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">function Model(options)&#123;</span><br><span class="line">    this.data=options.data</span><br><span class="line">    this.resource=options.resource</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.fetch=function(id)&#123;</span><br><span class="line">    return axios.axios.get(`/book/$&#123;id&#125;`).then((response)=&gt;&#123;</span><br><span class="line">    this.data=response.data</span><br><span class="line">    return response</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.update=function(data)&#123;</span><br><span class="line">    let id=this.data.id</span><br><span class="line">    return axios.put(`/$&#123;this.resource&#125;s/$&#123;id&#125;`,data).then((response)=&gt;&#123;</span><br><span class="line">    this.data=response.data</span><br><span class="line">    return response</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//--------上面是MVC类，下面是MVC对象------------//</span><br><span class="line"></span><br><span class="line">let bookModel=new Model(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">    name:&apos;&apos;,</span><br><span class="line">    number:0,</span><br><span class="line">    id:&apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    resource:&apos;book&apos;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">let view=new Vue(&#123;</span><br><span class="line">    el:&apos;#app&apos;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        book:&#123;</span><br><span class="line">        name:&apos;&apos;,</span><br><span class="line">        number:0,</span><br><span class="line">        id:&apos;&apos;</span><br><span class="line">       &#125;，</span><br><span class="line">       n:1</span><br><span class="line">    &#125;,</span><br><span class="line">    template:</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">        书名：《&#123;&#123;book.name&#125;&#125;》</span><br><span class="line">        数量：&lt;span id=number&gt;&#123;&#123;book.number&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;input v-model=&quot;n&quot;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;button v-on:click=&quot;addOne&quot;&gt;加1&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    ,</span><br><span class="line">    created()&#123;</span><br><span class="line">    model.fetch(1).then(()=&gt;&#123;</span><br><span class="line">      this.book=model.data</span><br><span class="line">    &#125;)</span><br><span class="line"> &#125;,</span><br><span class="line">    method:&#123;</span><br><span class="line">    addOne()&#123;</span><br><span class="line">        model.updata(&#123;</span><br><span class="line">        number:this.book.number+(this.n-0)</span><br><span class="line">        &#125;).then(function()&#123;</span><br><span class="line">        this.view.book=this.model.data</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>用VUE代替view,去除controller</p>
+<h4 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h4><p><img src="/2018/05/01/MVVM/双向绑定.png" alt="双向绑定"></p>
+<p><img src="/2018/05/01/MVVM/Vue轮播.png" alt="Vue轮播"></p>
+<p>//ES6技巧<br>let config=response.config</p>
+<h1 id="let-method-url-data-config-data是请求的data"><a href="#let-method-url-data-config-data是请求的data" class="headerlink" title="let {method,url,data}=config //data是请求的data"></a>let {method,url,data}=config //data是请求的data</h1><p>let{config:{method,url,data}}=response<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">$(&apos;#app&apos;).on(&apos;click&apos;,&apos;#addOne&apos;,function()&#123;&#125;)</span><br><span class="line">委托：如果你点击app里面任何一个元素，只要符合#addOne这个选择器，就执行function</span><br></pre></td></tr></table></figure></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/05/01/MVVM/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/01/MVVM/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/01/MVVM/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/01/MVVM/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/05/02/面试/">
+        ← 面试
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/29/webpack/">
+        webpack →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

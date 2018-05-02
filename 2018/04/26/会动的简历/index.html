@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>会动的简历 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-26T05:51:15.000Z" itemprop="datePublished">
+          2018-04-26
+      </time>
+    
+</span>
+    <h1 class="post-title">会动的简历</h1>
+    <section class="post-content">
+      <p>在html中，空格tab回车这种看不见的字符，如果连续出现多个。浏览器会把他们认为是一个空格<br><code>&lt;pre&gt;&lt;/pre&gt;</code>会保留任何空格，回车和缩进<br>box-sizing: border-box; 告诉浏览器去理解你设置的边框和内边距的值是包含在width内的。</p>
+<p>A.（同步）让黄牛去买票，然后站着等（同步）<br>B.（异步）让黄牛去买票（告诉黄牛，你买到票就call我——回调），然后去做别的事</p>
+<p>异步：【不等结果】直接进行下一步</p>
+<p>异步代码的特点：书写顺序与执行顺序不同。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(1)</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">console.log(2)</span><br><span class="line">&#125;,0)</span><br><span class="line">console.log(3)</span><br></pre></td></tr></table></figure></p>
+<p>上面代码的书写顺序是1-&gt;2-&gt;3，但执行顺序是1-&gt;3-&gt;2。中间的sonsole.log(2)就是异步执行的。【代码的书写顺序和执行顺序可以不同哒~】</p>
+<p>什么是异步？</p>
+<ul>
+<li><p>先看看什么是同步：一定要等任务执行完了，得到结果，才执行下一个任务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function taskSync = function()&#123;</span><br><span class="line">return &apos;同步任务的返回值;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result = taskSync() //result就是同步任务的结果</span><br><span class="line">otherTask() //执行下一个任务</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>异步：不等任务执行完，直接执行下一个任务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function taskAsync = function()&#123;</span><br><span class="line">var result = setTimeout(function()&#123;</span><br><span class="line">console.log(&apos;异步任务的结果&apos;)</span><br><span class="line">&#125;,3000)</span><br><span class="line">return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result = taskAsync() //result不是异步任务的结果，而是一个timer id</span><br><span class="line">otherTask() //立即执行其他任务，不等异步任务结束</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们异步执行的结果，而是一个timer id，通过回调可以得到异步结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function taskAsync = function(callback)&#123;</span><br><span class="line">var result = setTimeout(function()&#123;</span><br><span class="line">callback(&apos;异步任务的结果&apos;)</span><br><span class="line">&#125;,3000)</span><br><span class="line">return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">taskAsync(function callback(result)&#123;</span><br><span class="line">consolr.log(result) //三秒钟后，这个callback函数会被执行</span><br><span class="line">&#125;)</span><br><span class="line">otherTask() //立即执行</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>所以【回调】经常用于获取【异步任务】的结果</p>
+<p>回调：可以拿到异步的结果的一种方式，回调也可以拿同步的结果</p>
+<p>A “callback” is any function that is called by another function which takes the first function as a parameter.</p>
+<p>在一个函数中调用另外一个函数就是callback<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function callback()&#123;</span><br><span class="line">alert(&quot;I am in the callback!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function work(func)&#123;</span><br><span class="line">alert(&quot;I am calling the callback!&quot;);</span><br><span class="line">func();</span><br><span class="line">&#125;</span><br><span class="line">work(callback);</span><br></pre></td></tr></table></figure></p>
+<p>回调函数在什么场景有用？</p>
+<p>我要在特定的时候执行一个任务，至于是什么时候我自己都不知道。比如某一时间到了或者某一时间发生或者某一中断触发。</p>
+<p>回调函数怎么起作用？</p>
+<p>把我要执行的这个任务写成一个函数，将这个函数和某一时间或者某时间或者中断简历关联。当这个关联完成的时候，这个函数华丽的从普通函数变身成为回调函数。</p>
+<p>回调函数什么时候执行？</p>
+<p>当该回调函数关心的那个时间或者时间或者中断触发的时候，毁掉函数将被执行。一般是触发这个时间、时间或中断的程序主体（通常是个函数或者对象）观察到有一个关注这个东东的回调函数的时候，这个主体负责调用这个回调函数。</p>
+<p>回调函数有什么好处？</p>
+<p>最大的好处就是你的程序变成异步了。也就是你不必再调用这个函数的时候一直等待这个时间的到达、事件的触发或中断的发生（万一一直不发生，你的程序会怎样？）。在此期间你可以做别的事情。当回调函数被执行时，你的程序重新得到执行的机会，此时你可以继续做必要的事情了。</p>
+<p>回调函数有什么问题吗？</p>
+<p>既然有人问，当然就会有点问题，一个是学习成本比普通函数高，需要有一定的抽象思维能力，需要对应场景的理解。<br>另一个是回调函数很多情况下会附带有跨线程操作甚至于跨进程的操作，这些都是异步带来的成本。<br><code>writeCode(result,function(){})</code></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/26/会动的简历/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/26/会动的简历/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/26/会动的简历/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/26/会动的简历/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/26/Cookie与登录注册/">
+        ← Cookie与登录注册~
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/24/面向对象/">
+        面向对象 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

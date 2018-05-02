@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Cookie与登录注册~ | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-04-26T11:58:06.000Z" itemprop="datePublished">
+          2018-04-26
+      </time>
+    
+</span>
+    <h1 class="post-title">Cookie与登录注册~</h1>
+    <section class="post-content">
+      <p>表单</p>
+<p>后端一定要验证数据，前端可以不验证，因为有点人会用crurl发请求<br>应该确保后端安全，前端安不安全无所谓<br>出现bug打log<br>李爵士规定HTTP传输不能有@，@都会被转换成%40，所以要用decodeURIComponent把%40转换成@，<br>存数据库必须存字符串<br>JSON.stringify：JSON.stringify()方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">try&#123;users=JSON.parse（users） //尝试是否符合JSON语法</span><br><span class="line">&#125;</span><br><span class="line">catch(exception)&#123;users=[]&#125; //如果有问题就变成空数组</span><br></pre></td></tr></table></figure></p>
+<p>响应头 cookie cache-control</p>
+<h4 id="Cookie-曲奇饼-是什么"><a href="#Cookie-曲奇饼-是什么" class="headerlink" title="Cookie(曲奇饼) 是什么"></a>Cookie(曲奇饼) 是什么</h4><ol>
+<li>Cookie 是浏览器访问服务器后，服务器传给浏览器的一段数据。</li>
+<li>浏览器需要保存这段数据，不得轻易删除。</li>
+<li>此后每次浏览器访问该服务器，都必须带上这段数据。<br>Cookie 就是这么简单，这就是 Web 开发里 Cookie 的含义。</li>
+</ol>
+<h4 id="Cookie-的特点"><a href="#Cookie-的特点" class="headerlink" title="Cookie 的特点"></a>Cookie 的特点</h4><ol>
+<li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
+<li>浏览器得到 Cookie 之后，每次请求都要带上 Cookie</li>
+<li>服务器读取 Cookie 就知道登录用户的信息（email）<h4 id="Cookie-的问题"><a href="#Cookie-的问题" class="headerlink" title="Cookie 的问题"></a>Cookie 的问题</h4></li>
+<li>我在 Chrome 登录了得到 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗<br> no</li>
+<li>Cookie 存在哪<br> Windows 存在 C 盘的一个文件里</li>
+<li>Cookie会被用户篡改吗？<br> 可以，Session 来解决这个问题，防止用户篡改</li>
+<li>Cookie 有效期吗？<br> 默认有效期20分钟左右，不同浏览器策略不同<br> 后端可以强制设置有效期，具体语法看 MDN</li>
+<li>Cookie 遵守同源策略吗？<br> 也有，不过跟 AJAX 的同源策略稍微有些不同。<br> 当请求 qq.com 下的资源时，浏览器会默认带上 qq.com 对应的 Cookie，不会带上 baidu.com 对应的 Cookie<br> 当请求 v.qq.com 下的资源时，浏览器不仅会带上 v.qq.com 的Cookie，还会带上 qq.com 的 Cookie<br> 另外 Cookie 还可以根据路径做限制，请自行了解，这个功能用得比较少。</li>
+</ol>
+<h3 id="如何使用-Cookie"><a href="#如何使用-Cookie" class="headerlink" title="如何使用 Cookie"></a>如何使用 Cookie</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie" target="_blank" rel="noopener">Set-Cookie</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(&apos;Set-Cookie&apos;,`log_in_email=$&#123;email&#125;`) //设置一个cookie</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let cookies =  request.headers.cookie.split(&apos;; &apos;) //读取这个cookie</span><br></pre></td></tr></table></figure>
+<h4 id="Cookie-一般有两个作用。"><a href="#Cookie-一般有两个作用。" class="headerlink" title="Cookie 一般有两个作用。"></a>Cookie 一般有两个作用。</h4><h5 id="第一个作用是识别用户身份。"><a href="#第一个作用是识别用户身份。" class="headerlink" title="第一个作用是识别用户身份。"></a>第一个作用是识别用户身份。</h5><p>比如用户 A 用浏览器访问了 <a href="http://a.com，那么" target="_blank" rel="noopener">http://a.com，那么</a> <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的服务器就会立刻给 A 返回一段数据「uid=1」（这就是 Cookie）。当 A 再次访问 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的其他页面时，就会附带上「uid=1」这段数据。<br>同理，用户 B 用浏览器访问 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 时，<a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 发现 B 没有附带 uid 数据，就给 B 分配了一个新的 uid，为2，然后返回给 B 一段数「uid=2」。B 之后访问 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的时候，就会一直带上「uid=2」这段数据。<br>借此，<a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的服务器就能区分 A 和 B 两个用户了。</p>
+<h5 id="第二个作用是记录历史。"><a href="#第二个作用是记录历史。" class="headerlink" title="第二个作用是记录历史。"></a>第二个作用是记录历史。</h5><p>假设 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 是一个购物网站，当 A 在上面将商品 A1 、A2 加入购物车时，JS 可以改写 Cookie，改为「uid=1; cart=A1,A2」，表示购物车里有 A1 和 A2 两样商品了。</p>
+<p>这样一来，当用户关闭网页，过三天再打开网页的时候，依然可以看到 A1、A2 躺在购物车里，因为浏览器并不会无缘无故地删除这个 Cookie。<br>借此，就达到里记录用户操作历史的目的了。<br>（上面的例子只是为了让大家了解 Cookie 的作用而构想出来的，实际的网站使用 Cookie 时会更谨慎一些。）</p>
+<p>Cookie 如何设置过期时间？<br>如何删除 Cookie？<br>可以在 HTTP-Response 内设置标签确定 Cookie 的过期时间</p>
+<p>Expires指定了一个日期/时间， 在这个日期/时间之后 Cookie 过期<br>max-age指定了一个秒数，经过此秒数后 Cookie 过期<br>如果不设置这个标头，则默认关闭浏览器后 Cookie 过期<br>Cookie 的删除有不同方式</p>
+<p>服务器端可以通过设置 Expires、max-age 两个标签将 Cookie 设置为过期状态<br>JavaScript 可以通过document.cookie API 删除 Cookie</p>
+<h4 id="Cookie的缺陷"><a href="#Cookie的缺陷" class="headerlink" title="Cookie的缺陷"></a>Cookie的缺陷</h4><ol>
+<li>Cookie会被附加在每个HTTP请求中，所以无形中增加了流量。</li>
+<li>由于在HTTP请求中的Cookie是明文传递的，所以安全性成问题，除非用HTTPS。</li>
+<li>Cookie的大小限制在4KB左右，对于复杂的存储需求来说是不够用的。</li>
+</ol>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/26/Cookie与登录注册/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/26/Cookie与登录注册/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/26/Cookie与登录注册/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/26/Cookie与登录注册/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/28/Session、LocalStorage、Cache-Control/">
+        ← Session、LocalStorage、Cache-Control
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/04/26/会动的简历/">
+        会动的简历 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
