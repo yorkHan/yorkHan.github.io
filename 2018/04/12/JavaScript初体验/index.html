@@ -51,7 +51,47 @@
 </span>
     <h1 class="post-title">JavaScript初体验</h1>
     <section class="post-content">
-      <p>数组就是对象<br>[‘a’,’b’,’c’,’d’,’e’]和{0:’a’,1:’b’,2:’c’,3:’d’,4:’e’, length:5}是一样的<br>Uncaught SyntaxError没有被处理的语法错误<br>居中：如果是内联元素，父元素加个text-align：center<br>如果是块级元素，宽度固定，加margin：0 auto<br>document.onkeypress=function(a){<br>}<br>a容纳了所需要知道的所有细节<br>key就是用户按的哪个键<br>altKey:true 用户在按键盘的时候有没有同时按alt<br>location：href在本页面打开网址<br>window.open（“http://”+website,’_blank’）在新窗口打开<br>target<br>prompt() 弹窗输入框<br>localStorage.setItem（‘变量名’，JSON.stringify()）js的变量存到浏览器里面 浏览器必须是127.0.0.1:8080才可以存进js变量，localhost：8080无法存变量<br> JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串，如果指定了replacer是一个函数，则可以替换值，或者如果指定了replacer是一个数组，可选的仅包括指定的属性。<br>localStorage.getItem（‘变量名’）拿出存在浏览器里的js变量<br>JSON.parse 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。提供可选的reviver函数用以在返回之前对所得到的对象执行变换(操作)。<br>前端<br>及格60分 符合要求80分 0-60分要花三分努力，60-80分要花八分努力，80分到90分要十二分努力<br>github上最好带上预览；键盘字居中<br>display:flex;<br>align-items:center;<br>justify-content:center;<br>100vh;就是屏幕视口的高度， vh-viewport height<br>background:grey url(./wall.jpg) no-repeat center center;<br>background-size: cover;调整壁纸自适应窗口大小<br>/favicon.ico<br>img.onerror=function 监听错误<br>.previousSibling 寻找元素前一个同一级元素<br>优化-<br>function tag(element,attributes){<br>        var ele=document.createElement(element)<br>        for(var key in attributes){<br>            ele[key]=attributes[key]<br>        }<br>        return ele<br>}<br>key–&gt;className:’row’<br>while循环的特点1.初始声明 2.判断表达式 2.给初始声明加1或减1<br>var a=11<br>if(a&lt;10)<br>console.log(‘a是一位数’)<br>console.log(‘a是小于10’)<br>答案是console.log(‘a是小于10’)，因为if判断如果没加{}，只能接一句<br>var a=1<br>if(a=3)<br>console.log(‘a是等于3’)<br>答案是console.log(‘a是等于3’)，因为()里是赋值语句<br>语句(statement)和表达式(expression)的区别在于，前者主要为了进行某种操作，一般情况下不需要值；后者则是为了得到值，一定会得到一个值<br>console.log(x)<br>var x=1<br>等价于<br>var x<br>console.log(x)<br>x=1</p>
+      <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ol>
+<li>数组就是对象</li>
+<li>[‘a’,’b’,’c’,’d’,’e’]和{0:’a’,1:’b’,2:’c’,3:’d’,4:’e’, length:5}是一样的</li>
+<li>Uncaught SyntaxError没有被处理的语法错误</li>
+<li>居中：如果是内联元素，父元素加个text-align：center，如果是块级元素，宽度固定，加margin：0 auto</li>
+<li><p>a容纳了所需要知道的所有细节</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.onkeypress=function(a)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>key就是用户按的哪个键</p>
+</li>
+<li>altKey:true 用户在按键盘的时候有没有同时按alt</li>
+<li>location：href在本页面打开网址</li>
+<li>window.open（“http://”+website,’_blank’）在新窗口打开</li>
+<li>prompt() 弹窗输入框</li>
+<li>localStorage.setItem（‘变量名’，JSON.stringify()）js的变量存到浏览器里面 浏览器必须是127.0.0.1:8080才可以存进js变量，localhost：8080无法存变量</li>
+<li>JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串，如果指定了replacer是一个函数，则可以替换值，或者如果指定了replacer是一个数组，可选的仅包括指定的属性。</li>
+<li>localStorage.getItem（‘变量名’）拿出存在浏览器里的js变量</li>
+<li>JSON.parse 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象。提供可选的reviver函数用以在返回之前对所得到的对象执行变换(操作)。</li>
+<li><p>github上最好带上预览；键盘字居中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display:flex;</span><br><span class="line">align-items:center;</span><br><span class="line">justify-content:center;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>100vh;就是屏幕视口的高度， vh-viewport height</p>
+</li>
+<li>background:grey url(./wall.jpg) no-repeat center center;</li>
+<li>background-size: cover;调整壁纸自适应窗口大小</li>
+<li>img.onerror=function(){} 监听错误</li>
+<li>previousSibling 寻找元素前一个同一级元素</li>
+<li><p>优化-</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function tag(element,attributes)&#123;</span><br><span class="line">        var ele=document.createElement(element)</span><br><span class="line">        for(var key in attributes)&#123;</span><br><span class="line">            ele[key]=attributes[key]</span><br><span class="line">        &#125;</span><br><span class="line">        return ele</span><br><span class="line">&#125;</span><br><span class="line">key--&gt;className:&apos;row&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>while循环的特点1.初始声明 2.判断表达式 2.给初始声明加1或减1</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=11</span><br><span class="line">if(a&lt;10)</span><br><span class="line">console.log(&apos;a是一位数&apos;)</span><br><span class="line">console.log(&apos;a是小于10&apos;)</span><br><span class="line">答案是console.log(&apos;a是小于10&apos;)，因为if判断如果没加&#123;&#125;，只能接一句</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a=1</span><br><span class="line">if(a=3)</span><br><span class="line">console.log(&apos;a是等于3&apos;)</span><br><span class="line">答案是console.log(&apos;a是等于3&apos;)，因为()里是赋值语句</span><br></pre></td></tr></table></figure>
+<ol start="24">
+<li>语句(statement)和表达式(expression)的区别在于，前者主要为了进行某种操作，一般情况下不需要值；后者则是为了得到值，一定会得到一个值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(x)</span><br><span class="line">var x=1</span><br><span class="line">等价于</span><br><span class="line">var x</span><br><span class="line">console.log(x)</span><br><span class="line">x=1</span><br><span class="line">//变量提升</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>及格60分 符合要求80分 0-60分要花三分努力，60-80分要花八分努力，80分到90分要十二分努力</p>
 
     </section>
     <footer class="post-footer">
