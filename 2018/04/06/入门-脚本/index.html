@@ -51,28 +51,55 @@
 </span>
     <h1 class="post-title">入门-脚本</h1>
     <section class="post-content">
-      <p></p><h4>理解脚本</h4><br><a>JavaScript是一门动态类型，面向对象的脚本语音</a><br>脚本不是术语，就是个单词<p></p>
-<p></p><h4>写脚本</h4><p></p>
-<p><div>1. <small style="color:blue">cd ~/Desktop</small> 先返回桌面</div></p>
-<p><div>2. <small style="color:blue">mkdir local</small> 创建local目录</div></p>
-<p><div>3. <small style="color:blue">cd local</small> 进入local目录</div></p>
-<p><div>4. <small style="color:blue">touch demo.txt</small> 创建demo.txt</div></p>
-<p><div>5. <small style="color:blue">xdg-open demo.txt</small> 打开demo.txt</div></p>
-<p><div>6.写入下面的代码：</div></p>
-<p><ul></ul></p>
-<p><li>mkdir demo</li></p>
-<p><li>cd demo</li></p>
-<p><li>mkdir css js</li></p>
-<p><li>touch index.html css/style.css js/main.js</li></p>
-<p><li>exit(可加可不加)</li><br><br></p>
-<p><div>7. <small style="color:blue">mv demo.txt demo.sh</small> demo.txt重命名为demo.sh</div></p>
-<p><div>8. <small style="color:blue">ls -l</small> 列出当前目录下文件属性</div></p>
-<p><div>9. <small style="color:blue">chmod +x demo.sh</small> 给demo.sh加上运行权限</div></p>
-<p><div>10. <small style="color:blue">cd ~/Desktop</small> 返回桌面目录</div></p>
-<p><div>11. <small style="color:blue">sh ~/local/demo.sh</small> 运行demo.sh脚本，在桌面创建一个demo目录，里面有index.html，css和js两个目录</div></p>
-<p><div>12.将~/local添加到PATH里</div></p>
-<ol><br><li> <small style="color:blue">cd ~/local; pwd</small> 查看local目录的绝对路径</li><br><li> <small style="color:blue">vim ~/.zshrc</small> vim打开zshrc配置文件</li><br><li> <small style="color:blue">export PATH=”local的绝对地址:PATH”</small> 在文件最后一行写入代码</li><br><li> <small style="color:blue">source ~/.zshrc</small> 保存下配置文件</li><br><li> <small style="color:blue">demo.sh</small> 直接可以运行脚本</li><br><li> <small style="color:blue">mv ~/local/demo.sh ~/local/demo</small> 将demo.sh的文件后缀去掉</li><br><li> <small style="color:blue">demo</small> 直接可以运行脚本</li><br></ol><br><br><h4>细节</h4><br><ol><br><li>PATH 的作用<br>你每次在 Bash 里面输入一个命令时（比如 ls、cp、demo），Bash 都会去 PATH 列表里面寻找对应的文件，如果找到了就执行.</li><br><li>使用 type demo 可以看到寻找过程</li><br><li>使用 which demo 可以看到寻找结果</li><br><li>文件后缀的作用：<br>(在命令行里)毫无作用,在Windows里面，文件后缀是打开指定的应用程序。<br></li><br></ol><br><h4>参数</h4><br><div>将demo脚本里面的demo都改成$1,<br><ul><li>mkdir $1</li><li>cd $1</li><li>mkdir css js</li><li>touch index.html css/style.css js/main.js</li><li>exit(可加可不加)</li></ul><br>在命令行里运行demo xxx，可以生成一个名为xxx的目录<br><div><br><big><a href="https://www.google.com/search?q=bash+first+param" target="_blank" rel="noopener">$1</a> 表示你传的第一个参数。</big><br><br><h4>判断目录是否存在</h4><ul><li>if [ -d $1 ]; then</li><li>  echo “$1 已经存在”</li><li>  exit</li><li>else</li><li>  mkdir $1</li><li>  cd $1</li><li>  mkdir css js</li><li>  touch index.html css/style.css js/main.js</li><li>  exit(可加可不加)</li><li>fi</li></ul><br><a href="https://www.google.com/search?q=bash+dir+exists" target="_blank" rel="noopener">-d $1</a>可以判断目录是否存在<br><br><h4>返回值</h4><ul><li><small style="color:blue">exit 0</small>表示没有错误</li><li><small style="color:blue">exit 1</small>表示错误代码为1</li></ul><br>命令行输入 <small style="color:blue">demo &amp;&amp; echo ‘结束’</small><br>只有在demo成功是，才会执行 echo ’结束‘<br><br><h4>Node.js 写脚本</h4>JS 的全称叫做 JavaScript（Java脚本），虽然 JS 和 Java 没什么关系，但是 JS 依然是一种脚本。<br><ol><li>我们在 Bash 命令行里输入 Bash 命令，也可以在 Node.js 命令行里输入 JS 命令（Ctrl + D 退出）</li><li>Bash 脚本能做的事情，JS 脚本也能做。(sh demo.sh 对应 node demo.js）</li></ol><br><h4>shebang</h4><br>我们每次执行 ~/local/jsdemo.js 都要用 node 来执行，能不能做到不加 node 也能执行呢（也就是指定执行环境），可以，在 jsdemo.js 第一行加上这一句即可：<br><small style="color:blue">#!/usr/bin/env node</small><br><ol><li>然后你就可以直接用 ~/local/jsdemo.js zzz 了（省得输入 node 了）。</li><li>如果你已经把 ~/local 加入了 PATH，那么甚至可以直接输入 jsdemo.js zzz 来执行。</li><li>如果你再把 jsdemo.js 的后缀 .js 去掉，就可以直接 jsdemo zzz 了。</li></ol>
-</div></div>
+      <h3 id="理解脚本"><a href="#理解脚本" class="headerlink" title="理解脚本"></a>理解脚本</h3><p>JavaScript是一门动态类型，面向对象的脚本语言</p>
+<p>脚本不是术语，就是个单词</p>
+<h4 id="写脚本"><a href="#写脚本" class="headerlink" title="写脚本"></a>写脚本</h4><ol>
+<li><code>cd ~/Desktop</code> 先返回桌面</li>
+<li><code>mkdir local</code> 创建local目录</li>
+<li><code>cd local</code> 进入local目录</li>
+<li><code>touch demo.txt</code> 创建demo.txt</li>
+<li><code>xdg-open demo.txt</code> 打开demo.txt</li>
+<li><p>写入下面的代码：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir demo</span><br><span class="line">cd demo</span><br><span class="line">mkdir css js</span><br><span class="line">touch index.html css/style.css js/main.js</span><br><span class="line">exit(可加可不加)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>mv demo.txt demo.sh</code> demo.txt重命名为demo.sh</p>
+</li>
+<li><code>ls -l</code> 列出当前目录下文件属性</li>
+<li><code>chmod +x demo.sh</code> 给demo.sh加上运行权限</li>
+<li><code>cd ~/Desktop</code> 返回桌面目录</li>
+<li><code>sh ~/local/demo.sh</code> 运行demo.sh脚本，在桌面创建一个demo目录，里面有index.html，css和js两个目录</li>
+<li>将~/local添加到PATH里<ol>
+<li><code>cd ~/local; pwd</code> 查看local目录的绝对路径</li>
+<li><code>vim ~/.zshrc</code> vim打开zshrc配置文件</li>
+<li><code>export PATH=&quot;local的绝对地址:PATH&quot;</code> 在文件最后一行写入代码</li>
+<li><code>source ~/.zshrc</code> 保存下配置文件</li>
+<li><code>demo.sh</code> 直接可以运行脚本</li>
+<li><code>mv ~/local/demo.sh ~/local/demo</code> 将demo.sh的文件后缀去掉</li>
+<li><code>demo</code> 直接可以运行脚本<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4></li>
+</ol>
+</li>
+<li>PATH 的作用:你每次在 Bash 里面输入一个命令时（比如 ls、cp、demo），Bash 都会去 PATH 列表里面寻找对应的文件，如果找到了就执行.</li>
+<li>使用 type demo 可以看到寻找过程</li>
+<li>使用 which demo 可以看到寻找结果</li>
+<li>文件后缀的作用：(在命令行里)毫无作用,在Windows里面，文件后缀是打开指定的应用程序。</li>
+</ol>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>将demo脚本里面的demo都改成$1,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir $1</span><br><span class="line">cd $1</span><br><span class="line">mkdir css js</span><br><span class="line">touch index.html css/style.css js/main.js</span><br><span class="line">exit(可加可不加)</span><br></pre></td></tr></table></figure></p>
+<p>在命令行里运行demo xxx，可以生成一个名为xxx的目录</p>
+<h5 id="1-表示你传的第一个参数。"><a href="#1-表示你传的第一个参数。" class="headerlink" title="$1 表示你传的第一个参数。"></a><a href="https://www.google.com/search?q=bash+first+param" target="_blank" rel="noopener">$1</a> 表示你传的第一个参数。</h5><h4 id="判断目录是否存在"><a href="#判断目录是否存在" class="headerlink" title="判断目录是否存在"></a>判断目录是否存在</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if [ -d $1 ]; then</span><br><span class="line">echo &quot;$1 已经存在&quot;</span><br><span class="line">exit</span><br><span class="line">else</span><br><span class="line">mkdir $1</span><br><span class="line">cd $1</span><br><span class="line">mkdir css js</span><br><span class="line">touch index.html css/style.css js/main.js&lt;/li&gt;&lt;li&gt;</span><br><span class="line">exit(可加可不加)</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.google.com/search?q=bash+dir+exists" target="_blank" rel="noopener">-d $1</a>可以判断目录是否存在</p>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><ul>
+<li><code>exit 0</code>表示没有错误</li>
+<li><code>exit 1</code>表示错误代码为1<br>命令行输入 <code>demo &amp;&amp; echo ‘结束’</code><br>只有在demo成功是，才会执行 echo ’结束‘</li>
+</ul>
+<h4 id="Node-js-写脚本"><a href="#Node-js-写脚本" class="headerlink" title="Node.js 写脚本"></a>Node.js 写脚本</h4><p>JS 的全称叫做 JavaScript（Java脚本），虽然 JS 和 Java 没什么关系，但是 JS 依然是一种脚本。</p>
+<ol>
+<li>我们在 Bash 命令行里输入 Bash 命令，也可以在 Node.js 命令行里输入 JS 命令（Ctrl + D 退出）</li>
+<li>Bash 脚本能做的事情，JS 脚本也能做。(sh demo.sh 对应 node demo.js）<h4 id="shebang"><a href="#shebang" class="headerlink" title="shebang"></a>shebang</h4>我们每次执行 <code>~/local/jsdemo.js</code> 都要用 node 来执行，能不能做到不加 node 也能执行呢（也就是指定执行环境），可以，在 jsdemo.js 第一行加上这一句即可：<br><code>#!/usr/bin/env node</code></li>
+<li>然后你就可以直接用 ~/local/jsdemo.js zzz 了（省得输入 node 了）。</li>
+<li>如果你已经把 ~/local 加入了 PATH，那么甚至可以直接输入 jsdemo.js zzz 来执行。</li>
+<li>如果你再把 jsdemo.js 的后缀 .js 去掉，就可以直接 jsdemo zzz 了。</li>
+</ol>
+
     </section>
     <footer class="post-footer">
       <section class="author">
