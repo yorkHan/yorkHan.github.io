@@ -65,9 +65,8 @@
 <p>用VUE代替view,去除controller</p>
 <h4 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h4><p><img src="/2018/05/01/MVVM/双向绑定.png" alt="双向绑定"></p>
 <p><img src="/2018/05/01/MVVM/Vue轮播.png" alt="Vue轮播"></p>
-<p>//ES6技巧<br>let config=response.config</p>
-<h1 id="let-method-url-data-config-data是请求的data"><a href="#let-method-url-data-config-data是请求的data" class="headerlink" title="let {method,url,data}=config //data是请求的data"></a>let {method,url,data}=config //data是请求的data</h1><p>let{config:{method,url,data}}=response<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">$(&apos;#app&apos;).on(&apos;click&apos;,&apos;#addOne&apos;,function()&#123;&#125;)</span><br><span class="line">委托：如果你点击app里面任何一个元素，只要符合#addOne这个选择器，就执行function</span><br></pre></td></tr></table></figure></p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//ES6技巧</span><br><span class="line">let config=response.config</span><br><span class="line">let &#123;method,url,data&#125;=config //data是请求的data</span><br><span class="line">let &#123;config:&#123;method,url,data&#125;&#125;=response</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#app&apos;).on(&apos;click&apos;,&apos;#addOne&apos;,function()&#123;&#125;)</span><br><span class="line">委托：如果你点击app里面任何一个元素，只要符合#addOne这个选择器，就执行function</span><br></pre></td></tr></table></figure>
     </section>
     <footer class="post-footer">
       <section class="author">
