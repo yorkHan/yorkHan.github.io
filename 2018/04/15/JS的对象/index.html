@@ -61,12 +61,12 @@
 <li>Number(‘1’)变化为数字 </li>
 <li>声明一个number对象 var n=new Number(1) ==&gt;{valueOf():1,},包装成对象，有很多便捷的操作可以用</li>
 </ol>
-<p>基本类型没有属性<br>妙计：临时转换<br><img src="/2018/04/15/JS的对象/临时转换.png" alt="临时转换"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var n=1；</span><br><span class="line">n.toString() ==&gt; temp=new Nummber(n);</span><br><span class="line">temp.toString() //用完后把temp对象干掉</span><br></pre></td></tr></table></figure></p>
+<p>基本类型没有属性<br>妙计：临时转换<br><img src="/2018/04/15/JS的对象/临时转换.png" alt="临时转换"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var n=1；</span><br><span class="line">n.toString() ==&gt; temp=new Number(n);</span><br><span class="line">temp.toString() //用完后把temp对象干掉</span><br></pre></td></tr></table></figure></p>
 <h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><ol>
 <li>String(‘1’)变化为字符串</li>
 <li>声明一个String对象 var a=new String(‘Hi’)基本类型声明成对象，有很多便捷的操作可以用<br> 妙计：临时转换 </li>
 <li>charAt获取某个索引对应的字符 chatCodeAt获取摸个索引对应的字符的编码<br> ‘a’.charCodeAt(0)==&gt;97:a的十进制的unicode是97,<br> ‘a’.charCodeAt(0).toString(16)==&gt;’61’：a的十六进制的unicode是’61’</li>
-<li>String的属性<br> trim()去掉字符串里的空格,trim的意思：裁剪修剪<br> concat()连接字符串 连接两个字符串<br> slice()切片 slice(0,2)包括第0位不包括第2位<br> replace()替换 replace(‘e’,’o’)把字符e替换成o；</li>
+<li>String的属性：<br> trim()去掉字符串里的空格,trim的意思：裁剪修剪<br> concat()连接字符串 连接两个字符串<br> slice()切片 slice(0,2)包括第0位不包括第2位<br> replace()替换 replace(‘e’,’o’)把字符e替换成o；</li>
 </ol>
 <h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h4><ol>
 <li>var b=true变化为boolean值</li>
@@ -116,8 +116,8 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2018/04/16/JS小技巧/">
-        ← JS小技巧
+    <a class="newer-posts" href="/2018/04/16/线上简历/">
+        ← 线上简历
     </a>
     
     <span class="icon-logo">•</span>
