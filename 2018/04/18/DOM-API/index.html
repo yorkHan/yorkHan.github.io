@@ -51,15 +51,85 @@
 </span>
     <h1 class="post-title">DOM-API</h1>
     <section class="post-content">
-      <p>DOM 的英文全称 (Document Object Model)。<br>DOM 国际标准，现在通用版本是DOM3。<br>DOM的最小组成单位叫做Node(节点)<br>DOM树的根节点是html<br>HTML是XML的一种衍生品<br><code>&lt;html&gt;</code>特殊的Element是由Document造的<br><code>&lt;head&gt;,&lt;body&gt;</code>是由Element造的<br><code>&lt;meta&gt;,&lt;title&gt;，&lt;h1&gt;</code>等是由Text造的<br>Element，Text，Document，Comment都是Node<br>注释也是一种节点 注释的<code>__proto__</code>是Comment.prototype<br>页面中的节点通过构造函数构造出对应的对象，这就是DOM的主要功能<br>回车也是textNode </p>
-<p></p><h4>node接口</h4><br>节点的类型有七种：Document, DocumentType, Element, Attribute, Text, Comment, DocumentFragment<p></p>
-<p></p><h5>属性</h5><br>childNodes 所有的子节点包含textNode回车 会返回一个伪数组<br><code>&lt;div id=parent1&gt;&lt;div id=child1&gt;&lt;/div&gt;&lt;/div&gt;</code>parent1.childNodes 的值是{0:child1,length:1}的伪数组<br>ChildNode接口用于处理子节点（包含但不限于Element子节点）。Element节点、DocumentType节点和CharacterData接口，部署了ChildNode接口。凡是这三类节点（接口），都可以使用remove() before() after() replaceWith()<br>children 所有的子标签<br>firstChild 第一个子节点<br>lastChild 最后一个子节点<br>firstElementChild 第一个元素子节点<br>lastElementChild 最后元素子节点<br>previousSibilng 上一个同级节点 （可能会获取文本节点）<br>previousElementSibling 上一个同级元素节点<br>nextSibilng 下一个同级节点 （可能会获取文本节点）<br>nextElementSibling 下一个同级元素节点<br>innerText 里面的文本 有危险容易把子节点全部覆盖 与textContent的区别<p></p>
-<p><ul><li>textContent 会获取所有元素的内容，包括script和style元素，然而 innerText 不会.</li><li>innerText意识到样式，并且不会返回隐藏元素的文本，而textContent会。</li><li>由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</li><li>与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。</li></ul><br>nodeName 节点的名称，只有svg是小写，其他都是大写的<br>nodeType（1表示Element节点；3表示Text节点；8表示Comment节点;9表示Document节点；11:DocumentFragment优化）<br>HTMLCollection与NodeList的区别有<ol><li>HTMLCollection实例对象的成员只能是Element节点，NodeList实例对象的成员可以包含其他节点</li><li>B. HTMLCollection实例对象都是动态集合，节点的变化会实时反映在集合中。NodeList实例对象可以是静态集合。</li><li>HTMLCollection实例对象可以用id属性或name属性引用节点元素，NodeList只能使用数字索引引用</li></ol></p>
-<p></p><h5>方法</h5><br>cloneNode()<br>cloneNode(true)被克隆对象所有东西（包括子节点，后代节点）都被克隆，克隆出来的完全一样，又叫深克隆<br>cloneNode(false)||cloneNode()被克隆对象自己被克隆，又叫浅克隆<br>isEqualNode() 节点是否相等 看起来一模一样<br>isSameNode() 节点是否相同 ===  就是同一个<br>removeChild() 移除子节点，只是在页面中被移除，子节点还在内存里面<br>replaceChild() 替换子节点<br>normalize() 常规化<p></p>
-<p></p><h4>Document接口</h4><p></p>
-<p></p><h5>属性</h5><br>characterSet 字符编码<br>childElementCount 子元素的个数<br>documentElement 会返回文档对象的根元素<br>domain 获取域名<br>hidden 文档是否隐藏<br>images 获取所有img标签<br>links 获取所有a标签<br>location 获取当前的对象<br>onxxxxx 事件监听<br>plugins 用户是否开启flash插件<br>readyState 文档是否加载完成<br>referrer 引荐人 从一个页面里跳到另一个页面，那个页面就是referrer，可以通过referrer来拒绝为其他网站的引用者提供服务<br>script 获取所有的script标签<br>scrollingElement 真在滚动的元素<br>visibilityState 文档是否正在显示<p></p>
-<p></p><h5>方法</h5><br>close() 关闭文档<br>createTextNode 创建文本节点<br>execCommand 执行命令 写一个副文本编辑器<br>querySelector() 通过选择器返回一个元素<br>querySelectorAll() 通过选择器返回所有元素的伪数组，即使只有一个元素，也会返回伪数组<p></p>
-<p></p><h4>Element接口</h4><br>attributes() 返回属性<br>className() class<br>innerHTML 与innerText<br>innerText会把标签当成文本 innerHTML会把标签执行<br>除了document，Element也是可以querySelector<br><code>&lt;div id=parent&gt;&lt;/div&gt;</code>如果有父窗口，就是父窗口，如果没有，就是当前窗口<br>1.window的属性全局变量不能用，容易把window的属性覆盖<br>2.可以使用局部变量，在函数作用域里使用<br>3.如果我们只是想使用局部变量，声明一个匿名函数然后在后面加.call(),又叫立即执行函数<br>4.如果直接运行立即执行函数，浏览器会报错语法错误，解决方法<ul><li>用()把整个立即执行函数包起来</li><li>用()把立即执行函数的函数用()包起来</li><li>在立即执行函数前加个-，告诉浏览器后面声明并且调用这个值，不是函数声明</li><li>在立即执行函数前加个+，告诉浏览器后面声明并且调用这个值，不是函数声明</li><li>在立即执行函数前加个!，告诉浏览器后面声明并且调用这个值，不是函数声明</li><li>在立即执行函数前加个~，告诉浏览器后面声明并且调用这个值，不是函数声明</li></ul><br>let 声明是逃不出{},不会变量提升<p></p>
+      <h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>DOM 的英文全称 (Document Object Model)。<br>DOM 国际标准，现在通用版本是DOM3。<br>DOM的最小组成单位叫做Node(节点)<br><img src="/2018/04/18/DOM-API/DOM树型结构.png" alt="DOM树型结构"><br>DOM树的根节点是html<br>HTML是XML的一种衍生品<br><code>&lt;html&gt;</code>特殊的Element是由Document造的<br><code>&lt;head&gt;,&lt;body&gt;</code>是由Element造的<br><code>&lt;meta&gt;,&lt;title&gt;，&lt;h1&gt;</code>等是由Text造的<br>Element，Text，Document，Comment都是Node<br>注释也是一种节点 注释的<code>__proto__</code>是Comment.prototype<br>页面中的节点通过构造函数构造出对应的对象，这就是DOM的主要功能<br>回车也是textNode </p>
+<h3 id="node接口"><a href="#node接口" class="headerlink" title="node接口"></a>node接口</h3><p>节点的类型有七种：Document, DocumentType, Element, Attribute, Text, Comment, DocumentFragment</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ol>
+<li>childNodes 所有的子节点包含textNode回车 会返回一个伪数组<br> <code>&lt;div id=parent1&gt;&lt;div id=child1&gt;&lt;/div&gt;&lt;/div&gt;</code>parent1.childNodes 的值是{0:child1,length:1}的伪数组<br> ChildNode接口用于处理子节点（包含但不限于Element子节点）。Element节点、DocumentType节点和CharacterData接口，部署了ChildNode接口。凡是这三类节点（接口），都可以使用remove() before() after() replaceWith()</li>
+<li>children 所有的子标签</li>
+<li>firstChild 第一个子节点</li>
+<li>lastChild 最后一个子节点</li>
+<li>firstElementChild 第一个元素子节点</li>
+<li>lastElementChild 最后元素子节点</li>
+<li>previousSibilng 上一个同级节点 （可能会获取文本节点）</li>
+<li>previousElementSibling 上一个同级元素节点</li>
+<li>nextSibilng 下一个同级节点 （可能会获取文本节点）</li>
+<li>nextElementSibling 下一个同级元素节点</li>
+<li>innerText 里面的文本 有危险容易把子节点全部覆盖 与textContent的区别<br><code>textContent 会获取所有元素的内容，包括script和style元素，然而 innerText 不会.
+innerText意识到样式，并且不会返回隐藏元素的文本，而textContent会。
+由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。
+与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。
+`</code></li>
+<li>nodeName 节点的名称，只有svg是小写，其他都是大写的 </li>
+<li>nodeType（1表示Element节点；3表示Text节点；8表示Comment节点;9表示Document节点；11:DocumentFragment优化）</li>
+<li>HTMLCollection与NodeList的区别有<ol>
+<li>HTMLCollection实例对象的成员只能是Element节点，NodeList实例对象的成员可以包含其他节点</li>
+<li>B. HTMLCollection实例对象都是动态集合，节点的变化会实时反映在集合中。NodeList实例对象可以是静态集合。</li>
+<li>HTMLCollection实例对象可以用id属性或name属性引用节点元素，NodeList只能使用数字索引引用</li>
+</ol>
+</li>
+</ol>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ol>
+<li>cloneNode()<br> cloneNode(true)被克隆对象所有东西（包括子节点，后代节点）都被克隆，克隆出来的完全一样，又叫深克隆<br> cloneNode(false)||cloneNode()被克隆对象自己被克隆，又叫浅克隆</li>
+<li>isEqualNode() 节点是否相等 看起来一模一样</li>
+<li>isSameNode() 节点是否相同 ===  就是同一个</li>
+<li>removeChild() 移除子节点，只是在页面中被移除，子节点还在内存里面</li>
+<li>replaceChild() 替换子节点</li>
+<li>normalize() 常规化</li>
+</ol>
+<h3 id="Document接口"><a href="#Document接口" class="headerlink" title="Document接口"></a>Document接口</h3><h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><ol>
+<li>characterSet 字符编码</li>
+<li>childElementCount 子元素的个数</li>
+<li>documentElement 会返回文档对象的根元素</li>
+<li>domain 获取域名</li>
+<li>hidden 文档是否隐藏</li>
+<li>images 获取所有img标签</li>
+<li>links 获取所有a标签</li>
+<li>location 获取当前的对象</li>
+<li>onxxxxx 事件监听 </li>
+<li>plugins 用户是否开启flash插件</li>
+<li>readyState 文档是否加载完成</li>
+<li>referrer 引荐人 从一个页面里跳到另一个页面，那个页面就是referrer，可以通过referrer来拒绝为其他网站的引用者提供服务</li>
+<li>script 获取所有的script标签</li>
+<li>scrollingElement 真在滚动的元素</li>
+<li>visibilityState 文档是否正在显示</li>
+</ol>
+<h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h4><ol>
+<li>close() 关闭文档 </li>
+<li>createTextNode 创建文本节点</li>
+<li>execCommand 执行命令 写一个副文本编辑器</li>
+<li>querySelector() 通过选择器返回一个元素  </li>
+<li>querySelectorAll() 通过选择器返回所有元素的伪数组，即使只有一个元素，也会返回伪数组</li>
+</ol>
+<h4 id="Element接口"><a href="#Element接口" class="headerlink" title="Element接口"></a>Element接口</h4><ol>
+<li>attributes() 返回属性</li>
+<li>className() class</li>
+<li>innerHTML 与innerText,innerText会把标签当成文本 innerHTML会把标签执行<br>除了document，Element也是可以querySelector</li>
+</ol>
+<p><code>&lt;div id=parent&gt;&lt;/div&gt;</code>如果有父窗口，就是父窗口，如果没有，就是当前窗口</p>
+<ol>
+<li>window的属性全局变量不能用，容易把window的属性覆盖</li>
+<li>可以使用局部变量，在函数作用域里使用</li>
+<li>如果我们只是想使用局部变量，声明一个匿名函数然后在后面加.call(),又叫立即执行函数</li>
+<li>如果直接运行立即执行函数，浏览器会报错语法错误，解决方法<ol>
+<li>用()把整个立即执行函数包起来</li>
+<li>用()把立即执行函数的函数用()包起来</li>
+<li>在立即执行函数前加个-，告诉浏览器后面声明并且调用这个值，不是函数声明</li>
+<li>在立即执行函数前加个+，告诉浏览器后面声明并且调用这个值，不是函数声明</li>
+<li>在立即执行函数前加个!，告诉浏览器后面声明并且调用这个值，不是函数声明</li>
+<li>在立即执行函数前加个~，告诉浏览器后面声明并且调用这个值，不是函数声明</li>
+</ol>
+</li>
+</ol>
 
     </section>
     <footer class="post-footer">
