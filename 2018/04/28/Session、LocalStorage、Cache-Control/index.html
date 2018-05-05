@@ -75,8 +75,8 @@
 <li>Session 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的</li>
 </ol>
 <h3 id="LocalStorage是什么"><a href="#LocalStorage是什么" class="headerlink" title="LocalStorage是什么"></a>LocalStorage是什么</h3><p>LocalStorage是HTML5提供的API，是浏览器上的哈希表<br>在有LocalStorage之前，所有的变量在页面刷新的时候，全部销毁，有了LocalStorage，把变量存到磁盘某些文件里面给以后使用</p>
-<h4 id="LocalStorage的用法"><a href="#LocalStorage的用法" class="headerlink" title="LocalStorage的用法"></a>LocalStorage的用法</h4><p>LocalStorage.setItem(key,value) 存储{key:key,value:value}的哈希表<br>LocalStorage.getItem(key) 根据key找到对应的value<br>LocalStorage.clear 清空哈希表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//最典型的用法，记录有没有提示过用户</span><br><span class="line">let already=localStorage.getItem(&apos;已经提示了&apos;)</span><br><span class="line">if(!already)&#123;</span><br><span class="line">    alert(&apos;你好，我们的网站改版了，有了这些新功能:....&apos;)</span><br><span class="line">    localStorage.setItem(&apos;已经提示了&apos;,true)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="LocalStorage的特征"><a href="#LocalStorage的特征" class="headerlink" title="LocalStorage的特征"></a>LocalStorage的特征</h4><ol>
+<h5 id="LocalStorage的用法"><a href="#LocalStorage的用法" class="headerlink" title="LocalStorage的用法"></a>LocalStorage的用法</h5><p>LocalStorage.setItem(key,value) 存储{key:key,value:value}的哈希表<br>LocalStorage.getItem(key) 根据key找到对应的value<br>LocalStorage.clear 清空哈希表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//最典型的用法，记录有没有提示过用户</span><br><span class="line">let already=localStorage.getItem(&apos;已经提示了&apos;)</span><br><span class="line">if(!already)&#123;</span><br><span class="line">    alert(&apos;你好，我们的网站改版了，有了这些新功能:....&apos;)</span><br><span class="line">    localStorage.setItem(&apos;已经提示了&apos;,true)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="LocalStorage的特征"><a href="#LocalStorage的特征" class="headerlink" title="LocalStorage的特征"></a>LocalStorage的特征</h5><ol>
 <li>LocalStorage 跟 HTTP 无关</li>
 <li>HTTP 不会带上 LocalStorage 的值</li>
 <li>只有相同域名的页面才能互相读取 LocalStorage（没有同源那么严格）</li>
@@ -84,18 +84,18 @@
 <li>常用场景：记录有没有提示过用户（没有用的信息，不能记录密码）</li>
 <li>LocalStorage 永久有效，除非用户清理缓存</li>
 </ol>
-<h4 id="LocalStorage与Cookie的区别"><a href="#LocalStorage与Cookie的区别" class="headerlink" title="LocalStorage与Cookie的区别"></a>LocalStorage与Cookie的区别</h4><ol>
+<h5 id="LocalStorage与Cookie的区别"><a href="#LocalStorage与Cookie的区别" class="headerlink" title="LocalStorage与Cookie的区别"></a>LocalStorage与Cookie的区别</h5><ol>
 <li>Cookie每次请求都会被浏览器带到服务器，LocalStorage不会被带到服务器(LocalStorage 跟 HTTP 无关)</li>
 <li>localStorage 最大存储量为 5Mb 左右,Cookie大小大概在 4kb 以内</li>
 </ol>
-<h4 id="SessionStorage（会话存储）"><a href="#SessionStorage（会话存储）" class="headerlink" title="SessionStorage（会话存储）"></a>SessionStorage（会话存储）</h4><p>1、2、3、4 同上</p>
+<h5 id="SessionStorage（会话存储）"><a href="#SessionStorage（会话存储）" class="headerlink" title="SessionStorage（会话存储）"></a>SessionStorage（会话存储）</h5><p>1、2、3、4 同上</p>
 <p>5.SessionStorage 在用户关闭页面（会话结束）后就失效。<br>6.SessionStorage与Session一点关系都没有</p>
-<h4 id="LocalStorage与SessionStorage的区别"><a href="#LocalStorage与SessionStorage的区别" class="headerlink" title="LocalStorage与SessionStorage的区别"></a>LocalStorage与SessionStorage的区别</h4><p>1.SessionStorage在用户关闭页面（会话结束）后就失效，LocalStorage 永久有效，除非用户清理缓存</p>
-<p>###HTTP 缓存</p>
-<h4 id="Cache-Control-是什么"><a href="#Cache-Control-是什么" class="headerlink" title="Cache-Control 是什么"></a>Cache-Control 是什么</h4><p>Cache-Control可以让浏览器在一段时间内不访问服务器，直接用本地的内存或硬盘作为响应<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control MDN</a><br>web性能优化的一部分<br>response.setHeader(‘Cache-Control’,’max-age=30’) 30秒内不要再请求<br>首页不要设置Cache-Control：用户没法获取最新网页(尤其是html)<br>尽量把Cache-Control设置的时间很长<br>如何更新，只有在入口处(html文件)里面，更改URL可以不使用以前的缓存，浏览器会下载最新版缓存下来 (./main.css?v=4)</p>
+<h5 id="LocalStorage与SessionStorage的区别"><a href="#LocalStorage与SessionStorage的区别" class="headerlink" title="LocalStorage与SessionStorage的区别"></a>LocalStorage与SessionStorage的区别</h5><p>SessionStorage在用户关闭页面（会话结束）后就失效，LocalStorage 永久有效，除非用户清理缓存</p>
+<h3 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h3><h4 id="Cache-Control-是什么"><a href="#Cache-Control-是什么" class="headerlink" title="Cache-Control 是什么"></a>Cache-Control 是什么</h4><p>Cache-Control可以让浏览器在一段时间内不访问服务器，直接用本地的内存或硬盘作为响应<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control MDN</a><br>web性能优化的一部分<br>response.setHeader(‘Cache-Control’,’max-age=30’) 30秒内不要再请求<br>首页不要设置Cache-Control：用户没法获取最新网页(尤其是html)<br>尽量把Cache-Control设置的时间很长<br>如何更新，只有在入口处(html文件)里面，更改URL可以不使用以前的缓存，浏览器会下载最新版缓存下来 (./main.css?v=4)</p>
 <h4 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a>Expire</h4><p>以前缓存用Expire<br>Cache-Control是多久过期，Expire是几分几秒(本地时间)过期，用户本地时间错乱了就完了<br>优先使用Cache-Control</p>
 <h4 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h4><p>MD5訊息摘要演算法（英语：MD5 Message-Digest Algorithm），一種被廣泛使用的密碼雜湊函數，可以產生出一個128位元（16位元組）的散列值（hash value），用于确保信息传输完整一致。<br>文件一个内容对应一个MD5，摘要演算法就是把一个文件变成字符串，如果这个文件有任何地方改了，MD5就会变成差异很大的字符串<br>MD5有个很重要的特征，内容差异越小，算出来的结果差异越大，把微小的差异放大。</p>
-<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>客户端请求之后，服务器可能会比较客户端的ETag和当前版本资源的ETag。 如果ETag值匹配，这就意味着资源没有改变，服务器便会发送回一个极短的响应，包含HTTP “304 未修改”的状态。 304状态告诉客户端，它的缓存版本是最新的，并应该使用它。<br>用Cache-Control是直接不请求，用ETag是直接不下载，但是还是请求</p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>客户端请求之后，服务器可能会比较客户端的ETag和当前版本资源的ETag。 如果ETag值匹配，这就意味着资源没有改变，服务器便会发送回一个极短的响应，包含HTTP “304 未修改”的状态。 304状态告诉客户端，它的缓存版本是最新的，并应该使用它。</p>
+<h5 id="Cache-Control与ETag的区别："><a href="#Cache-Control与ETag的区别：" class="headerlink" title="Cache-Control与ETag的区别："></a>Cache-Control与ETag的区别：</h5><p>用Cache-Control是直接不请求，用ETag是直接不下载，但是还是请求</p>
 
     </section>
     <footer class="post-footer">
