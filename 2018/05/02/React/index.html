@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>使用Github和Hexo搭建自己的博客 | York&#39;s Blog</title>
+  <title>React | York&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -44,36 +44,25 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2018-04-06T11:06:05.000Z" itemprop="datePublished">
-          2018-04-06
+      <time datetime="2018-05-02T04:43:44.000Z" itemprop="datePublished">
+          2018-05-02
       </time>
     
 </span>
-    <h1 class="post-title">使用Github和Hexo搭建自己的博客</h1>
+    <h1 class="post-title">React</h1>
     <section class="post-content">
-      <ol>
-<li>使用命令行进入一个安全目录，比如<code>cd ～/.Desktop</code>或者<code>cd ~/.Documents</code>,(注意不要在根目录)</li>
-<li>在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（请将你的用户名替换成真正的用户名）</li>
-<li>命令行输入<code>npm install -g hexo-cli</code>，安装 Hexo</li>
-<li>命令行输入<code>hexo init myBlog</code></li>
-<li>命令行输入<code>cd myBlog</code></li>
-<li>命令行输入<code>npm i</code></li>
-<li>命令行输入<code>hexo new +你的博客标题</code>，你会看到一个 md 文件的路径</li>
-<li><code>start xxxxxxxxxxxxxxxxxxx.md</code> ，编辑这个 md 文件，内容自己想（Ubuntu 系统用<code>xdg-open xxxxxxxxxxxxxxxxxxx.md</code>） </li>
-<li>命令行输入<code>start _config.yml</code> ，编辑网站配置<ol>
-<li>把第 6 行的 title 改成你想要的名字</li>
-<li>把第 9 行的 author 改成你的大名</li>
-<li>把最后一行的 type 改成 type: git</li>
-<li>在最后一行后面新增一行，左边与 type 平齐，加上一行 repo: 仓库地址 （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 开头你知道吧？不知道？不知道的话现在你知道了）</li>
-<li>第 4 步的 repo: 后面有个空格，不要眼瞎。</li>
-</ol>
-</li>
-</ol>
-<ol start="10">
-<li>命令行输入<code>npm install hexo-deployer-git --save</code>,安装 git 部署插件</li>
-<li>命令行输入<code>hexo deploy</code></li>
-<li>进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接</li>
-<li>你现在应该看到了你的博客！</li>
+      <p>安装 create-react-app<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app . //用 create-react-app 初始化这个目录</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure></p>
+<p>ReactDOM.render(p1, p2) 的作用：将 p1 插入到 p2 中。只不过 p1 虽然在 JS 文件中，却可以使用 HTML 的语法（这就是 JSX 语法）。</p>
+<h4 id="部署到-GitHub"><a href="#部署到-GitHub" class="headerlink" title="部署到 GitHub"></a>部署到 GitHub</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;update&apos;</span><br><span class="line">需要删除 .gitignore 里面的 /build 这一行</span><br><span class="line">在 package.json 里添加&quot;homepage&quot;: &quot;https://jirengu-inc.github.io/project-react-1/build&quot;,</span><br><span class="line">yarn run build</span><br><span class="line"></span><br><span class="line">props的两种写法</span><br><span class="line">Class</span><br></pre></td></tr></table></figure>
+<p>import React from ‘react’; // 为什么要 import React<br>class Welcome extends React.Component {<br>  render() {<br>    return </p><h1>Hello, Component</h1>;<br>  }<br>}<p></p>
+<p>export default Welcome<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Function</span><br></pre></td></tr></table></figure></p>
+<p>function Welcome(props) {<br>      return </p><h1>Hello, {props.name}</h1>;<br>  }<br><code>`</code><p></p>
+<h3 id="生命周期（Lifecycle）"><a href="#生命周期（Lifecycle）" class="headerlink" title="生命周期（Lifecycle）"></a>生命周期（Lifecycle）</h3><p>React 的生命周期包括三个阶段：mount（挂载）、update（更新）和 unmount（移除）<br><img src="/2018/05/02/React/mount的四个钩子.jpg" alt="mount的四个钩子"></p>
+<p>一般，我们只在这几个钩子里 setState：</p>
+<ol>
+<li>componentWillMount</li>
+<li>componentDidMount</li>
+<li>componentWillReceiveProps</li>
 </ol>
 
     </section>
@@ -84,18 +73,18 @@
 </section>
       <section class="share">
     <h4>Share this post</h4>
-    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/" target="_blank">
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/05/02/React/" target="_blank">
         <span class="hidden">weibo</span>
     </a>
-    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/"
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/02/React/"
        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <span class="hidden">Twitter</span>
     </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/"
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/02/React/"
        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <span class="hidden">Facebook</span>
     </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/06/使用Github和Hexo搭建自己的博客/"
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/02/React/"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <span class="hidden">Google+</span>
     </a>
@@ -105,14 +94,14 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2018/04/06/命令行的基础操作/">
-        ← 命令行的基础操作
+    <a class="newer-posts" href="/2018/05/05/网易云音乐/">
+        ← 网易云音乐
     </a>
     
     <span class="icon-logo">•</span>
     
-    <a class="older-posts" href="/2018/04/06/git入门/">
-        Git入门 →
+    <a class="older-posts" href="/2018/05/02/面试/">
+        面试 →
     </a>
     
 </nav>
