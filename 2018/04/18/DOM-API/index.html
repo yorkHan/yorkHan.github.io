@@ -64,12 +64,11 @@
 <li>previousElementSibling 上一个同级元素节点</li>
 <li>nextSibilng 下一个同级节点 （可能会获取文本节点）</li>
 <li>nextElementSibling 下一个同级元素节点</li>
-<li>innerText 里面的文本 有危险容易把子节点全部覆盖 与textContent的区别<br><code>textContent 会获取所有元素的内容，包括script和style元素，然而 innerText 不会.
-innerText意识到样式，并且不会返回隐藏元素的文本，而textContent会。
-由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。
-与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。
-`</code></li>
-<li>nodeName 节点的名称，只有svg是小写，其他都是大写的 </li>
+<li><p>innerText 里面的文本 有危险容易把子节点全部覆盖 与textContent的区别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">textContent 会获取所有元素的内容，包括script和style元素，然而 innerText 不会.</span><br><span class="line">innerText意识到样式，并且不会返回隐藏元素的文本，而textContent会。</span><br><span class="line">由于 innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会。</span><br><span class="line">与 textContent 不同的是, 在 Internet Explorer (对于小于等于 IE11 的版本) 中对 innerText 进行修改， 不仅会移除当前元素的子节点，而且还会永久性地破坏所有后代文本节点（所以不可能再次将节点再次插入到任何其他元素或同一元素中）。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nodeName 节点的名称，只有svg是小写，其他都是大写的 </p>
+</li>
 <li>nodeType（1表示Element节点；3表示Text节点；8表示Comment节点;9表示Document节点；11:DocumentFragment优化）</li>
 <li>HTMLCollection与NodeList的区别有<ol>
 <li>HTMLCollection实例对象的成员只能是Element节点，NodeList实例对象的成员可以包含其他节点</li>
