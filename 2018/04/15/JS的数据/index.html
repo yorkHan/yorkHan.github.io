@@ -51,17 +51,38 @@
 </span>
     <h1 class="post-title">JS的数据</h1>
     <section class="post-content">
-      <p>Branden Eich JS之夫 擅长函数式 第一次叫Mocha，第二次叫LiveScript，最终叫JavaScript ，表面看起来像Java，只花了十天时间，1995年圣诞节左右发布<br>发布的时候 Unicode还没有发布，所以有编码BUG<br>1996年网景开源Firefox，并且向ECMA(欧洲计算机制造协会)申报标准,行业标准叫做ECMAScript<br>IE5.5 微软推出JS发请求<br>2004年Gmail，使用微软的技术发明网页上的程序，开启JS真正的编程语言，前端(Front-end)以js为生也出现了<br>2010年左右中国知道前端开发 ，ECMAScript3 不行1.全是全局变量(没有模块化)2.标准库不行(内置代码少)<br>ECMAScript 5步子太小了<br>Rails社区 Ruby–&gt;coffee script(JS改良版)，添加了类，箭头函数，opional chain语法<br>ECMAScript 6步子合适 增加了60个东西 ，抄袭了coffee script，集大家之所长，js终于变成现代编程语言<br>js之父评价，JS原创之处并不优秀，优秀之处并非原创<br>JS每年更新一次，ES7更新2个特性，ES8更新了10个特性，Wepback打包ES next<br>我们学的是从ES3开始–&gt;ES5–&gt;ES6,没有发布的特性就已经被使用了，没有规范的Babel使用转义<br>opional chain语法<br>console.log(obj？.a?.b?.c?.name)&lt;==&gt;<code>if(obj.a !== undefined&amp;&amp;obj.a.b !==undefined&amp;&amp;obj.a.b.c !== undefined&amp;&amp;obj.a.b.c.name !== undefined)}
-{ 
-    console.log(obj.a.b.c.name)
-}</code><br>js数据类型<br>有7种数据类型</p>
-<p></p><h5>1.数字(number)</h5><br>十进制 1.23e2==&gt;1.23*10^2 ，二进制 0b开头的 八进制0开头 011==&gt;9 十六进制0x开头<p></p>
-<p></p><h5>2.字符串(string)</h5><br> “你好” ‘你好’， ‘’ “”空字符串length为0，’ ‘ “ “空格字符串length为1，转义 var a= “‘“==&gt;’\’’(a赋值单引号)，\就是转义符 \n–&gt;回车 \t–&gt;制表符(tab键) \–&gt;斜杠==&gt;length为1<br> 多行字符串(不是字符串里有回车)<br> <code>var s=&#39;12356\   \后面不能有空格,坑人语法
-        67890&#39;</code><br><code>var s2=&#39;12356’+  这个比较好
-        ‘67890&#39;</code><br><code>var s3=&#39;12356
-        67890&#39;</code>会报错<br>ES6推出<br>var s4=反引号开头可以写多行字符串反引号结尾，里面不能有空格，回车是一个字符，length=1<p></p>
-<p></p><h5>3.布尔(boolean)</h5><br>数学家Boolean发明的逻辑学(下雨上课没带伞，得了肺病去世了)<br>布尔值 true(真) false假() &amp;&amp;与运算 ||或运算<br>真值表 a&amp;&amp;b 只有a和b都是真，结果才是真，其他都是假，a||b 只有a和b都是假，结果才是假，其他都是真<br> <h5>4.symbol(符号)</h5><br> <h5>5.null</h5> 空值，意思什么也没有 js原创<br> <h5>6.undefined</h5> 空值，意思什么也没有 js原创<br>null和undefined区别:<br>1.变量没有赋值–&gt;undefined<br>2.有一个对象object，现在不想赋值，那么推荐就给个null(var obj=null)，有一个非对像，不想给值，推荐初始化undefined<p></p>
-<p></p><h5> 7.对象(object)</h5><br>array(数组）,function(函数)属于object,哈希(hash) ,哈希表{“key”:”value”}<br>其他6个类型都叫基本类型(简单类型)，object叫复杂类型。是由简单类型组成的<br>var name=’york’     语法是var person = {‘name’:’frank’<br>var age=24      ==&gt;             ‘age=24’,<br>var gender=’male’               ‘gender’:’male’}<br>单引号可以省略，冒号前边都是字符串，person[‘name’]==&gt;person.name(特例) 单引号不能省略<br>var name=’fuck’， person[name]==&gt;person[‘fuck’]<br>1.delete person[‘name’]，person.name\undefined,’name’ in person\false 把key和value都删了<br>2.person.name=undefined,’name’ in person\true 只把value删了<br>for(var key in person) 遍历对象,key打印出key，person[key]打印出value<br>{self=person}可以包含自己 person.self.self.self.self.name 也是可以成立的<br>{可以包含 字符串：undefined||null||布尔||对象}<br>key是空字符串，{‘’：’York’}。引用person[‘’]<br>标识符原则(变量名)：1.变量第一个字符不能是数字，字符串可以 2.中间不能是空格3.必须是合法字符<br>{9a:’york’} 如果key不加引号，那么必须按照标识符原则(变量名)，9a和a b必须加引号，要不然会报错<br>变量的类型 typeof 识别变量的类型<br>t={} ;typeof t;”object”<br>BUG: 1.typeof null ;”object” 2.typeof fn; “function”<br>我想知道变量 a 是否已经声明过（值为 undefined 不代表没有声明过），应该用 if (‘a’ in window) { … }<p></p>
+      <h3 id="JavaScript的历史"><a href="#JavaScript的历史" class="headerlink" title="JavaScript的历史"></a>JavaScript的历史</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Branden Eich JS之夫 擅长函数式 第一次叫Mocha，第二次叫LiveScript，最终叫JavaScript ，表面看起来像Java，只花了十天时间，1995年圣诞节左右发布</span><br><span class="line">发布的时候 Unicode还没有发布，所以有编码BUG</span><br><span class="line">1996年网景开源Firefox，并且向ECMA(欧洲计算机制造协会)申报标准,行业标准叫做ECMAScript</span><br><span class="line">IE5.5 微软推出JS发请求</span><br><span class="line">2004年Gmail，使用微软的技术发明网页上的程序，开启JS真正的编程语言，前端(Front-end)以js为生也出现了</span><br><span class="line">2010年左右中国知道前端开发 ，ECMAScript3 不行1.全是全局变量(没有模块化)2.标准库不行(内置代码少)</span><br><span class="line">ECMAScript 5步子太小了</span><br><span class="line">Rails社区 Ruby--&gt;coffee script(JS改良版)，添加了类，箭头函数，opional chain语法</span><br><span class="line">ECMAScript 6步子合适 增加了60个东西 ，抄袭了coffee script，集大家之所长，js终于变成现代编程语言</span><br><span class="line">js之父评价，JS原创之处并不优秀，优秀之处并非原创</span><br><span class="line">JS每年更新一次，ES7更新2个特性，ES8更新了10个特性，Wepback打包ES next</span><br><span class="line">我们学的是从ES3开始--&gt;ES5--&gt;ES6,没有发布的特性就已经被使用了，没有规范的Babel使用转义</span><br></pre></td></tr></table></figure>
+<h5 id="opional-chain语法"><a href="#opional-chain语法" class="headerlink" title="opional chain语法"></a>opional chain语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(obj？.a?.b?.c?.name)&lt;==&gt;</span><br><span class="line">if(obj.a !== undefined&amp;&amp;obj.a.b !==undefined&amp;&amp;obj.a.b.c !== undefined&amp;&amp;obj.a.b.c.name !== undefined)&#125;</span><br><span class="line">&#123; </span><br><span class="line">    console.log(obj.a.b.c.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="js数据类型"><a href="#js数据类型" class="headerlink" title="js数据类型"></a>js数据类型</h3><p>有7种数据类型</p>
+<ol>
+<li>数字(number)<br> 十进制 1.23e2==&gt;1.23*10^2 ，二进制 0b开头的 八进制0开头 011==&gt;9 十六进制0x开头</li>
+<li><p>字符串(string)<br> “你好” ‘你好’， ‘’ “”空字符串length为0，’ ‘ “ “空格字符串length为1，转义 var a= “‘“==&gt;’\’’(a赋值单引号)，\就是转义符 \n–&gt;回车 \t–&gt;制表符(tab键) \–&gt;斜杠==&gt;length为1<br>  多行字符串(不是字符串里有回车) </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var s=&apos;12356\   \后面不能有空格,坑人语法</span><br><span class="line">        67890&apos;</span><br><span class="line">var s2=&apos;12356’+  这个比较好</span><br><span class="line">        ‘67890&apos;</span><br><span class="line">var s3=&apos;12356</span><br><span class="line">        67890&apos;会报错</span><br></pre></td></tr></table></figure>
+<p> ES6推出<br> var s4=反引号开头可以写多行字符串反引号结尾，里面不能有空格，回车是一个字符，length=1</p>
+</li>
+<li>布尔(boolean)<br> 数学家Boolean发明的逻辑学(下雨上课没带伞，得了肺病去世了)<br> 布尔值 true(真) false(假) &amp;&amp;与运算 ||或运算<br> 真值表 a&amp;&amp;b 只有a和b都是真，结果才是真，其他都是假，a||b 只有a和b都是假，结果才是假，其他都是真</li>
+<li>symbol(符号)</li>
+<li>null 空值，意思什么也没有 js原创 </li>
+<li>undefined空值，意思什么也没有 js原创<br> null和undefined区别:<ol>
+<li>变量没有赋值–&gt;undefined </li>
+<li>有一个对象object，现在不想赋值，那么推荐就给个null(var obj=null)，有一个非对像，不想给值，推荐初始化undefined</li>
+</ol>
+</li>
+<li><p>对象(object)<br> array(数组）,function(函数)属于object,哈希(hash) ,哈希表{“key”:”value”}<br> 其他6个类型都叫基本类型(简单类型)，object叫复杂类型。是由简单类型组成的</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var name=&apos;york&apos;     语法是var person = &#123;&apos;name&apos;:&apos;frank&apos;     </span><br><span class="line">var age=24      ==&gt;             &apos;age=24&apos;,           </span><br><span class="line">var gender=&apos;male&apos;               &apos;gender&apos;:&apos;male&apos;&#125;      </span><br><span class="line">单引号可以省略，冒号前边都是字符串，person[&apos;name&apos;]==&gt;person.name(特例) 单引号不能省略</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>知识点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var name=&apos;fuck&apos;， person[name]==&gt;person[&apos;fuck&apos;]</span><br><span class="line">1.delete person[&apos;name&apos;]，person.name\undefined,&apos;name&apos; in person\false 把key和value都删了</span><br><span class="line">2.person.name=undefined,&apos;name&apos; in person\true 只把value删了</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for(var key in person) 遍历对象,key打印出key，person[key]打印出value</p>
+</li>
+<li>{self=person}可以包含自己 person.self.self.self.self.name 也是可以成立的</li>
+<li>对象里{可以包含 字符串：undefined||null||布尔||对象}</li>
+<li>key可以是空字符串，{‘’：’York’}。引用person[‘’]     </li>
+<li>标识符原则(变量名)：1.变量第一个字符不能是数字，字符串可以 2.中间不能是空格3.必须是合法字符<br> {9a:’york’} 如果key不加引号，那么必须按照标识符原则(变量名)，9a和a b必须加引号，要不然会报错</li>
+<li>变量的类型 typeof 识别变量的类型<br> t={} ;typeof t;”object”<br> BUG: 1.typeof null ;”object” 2.typeof fn; “function” </li>
+<li>我想知道变量 a 是否已经声明过（值为 undefined 不代表没有声明过），应该用 if (‘a’ in window) { … }</li>
+</ol>
 
     </section>
     <footer class="post-footer">
