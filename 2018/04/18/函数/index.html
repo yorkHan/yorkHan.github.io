@@ -51,58 +51,42 @@
 </span>
     <h1 class="post-title">函数</h1>
     <section class="post-content">
-      <p></p><h3>函数的5种声明</h3><p></p>
-<p></p><h5>所有的函数都有name属性</h5><p></p>
-<p></p><h4>1.function x(输入1，输入2){ return undefined }</h4>   function是关键字，和var差不多都是声明的意思  var 变量可以是七种 ，function x只能是函数  console.log(字符串) ，如果接受的不是字符串，会自动调用x.toString，console.log()永远return undefined，打印什么和返回什么一点关系都没有 x.name=’x’<p></p>
-<p></p><h4>2.var x=function (输入1，输入2){ return undefined }</h4> 匿名函数 x.name=’x’<p></p>
-<p></p><h4>3.var x=function y(输入1，输入2){ return undefined }</h4> console.log(y)会报错，不一致，JS垃圾 x.name=’y’<p></p>
-<p></p><h4>4.window.Function函数对象 </h4><br>var fn = new Function(‘x’,’y’,’return x+y’) ==&gt; var n=1;new Function(‘x’,’y’,’return x’+n+’+y’) fn.name=’anonymous’  anonymous翻译为匿名<p></p>
-<p></p><h4>5.var f =   (x,y)=&gt;{return x+y}</h4> 箭头函数一定是匿名函数 ;<br>只有一句话，return和{}可以一起去除 sum=(x,y)=&gt;x+y ;<br>只有一个参数，()可以去除 var n2 = n=&gt;n*n<p></p>
-<p></p><h3>如何调用函数</h3><p></p>
-<p></p><h5>可以执行代码的对象就叫  函数</h5><br>call翻译为调用 f指的是这个对象 f.call()执行f这个函数体<br><img src="/2018/04/18/函数/call.png" alt="call"><br><img src="/2018/04/18/函数/Function_prototype.png" alt="Function.prototype"><br>eval()给个字符串，当代码执行 eval(“1+1”)==&gt;2<br>f(1,2) === f.call(undefinef,1,2);f(1,2)糖sweet， f.call(undefinef,1,2)真正的调用,硬核hardcore<p></p>
-<p></p><h3>this 和 arguments</h3><br>f.call(undefinef,1,2) undefined=&gt;this , [1,2]=&gt;arguments<p></p>
-<p></p><h5>1.call的第一个参数可以用this得到。 </h5><br>JavaScript为了长得像Java 1.new 2.this<br>如果在普通模式下，如果this是undefined，浏览器会自动把this变成window；<br>如果在严格模式下，如果this是undefined，this就是undefined<p></p>
-<p></p><h5>2.call的后面的参数可以用arguments(伪数组)得到。</h5><br>arguments(伪数组)内存像数组，但是原型链中没有Array.prototype<p></p>
-<p></p><h3>什么是call stack</h3><br>call stack(调用堆栈)先入后出<br><img src="/2018/04/18/函数/call stack.png" alt="call stack"><br>递归<br>stack overflow call.stack长度固定的是9641<br>每次进一个函数就要压一次stack<p></p>
-<p></p><h3>作用域</h3><p></p>
-<p><ul><li>只要 有个函数就有个作用域 就近原则</li><li>我们只能确定变量是哪个变量，但是不能确定变量的值</li></ul><br><code>var a = 1
-function f1(){
-    alert(a) // a是undefined
-    var a = 2
-}
-f1.call()</code><br><code>var a = 1
-function f1(){
-    var a = 2
-    f2.call()
-}
-function f2(){
-    console.log(a) // 是1
-}
-f1.call()</code><br><code>var liTags = document.querySelectorAll(&#39;li&#39;)
-for(var i = 0; i&lt;\liTags.length; i++){
-    liTags[i].onclick = function(){
-        console.log(i) // 点击第3个 li 时，打印 6
-    }
-}</code></p>
-<p></p><h5>拿到代码直接做——必然会错。请先提升声明</h5><p></p>
-<p>####什么是闭包，闭包的用途是什么？</p>
+      <h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><p>所有的函数都有name属性</p>
 <ol>
-<li>什么是闭包<br>闭包就是函数内部访问函数作用域外的变量,这个变量和这个函数之间的这个环境就叫闭包<br>var a = 1<br>function fn(){<br> console.log(a)<br>}<br>这个就叫闭包,其实我们天天都在用</li>
-<li>闭包的用途<br>闭包可以暂存数据,已经给变量开辟私密空间,避免外部污染 在一个函数作用域中声明一个变量,子函数(访问器)可以操作这个变量,通过return 这个子函数(访问器),<br>外面可以访问这一个变量,来达到此目的,外面变量通过得到return的函数,这样外面访问这个函数,这个函数访问父级函数的变量,这样变量就一直存在这个依赖关系无法销毁<pre><code>`function s(){
-    var i = 0;
-    return function(){
-        return ++i;
-    }
-}
-var a = s()
-console.log(a())
-console.log(a())
-console.log(a())
-console.log(a())`
-</code></pre>####call、apply、bind 的用法分别是什么？<br>apply,call和bind都是来改变this的指向的,<br>第一个参数都是相同的this指向的那个对象<br>但是apply接受的第二个参数一定是数组<br>call和bind接受的参数是连续的参数</li>
+<li>function x(输入1，输入2){ return undefined }<br> function是关键字，和var差不多都是声明的意思  var 变量可以是七种 ，function x只能是函数  console.log(字符串) ，如果接受的不是字符串，会自动调用x.toString，console.log()永远return undefined，打印什么和返回什么一点关系都没有 x.name=’x’</li>
+<li>var x=function (输入1，输入2){ return undefined } 匿名函数 x.name=’x’</li>
+<li>var x=function y(输入1，输入2){ return undefined } console.log(y)会报错，不一致，JS垃圾 x.name=’y’</li>
+<li><p>window.Function函数对象</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fn = new Function(&apos;x&apos;,&apos;y&apos;,&apos;return x+y&apos;) ==&gt; </span><br><span class="line">var n=1</span><br><span class="line">new Function(&apos;x&apos;,&apos;y&apos;,&apos;return x&apos;+n+&apos;+y&apos;) </span><br><span class="line">fn.name=&apos;anonymous&apos;  //anonymous翻译为匿名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>var f =(x,y)=&gt;{return x+y} 箭头函数一定是匿名函数 ;</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">只有一句话，return和&#123;&#125;可以一起去除 sum=(x,y)=&gt;x+y ; </span><br><span class="line">只有一个参数，()可以去除 var n2 = n=&gt;n*n</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>apply与call立即执行<br>bind只是先改变this的指向<br>下面代码代码对上面的详细说明<br>`var s = {<br>    a:1,<br>    b:2,<br>    add(name) {<br>        console.log(this.a + this.b)<br>        console.log(name)<br>    }<br>}</p>
-<p>var a = {<br>    a:2,<br>    b:2,<br>}<br>var b = {<br>    a:4,<br>    b:2,<br>}<br>var c = {<br>    a:5,<br>    b:6,<br>}<br>s.add.call(a,”我叫call”)<br>s.add.apply(b,[“我叫apply”])<br>//s.add.bind(c,”我叫bind”)此时bind只是改变了this如果要执行需要加上()<br>s.add.bind(c,”我叫bind”)()<br>//等价于s.add.bind(c)(“我叫bind”)`</p>
+<h4 id="如何调用函数"><a href="#如何调用函数" class="headerlink" title="如何调用函数"></a>如何调用函数</h4><p>可以执行代码的对象就叫函数<br>f.call(asThis,input,input2)<br>call翻译为调用 f指的是这个对象,asThis会被当做this，[input,input2]会被当做arguments，f.call()执行f这个函数体<br><img src="/2018/04/18/函数/call.png" alt="call"><br><img src="/2018/04/18/函数/Function_prototype.png" alt="Function.prototype"></p>
+<p>eval()给个字符串，当代码执行 eval(“1+1”)==&gt;2</p>
+<p>f(1,2) === f.call(undefinef,1,2);f(1,2) 糖sweet的函数调用， f.call(undefinef,1,2)真正的调用,硬核hardcore</p>
+<h4 id="this-和-arguments"><a href="#this-和-arguments" class="headerlink" title="this 和 arguments"></a>this 和 arguments</h4><p>f.call(undefinef,1,2) undefined=&gt;this , [1,2]=&gt;arguments</p>
+<ol>
+<li>call的第一个参数可以用this得到。<br> JavaScript为了长得像Java 1.new 2.this<br> 如果在普通模式下，如果this是undefined，浏览器会自动把this变成window；<br> 如果在严格模式下，如果this是undefined，this就是undefined</li>
+<li>call的后面的参数可以用arguments(伪数组)得到，arguments(伪数组)内存像数组，但是原型链中没有Array.prototype</li>
+</ol>
+<h4 id="什么是call-stack"><a href="#什么是call-stack" class="headerlink" title="什么是call stack"></a>什么是call stack</h4><p>call stack(调用堆栈)先入后出<br><img src="/2018/04/18/函数/call stack.png" alt="call stack"><br>递归<br>stack overflow call.stack长度固定的是9641<br>每次进一个函数就要压一次stack</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><ul>
+<li>只要 有个函数就有个作用域 就近原则</li>
+<li>我们只能确定变量是哪个变量，但是不能确定变量的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">    alert(a) // a是undefined</span><br><span class="line">    var a = 2</span><br><span class="line">&#125;</span><br><span class="line">f1.call()</span><br><span class="line">-----------------------------------------</span><br><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">    var a = 2</span><br><span class="line">    f2.call()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function f2()&#123;</span><br><span class="line">    console.log(a) // 是1</span><br><span class="line">&#125;</span><br><span class="line">f1.call()</span><br><span class="line">----------------------------------------------------</span><br><span class="line">var liTags = document.querySelectorAll(&apos;li&apos;)</span><br><span class="line">for(var i = 0; i&lt;\liTags.length; i++)&#123;</span><br><span class="line">    liTags[i].onclick = function()&#123;</span><br><span class="line">        console.log(i) // 点击第3个 li 时，打印 6</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="拿到代码直接做——必然会错。请先提升声明"><a href="#拿到代码直接做——必然会错。请先提升声明" class="headerlink" title="拿到代码直接做——必然会错。请先提升声明"></a>拿到代码直接做——必然会错。请先提升声明</h5><h4 id="什么是闭包，闭包的用途是什么？"><a href="#什么是闭包，闭包的用途是什么？" class="headerlink" title="什么是闭包，闭包的用途是什么？"></a>什么是闭包，闭包的用途是什么？</h4><ol>
+<li><p>什么是闭包<br> 闭包就是函数内部访问函数作用域外的变量,这个变量和这个函数之间的这个环境就叫闭包</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function fn()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 这个就叫闭包,其实我们天天都在用</p>
+</li>
+<li>闭包的用途<br> 闭包可以暂存数据,已经给变量开辟私密空间,避免外部污染 在一个函数作用域中声明一个变量,子函数(访问器)可以操作这个变量,通过return 这个子函数(访问器),<br> 外面可以访问这一个变量,来达到此目的,外面变量通过得到return的函数,这样外面访问这个函数,这个函数访问父级函数的变量,这样变量就一直存在这个依赖关系无法销毁 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function s()&#123;</span><br><span class="line">var i = 0;</span><br><span class="line">return function()&#123;</span><br><span class="line">    return ++i;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">var a = s()</span><br><span class="line">console.log(a())</span><br><span class="line">console.log(a())</span><br><span class="line">console.log(a())</span><br><span class="line">console.log(a())</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="call、apply、bind-的用法分别是什么？"><a href="#call、apply、bind-的用法分别是什么？" class="headerlink" title="call、apply、bind 的用法分别是什么？"></a>call、apply、bind 的用法分别是什么？</h4><p>apply,call和bind都是来改变this的指向的,<br>第一个参数都是相同的this指向的那个对象<br>但是apply接受的第二个参数一定是数组<br>call和bind接受的参数是连续的参数</p>
+<p>apply与call立即执行<br>bind只是先改变this的指向<br>下面代码代码对上面的详细说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var s = &#123;</span><br><span class="line">    a:1,</span><br><span class="line">    b:2,</span><br><span class="line">    add(name) &#123;</span><br><span class="line">        console.log(this.a + this.b)</span><br><span class="line">        console.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a = &#123;</span><br><span class="line">    a:2,</span><br><span class="line">    b:2,</span><br><span class="line">&#125;</span><br><span class="line">var b = &#123;</span><br><span class="line">    a:4,</span><br><span class="line">    b:2,</span><br><span class="line">&#125;</span><br><span class="line">var c = &#123;</span><br><span class="line">    a:5,</span><br><span class="line">    b:6,</span><br><span class="line">&#125;</span><br><span class="line">s.add.call(a,&quot;我叫call&quot;)</span><br><span class="line">s.add.apply(b,[&quot;我叫apply&quot;])</span><br><span class="line">//s.add.bind(c,&quot;我叫bind&quot;)此时bind只是改变了this如果要执行需要加上()</span><br><span class="line">s.add.bind(c,&quot;我叫bind&quot;)()</span><br><span class="line">//等价于s.add.bind(c)(&quot;我叫bind&quot;)`</span><br></pre></td></tr></table></figure></p>
 
     </section>
     <footer class="post-footer">
