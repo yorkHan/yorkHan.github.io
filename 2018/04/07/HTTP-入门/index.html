@@ -51,7 +51,7 @@
 </span>
     <h1 class="post-title">HTTP-入门</h1>
     <section class="post-content">
-      <p></p><h3>WWW 的发明</h3><br>Tim Berners-Lee（下文中称为李爵士） 在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。<p></p>
+      <h3 id="WWW-的发明"><a href="#WWW-的发明" class="headerlink" title="WWW 的发明"></a>WWW 的发明</h3><p>Tim Berners-Lee（下文中称为李爵士） 在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。</p>
 <h4 id="一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h4><ol>
 <li><p>DNS解析</p>
 <pre><code>DNS解析的过程就是寻找哪台机器上有你需要资源的过程。当你在浏览器中输入一个地址时，例如www.baidu.com，其实不是百度网站真正意义上的地址。
@@ -85,25 +85,77 @@
 4.主机接到断开通知后断开连接并反馈一个确认信号（嗯，好的），服务器收到确认信号后断开连接；
 </code></pre></li>
 </ol>
-<p>主要包含三个概念<ol><li>URI，俗称网址</li><li>HTTP，两个电脑之间传输内容的协议</li><li>HTML，超级文本，主要用来做页面跳转</li></ol>URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。</p>
-<p></p><h3><a href="https://baike.baidu.com/item/URI/2901761?fr=aladdin" target="_blank" rel="noopener">URI 是什么<a></a></a></h3><br>在电脑术语中，统一资源标识符（Uniform Resource Identifier，或URI)是一个用于标识某一互联网资源名称的字符串。 该种标识允许用户对任何（包括本地和互联网）的资源通过特定的协议进行交互操作。<br>URI 分为 URL 和 URN，我们一般使用 URL 作为网址。<p></p>
-<p></p><h5>URN</h5><br>统一资源名称 (Uniform Resource Name, URN)，是URI两种形式之一。唯一标识一个实体的标识符，但是不能给出实体的位置。<p></p>
-<p></p><h5>URL</h5><br>统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。<br>包含协议，域名，路径，查询参数，秒点，端口。<p></p>
-<p></p><h3>DNS</h3><br>DNS（Domain Name System，域名系统），万维网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。<ul><li>输入域名</li><li>输出 IP</li></ul><p></p>
-<p></p><h3>Server + Client + HTTP</h3><br>服务器与浏览器的交互<ul><li>浏览器负责发起请求</li><li>服务器在 80 端口接收请求</li><li>服务器负责返回内容（响应）</li><li>浏览器负责下载响应内容</li></ul>HTTP 的作用就是指导浏览器和服务器如何进行沟通。<p></p>
-<p></p><h4>用 curl 创造一个请求，并得到响应</h4><br>1.命令行输入<small style="background-color:#f6f8fa;">curl -s -v -H “Frank: xxx” – “https://www.baidu.com”</small><p></p>
-<p>请求的内容</p>
-<p><small style="background-color:#f6f8fa;">GET / HTTP/1.1<br>Host: www.baidu.com<br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx</small></p>
-<p>2.命令行输入<small style="background-color:#f6f8fa;">curl -X POST -s -v -H “Frank: xxx” – “https://www.baidu.com”</small></p>
-<p>请求的内容</p>
-<p><small style="background-color:#f6f8fa;">POST / HTTP/1.1<br>Host: www.baidu.com<br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx</small></p>
-<p>3.命令行输入<small style="background-color:#f6f8fa;">curl -X POST -d “1234567890” -s -v -H “Frank: xxx” – “https://www.baidu.com”</small></p>
-<p>请求的内容为</p>
-<p><small style="background-color:#f6f8fa;">POST / HTTP/1.1<br>Host: www.baidu.com<br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx<br>Content-Length: 10<br>Content-Type: application/x-www-form-urlencoded</small></p>
-<p>1234567890</p>
-<p></p><h3>请求</h3><p></p>
-<p></p><h4>请求的格式</h4><br><small style="background-color:#f6f8fa;">1 动词 路径 协议/版本<br>2 Key1: value1<br>2 Key2: value2<br>2 Key3: value3<br>2 Content-Type: application/x-www-form-urlencoded<br>2 Host: www.baidu.com<br>2 User-Agent: curl/7.54.0<br>3<br>4 要上传的数据</small><p></p>
-<ol><li>请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）</li><li>第三部分永远都有个回车(/n),区分第二和第四部分</li><li>动词有GET(请求) POST(新增/上传) PUT(整体更新) PATCH(局部更新) DELETE(删除) HEAD() OPTIONS()等</li><li>这里的路径包括「查询参数」，但不包括「锚点」<br></li><li>如果你没有写路径，那么路径默认为 /</li><li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li></ol><br><h5>用 Chrome 发请求</h5><br><ol><li>打开 Network</li><li>地址栏输入网址</li><li>在 Network 点击，查看 request，点击「view source」</li><li>点击「view source」</li><li>点击「view source」</li><li>点击「view source」</li><li>终于点了？可以看到请求的前三部分了</li><li>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</li></ol><br><h3>响应</h3><br><h4>响应的格式</h4><br><small style="background-color:#f6f8fa;">1 协议/版本号 状态码 状态解释<br>2 Key1: value1<br>2 Key2: value2<br>2 Content-Length: 17931<br>2 Content-Type: text/html<br>3<br>4 要下载的内容</small><br>状态码要背，是服务器对浏览器说的话<br>状态码 200 表示  服务器响应成功。<br>状态码 202 表示：服务器已接受请求，但尚未处理。<br>状态码 204 表示：请求处理成功，但没有资源可返回。<br>状态码 206 表示：服务器已经成功处理了部分 GET 请求。<br>状态码 301 表示：请求的资源已被永久的分配了新的 URI。<br>状态码 302 表示：请求的资源临时的分配了新的 URI。<br>状态码 400 表示：请求报文中存在语法错误。<br>状态码 401 表示：发送的请求需要有通过 HTTP 认证的认证信息。<br>状态码 403 表示：对请求资源的访问被服务器拒绝了。<br>状态码 404 表示：服务器上无法找到请求的资源。<br>状态码 500 表示：服务器端在执行请求时发生了错误。<br>状态码 503 表示：服务器暂时处于超负债或正在进行停机维护，现在无法处理请求。<br>第 2 部分中的 Content-Type 标注了第 4 部分的格式,遵循 MIME 规范.<br>Content-Type：application(表示是个应用数据)/(后面是我的子类)x-(没有被写入规范的格式/实验属性)www(万维网)-form(表单)-urlencoded(用的urlencoded形式压缩一下)<br><br><h5>用 Chrome 查看响应</h5><br><ol><li>打开 Network</li><li>地址栏输入网址</li><li>选中第一个响应</li><li>查看 Response Headers，点击「view source」，点击「view source」，点击「view source」<br></li><li>点击「view source」</li><li>点击「view source」</li><li>终于点了？你会看到响应的前两部分</li><li>查看 Response 或者 Preview，你会看到响应的第 4 部分</li></ol>
+<h4 id="主要包含三个概念"><a href="#主要包含三个概念" class="headerlink" title="主要包含三个概念"></a>主要包含三个概念</h4><ol>
+<li>URI，俗称网址</li>
+<li>HTTP，两个电脑之间传输内容的协议</li>
+<li>HTML，超级文本，主要用来做页面跳转</li></ol>URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。<h3 id="URI-是什么"><a href="#URI-是什么" class="headerlink" title="URI 是什么"></a><a href="https://baike.baidu.com/item/URI/2901761?fr=aladdin" target="_blank" rel="noopener">URI 是什么<a></a></a></h3>
+
+<p>在电脑术语中，统一资源标识符（Uniform Resource Identifier，或URI)是一个用于标识某一互联网资源名称的字符串。 该种标识允许用户对任何（包括本地和互联网）的资源通过特定的协议进行交互操作。<br>URI 分为 URL 和 URN，我们一般使用 URL 作为网址。</p>
+<ol>
+<li><p>URN<br> 统一资源名称 (Uniform Resource Name, URN)，是URI两种形式之一。唯一标识一个实体的标识符，但是不能给出实体的位置。</p>
+</li>
+<li><p>URL<br> 统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。<br> 包含协议，域名，路径，查询参数，秒点，端口。</p>
+</li>
+</ol>
+<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><p>DNS（Domain Name System，域名系统），万维网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。</p>
+<ul>
+<li>输入域名</li>
+<li>输出 IP</li>
+</ul>
+<h3 id="Server-Client-HTTP"><a href="#Server-Client-HTTP" class="headerlink" title="Server + Client + HTTP"></a>Server + Client + HTTP</h3><p>服务器与浏览器的交互</p>
+<ol>
+<li>浏览器负责发起请求</li>
+<li>服务器在 80 端口接收请求</li>
+<li>服务器负责返回内容（响应）</li>
+<li>浏览器负责下载响应内容</li>
+<li>HTTP 的作用就是指导浏览器和服务器如何进行沟通。</li>
+</ol>
+<h4 id="用-curl-创造一个请求，并得到响应"><a href="#用-curl-创造一个请求，并得到响应" class="headerlink" title="用 curl 创造一个请求，并得到响应"></a>用 curl 创造一个请求，并得到响应</h4><ol>
+<li><p>命令行输入<code>curl -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</code><br> 请求的内容</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line">Frank: xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令行输入<code>curl -X POST -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</code><br> 请求的内容</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line">Frank: xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令行输入<code>curl -X POST -d &quot;1234567890&quot; -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</code><br> 请求的内容为</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line">Frank: xxx</span><br><span class="line">Content-Length: 10</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">1234567890</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h4><h5 id="请求的格式"><a href="#请求的格式" class="headerlink" title="请求的格式"></a>请求的格式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1 动词 路径 协议/版本</span><br><span class="line">2 Key1: value1</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Key3: value3</span><br><span class="line">2 Content-Type: application/x-www-form-urlencoded</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.54.0</span><br><span class="line">3 </span><br><span class="line">4 要上传的数据</span><br></pre></td></tr></table></figure>
+<ol>
+<li>请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）</li>
+<li>第三部分永远都有个回车(/n),区分第二和第四部分</li>
+<li>动词有GET(请求) POST(新增/上传) PUT(整体更新) PATCH(局部更新) DELETE(删除) HEAD() OPTIONS()等</li>
+<li>这里的路径包括「查询参数」，但不包括「锚点」</li>
+<li>如果你没有写路径，那么路径默认为 /</li>
+<li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
+</ol>
+<p>#####用 Chrome 发请求</p>
+<ol>
+<li>打开 Network</li>
+<li>地址栏输入网址</li>
+<li>在 Network 点击，查看 request，点击「view source」</li>
+<li>点击「view source」!</li>
+<li>点击「view source」!</li>
+<li>点击「view source」!</li>
+<li>终于点了？可以看到请求的前三部分了</li>
+<li>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</li>
+</ol>
+<h4 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h4><h5 id="响应的格式"><a href="#响应的格式" class="headerlink" title="响应的格式"></a>响应的格式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 协议/版本号 状态码 状态解释</span><br><span class="line">2 Key1: value1</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Content-Length: 17931</span><br><span class="line">2 Content-Type: text/html</span><br><span class="line">3</span><br><span class="line">4 要下载的内容</span><br></pre></td></tr></table></figure>
+<h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">状态码要背，是服务器对浏览器说的话</span><br><span class="line">状态码 200 表示  服务器响应成功。</span><br><span class="line">状态码 202 表示：服务器已接受请求，但尚未处理。</span><br><span class="line">状态码 204 表示：请求处理成功，但没有资源可返回。</span><br><span class="line">状态码 206 表示：服务器已经成功处理了部分 GET 请求。</span><br><span class="line">状态码 301 表示：请求的资源已被永久的分配了新的 URI。</span><br><span class="line">状态码 302 表示：请求的资源临时的分配了新的 URI。</span><br><span class="line">状态码 400 表示：请求报文中存在语法错误。</span><br><span class="line">状态码 401 表示：发送的请求需要有通过 HTTP 认证的认证信息。</span><br><span class="line">状态码 403 表示：对请求资源的访问被服务器拒绝了。</span><br><span class="line">状态码 404 表示：服务器上无法找到请求的资源。</span><br><span class="line">状态码 500 表示：服务器端在执行请求时发生了错误。</span><br><span class="line">状态码 503 表示：服务器暂时处于超负债或正在进行停机维护，现在无法处理请求。</span><br></pre></td></tr></table></figure>
+<p>第 2 部分中的 Content-Type 标注了第 4 部分的格式,遵循 MIME 规范.<br>Content-Type：application(表示是个应用数据)/(后面是我的子类)x-(没有被写入规范的格式/实验属性)www(万维网)-form(表单)-urlencoded(用的urlencoded形式压缩一下)</p>
+<h5 id="用-Chrome-查看响应"><a href="#用-Chrome-查看响应" class="headerlink" title="用 Chrome 查看响应"></a>用 Chrome 查看响应</h5><ol>
+<li>打开 Network</li>
+<li>地址栏输入网址</li>
+<li>选中第一个响应 </li>
+<li>查看 Response Headers</li>
+<li>点击「view source」</li>
+<li>点击「view source」</li>
+<li>点击「view source」</li>
+<li>终于点了？你会看到响应的前两部分</li>
+<li>查看 Response 或者 Preview，你会看到响应的第 4 部分</li>
+</ol>
+
     </section>
     <footer class="post-footer">
       <section class="author">
