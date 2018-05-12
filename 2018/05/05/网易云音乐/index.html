@@ -51,12 +51,71 @@
 </span>
     <h1 class="post-title">网易云音乐</h1>
     <section class="post-content">
-      <h3 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a>用例图</h3><p>用例图专门需求分析/产品经理分析用户需求的最常用的图<br><img src="/2018/05/05/网易云音乐/用例图-普通用户.png" alt="用例图-普通用户"><br><img src="/2018/05/05/网易云音乐/用例图-管理员.png" alt="用例图-管理员"></p>
-<h3 id="线框图"><a href="#线框图" class="headerlink" title="线框图"></a>线框图</h3><p><img src="/2018/05/05/网易云音乐/线框图.png" alt="线框图"></p>
-<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><p><img src="/2018/05/05/网易云音乐/系统架构图.png" alt="系统架构图"></p>
+      <h3 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a>用例图</h3><p>用例图专门需求分析/产品经理分析用户需求的最常用的图<br><img src="网易云音乐/用例图-普通用户.png" alt="用例图-普通用户"><br><img src="网易云音乐/用例图-管理员.png" alt="用例图-管理员"></p>
+<h3 id="线框图"><a href="#线框图" class="headerlink" title="线框图"></a>线框图</h3><p><img src="网易云音乐/线框图.png" alt="线框图"></p>
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><p><img src="网易云音乐/系统架构图.png" alt="系统架构图"></p>
 <p>命令行<code>npm init</code>创建package.json<br>命令行<code>git init</code>创建.git</p>
 <p>根目录创建.gitignore，进入配置需要屏蔽上传到github的文件</p>
 <p>ACL(Access Control Layer)访问控制层</p>
+<p>SDK(Software Development Kit)软件开发套件，一套API</p>
+<p>URL/URI 不能包含汉子，特殊字符  <a href="http://x.com/你好" target="_blank" rel="noopener">http://x.com/你好</a> 不合语法 用encodeURI转换一下</p>
+<p>encodeURI 和 encodeURIComponent 的区别</p>
+<ol>
+<li>encodeURI 如果你认为这就是一个完整的网址，你想转义，就用encodeURI</li>
+<li>encodeURIComponent 如果你想把这个东西作为查询参数或网址后面的一部分，你想转义，就用encodeURIComponent，可以保证作为一个整体变成查询参数</li>
+</ol>
+<p>《写给大家的设计书》墙裂推荐</p>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><ol>
+<li>text-decoration 属性规定添加到文本的修饰。</li>
+<li>box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 “border-box”。这可令3. 浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。</li>
+<li>flex-grow 属性用于设置或检索弹性盒的扩展比率。flex-grow: number|initial|inherit;number:一个数字，规定项目将相对于其他灵活的项目进行扩展的量。默认值是 0。 注意：如果元素不是弹性盒对象的元素，则 flex-grow 属性不起作用</li>
+<li>cursor 属性规定要显示的光标的类型（形状）。pointer：光标呈现为指示链接的指针（一只手）；wait：此光标指示程序正忙（通常是一只表或沙漏）</li>
+<li>input[type=text] 选择器：type为text的input</li>
+<li>align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。</li>
+<li>justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 flex-end;     项目位于容器的结尾。</li>
+<li>calc() 用于动态计算长度值。需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；</li>
+<li>上下左右居中 <img src="网易云音乐/上下左右居中.png" alt="上下左右居中"></li>
+<li><p>使用@keyframes规则，你可以创建动画。0％是开头动画，100％是当动画完成。为了获得最佳的浏览器支持，您应该始终定义为0％和100％的选择器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@keyframes animationname &#123;keyframes-selector &#123;css-styles;&#125;&#125;</span><br><span class="line"></span><br><span class="line">animationname 必需的。定义animation的名称。</span><br><span class="line"></span><br><span class="line">keyframes-selector 必需的。动画持续时间的百分比。</span><br><span class="line"></span><br><span class="line">css-styles 必需的。一个或多个合法的CSS样式属性</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>animation:alternate-reverse; 交替重复（比如从大到小，然后从小到大）</p>
+</li>
+<li>visibility: hidden和display: none 的区别<br>visibility: hidden—-将元素隐藏，但是在网页中该占的位置还是占着。<br>display: none—-将元素的显示设为无，即在网页中不占任何的位置。</li>
+<li>pointer-events CSS 属性指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的 target。none元素永远不会成为鼠标事件的target。除了指示该元素不是鼠标事件的目标之外，值none表示鼠标事件“穿透”该元素并且指定该元素“下面”的任何东西。</li>
+<li>filter 属性定义了元素(通常是<img>)的可视效果(例如：模糊与饱和度)。<a href="http://www.runoob.com/cssref/css3-pr-filter.html" target="_blank" rel="noopener">CSS3 filter(滤镜) 属性</a></li>
+<li><p>背景图片模糊，不能在当前元素加filter:blur(5px),应该在伪元素或新建个div加背景图片和模糊</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//伪元素实现背景模糊</span><br><span class="line">.page&#123;display: flex; </span><br><span class="line">    flex-direction: column; </span><br><span class="line">    height: 100vh;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.page::before&#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    height: 100%;</span><br><span class="line">    width: 100%;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0;</span><br><span class="line">    top: 0;</span><br><span class="line">    background:transparent url(&apos;../images/3-way.png&apos;) no-repeat center;</span><br><span class="line">    filter: blur(5px);</span><br><span class="line">    background-size: cover;</span><br><span class="line">    z-index: -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//新建div实现背景模糊</span><br><span class="line">.page&#123;display: flex; </span><br><span class="line">flex-direction: column; </span><br><span class="line">height: 100vh;</span><br><span class="line">position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.bg&#123;</span><br><span class="line">	height:100%;</span><br><span class="line">	text-align: center;</span><br><span class="line">	width: 100%;</span><br><span class="line">	position: absolute;</span><br><span class="line">	background-repeat: no-repeat;</span><br><span class="line">	background-position: center;</span><br><span class="line">	background-size: cover;</span><br><span class="line">	-webkit-filter: blur(5px);</span><br><span class="line">	-moz-filter: blur(5px);</span><br><span class="line">	-o-filter: blur(5px);</span><br><span class="line">	-ms-filter: blur(5px);</span><br><span class="line">	filter: blur(5px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>background-size: cover;把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。</p>
+</li>
+<li>jQuery offset() 方法设置或返回被选元素相对于文档的偏移坐标。$(selector).offset({top:value,left:value})当设置偏移时是必需的。规定以像素为单位的 top 和 left 坐标。</li>
+</ol>
+<p>MVC<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    let view=&#123;</span><br><span class="line">        el:&apos;.page&gt;main&apos;,</span><br><span class="line">        template:`</span><br><span class="line">        `,</span><br><span class="line">        render(data)&#123;</span><br><span class="line">            $(this.el).html(this.template)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let model=&#123;&#125;</span><br><span class="line">    let controller=&#123;</span><br><span class="line">        init(view,model)&#123;</span><br><span class="line">            this.view=view</span><br><span class="line">            this.model=model</span><br><span class="line">            this.view.render(this.model.data)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    controller.init(view,model)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>eventHub<br>订阅发布模式<br><img src="网易云音乐/订阅发布模式.png" alt="订阅发布模式"></p>
+<p>如果用户没有传data或传的data是undefined，那么默认执行data={}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render(data=&#123;&#125;)&#123;</span><br><span class="line">            $(this.el).html(this.template)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let needs=[&apos;name&apos;,&apos;singer&apos;,&apos;url&apos;] &lt;===&gt; let needs=&apos;name singer url&apos;.split(&apos; &apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="ES6语法"><a href="#ES6语法" class="headerlink" title="ES6语法"></a>ES6语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(this.data,&#123; //把右边的值赋给左边</span><br><span class="line">                    id:id,</span><br><span class="line">                    name:attributes.name,</span><br><span class="line">                    singer:attributes.singer,</span><br><span class="line">                    url:attributes.url</span><br><span class="line">                &#125;)</span><br><span class="line">                </span><br><span class="line">//等同于</span><br><span class="line"></span><br><span class="line">this.data.id=id</span><br><span class="line">this.data.name=attributes.name,</span><br><span class="line">this.data.singer=attributes.singer,</span><br><span class="line">this.data.url=attributes.url</span><br><span class="line"></span><br><span class="line">//ES6语法</span><br><span class="line"></span><br><span class="line">Object.assign(this.data,&#123; //把右边的值赋给左边</span><br><span class="line">                    id，</span><br><span class="line">                    ...attributes， //把attributes所有属性赋给右边</span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let string=JSON.stringify(this.model.data)</span><br><span class="line">let object=JSON.parse(string) //深拷贝</span><br></pre></td></tr></table></figure>
+<h4 id="lock"><a href="#lock" class="headerlink" title="lock"></a>lock</h4><p>用一个变量来表示状态，默认this.model.data.status=’open’,如果事件正在发生，就锁住this.model.data.status=’close’，在锁的时候再来就return false，事件结束this.model.data.status=’open’<br>前端一般喜欢用return false来表示我要阻止后面发生的事情</p>
+<h4 id="原生js引入模块"><a href="#原生js引入模块" class="headerlink" title="原生js引入模块"></a>原生js引入模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let script1=document.createElement(&apos;script&apos;)</span><br><span class="line">script1.src=&apos;./js/index/page-1-1.js&apos; //相对于html</span><br><span class="line">script1.onload=()=&gt;&#123;</span><br><span class="line">                console.log(&apos;加载模块1成功&apos;)</span><br><span class="line">            &#125;</span><br><span class="line">document.body.appendChild(script1)</span><br></pre></td></tr></table></figure>
+<p><code>window.location.search</code>获取url查询参数<br>substring() 方法用于提取字符串中介于两个指定下标之间的字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stringObject.substring(start,stop)</span><br><span class="line"></span><br><span class="line">start：必需。一个非负的整数，规定要提取的子串的第一个字符在 stringObject 中的位置。</span><br><span class="line">stop：可选。一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。</span><br></pre></td></tr></table></figure></p>
+<p>array.filter((v=&gt;v)) 过滤v，v是真值就要，不是真值就过滤<br>jQuery.offset()</p>
+<h4 id="getBoundingClientRect获取元素位置"><a href="#getBoundingClientRect获取元素位置" class="headerlink" title="getBoundingClientRect获取元素位置"></a>getBoundingClientRect获取元素位置</h4><p>getBoundingClientRect用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置。<br>getBoundingClientRect是DOM元素到浏览器可视范围的距离（不包含文档卷起的部分）。<br>该函数返回一个Object对象，该对象有6个属性：top,lef,right,bottom,width,height； </p>
+<h3 id="如何调试手机页面？"><a href="#如何调试手机页面？" class="headerlink" title="如何调试手机页面？"></a>如何调试手机页面？</h3><ol>
+<li>将手机连接到PC的同一个网络</li>
+<li>用手机访问PC提供的 HTTP 服务</li>
+<li><p>log 大法调试</p>
+<ul>
+<li>用于手机没有 console，所以我们使用 alert 调试,在有问题的代码上下加alert(1),alert(2)</li>
+<li><p>用户手机没用 console，所以我们自己造一个 console（如腾讯的 vConsole）</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  &lt;div id=&quot;consoleOutput&quot; style=&quot;position:fixed;width:100%;left:0;bottom:0;height:100px;border:1px solid black;background-color:red;overflow:auto;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  window.console=&#123;</span><br><span class="line">    log(x)&#123;</span><br><span class="line">      let para=document.createElement(&apos;p&apos;)</span><br><span class="line">      para.innerText=x</span><br><span class="line">      consoleOutput.appendChild(para)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(&apos;york is best&apos;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>  <img src="网易云音乐/自己造一个console.png" alt="自己造一个 console"></p>
+</li>
+<li>监听 window.onerror 有奇效 只要页面中出现脚本错误，就会产生 onerror 事件。<br>  window.onerror = function(message, file，row， source, lineno, colno, error) { … }<br>  message：错误信息（字符串）。可用于HTML onerror=””处理程序中的event。<br>  file:发生错误的文件<br>  row：发生错误的行数<br>  source：发生错误的脚本URL（字符串）<br>  lineno：发生错误的行号（数字）<br>  colno：发生错误的列号（数字）<br>  error：Error对象（对象）</li>
+</ul>
+</li>
+</ol>
 
     </section>
     <footer class="post-footer">
@@ -86,6 +145,10 @@
     </footer>
   </article>
   <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/05/09/Vue/">
+        ← Vue
+    </a>
     
     <span class="icon-logo">•</span>
     

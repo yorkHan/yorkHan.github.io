@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>简历制作工具 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-11T01:09:45.000Z" itemprop="datePublished">
+          2018-05-11
+      </time>
+    
+</span>
+    <h1 class="post-title">简历制作工具</h1>
+    <section class="post-content">
+      <h4 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a>用例图</h4><p><img src="简历制作工具/用例图.png" alt="用例图"></p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p><img src="简历制作工具/数据库.png" alt="数据库"></p>
+<h4 id="线框图"><a href="#线框图" class="headerlink" title="线框图"></a>线框图</h4><p><img src="简历制作工具/线框图.png" alt="线框图"></p>
+<p>遍历数组获取数据数组中的对象的key，并把输入框的value赋值给这个key<br><img src="简历制作工具/遍历数组获取数据数组中的对象的key.png" alt="遍历数组获取数据数组中的对象的key"></p>
+<p>###js</p>
+<ol>
+<li>Location 对象是 Window 对象的一个部分.包含有关当前 URL 的信息，可通过 window.location 属性来访问。<br> <img src="简历制作工具/Location对象.png" alt="Location对象"></li>
+<li>window.print触发打印</li>
+</ol>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ol>
+<li><a href="http://www.runoob.com/cssref/css3-pr-mediaquery.html" target="_blank" rel="noopener">@media</a> 使用 @media 查询，你可以针对不同的媒体类型定义不同的样式。 @media  (min-width: 500px){…..} 最小宽度是500px，才会显示该css</li>
+<li>flex-grow 属性用于设置或检索弹性盒的扩展比率。flex-grow: number 一个数字，规定项目将相对于其他灵活的项目进行扩展的量。默认值是 0。</li>
+<li>justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。justify-content:space-between 项目位于各行之间留有空白的容器内。</li>
+<li>flex-wrap 属性规定flex容器是单行或者多行，同时横轴的方向决定了新行堆叠的方向。flex-wrap:wrap 规定灵活的项目在必要的时候拆行或拆列。</li>
+<li>lex-shrink 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。number=0 不收缩</li>
+<li>如果父元素是display:flex,子元素的float是无效的</li>
+<li><p>css实现强制不换行/自动换行/强制换行<br> //强制不换行<br> div{</p>
+<pre><code>white-space:nowrap;
+}
+</code></pre><p> //自动换行<br> div{ </p>
+<pre><code> word-wrap: break-word; 
+ word-break: normal; 
+}
+</code></pre><p> //强制英文单词断行<br> div{</p>
+<pre><code>word-break:break-all;
+</code></pre></li>
+<li><p>利用box-shadow可以做出窗口四周颜色，还可以点击下面的元素</p>
+</li>
+<li><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/print.css&quot; media=&quot;print&quot;&gt;</code>只在打印时应用该样式</li>
+</ol>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ol>
+<li>contenteditable 属性指定元素内容是否可编辑。<code>&lt;element contenteditable=&quot;true|false&quot;&gt;</code>  true指定元素是可编辑的</li>
+<li>登录注册不要在button上监听click事件，而在form元素监听submit事件，以为用户有可能直接回车确认，submit会自动跳转，所有要阻止默认事件额e.preventDefault()，</li>
+<li><code>&lt;textarea readonly&gt;sharedLink&lt;/textarea&gt;</code>只读不能改文本框内容，属性resize: none;不能拖拽文本框</li>
+<li>自定义标签名和属性名<code>&lt;aaa&gt;</code>或<code>&lt;aaa-aaa&gt;</code>,<code>&lt;aAaA&gt;</code>是不推荐的，Vue潜规则<code>&lt;aaa-aaa&gt;===&lt;aaaAaa&gt;</code><h3 id="Webstorm"><a href="#Webstorm" class="headerlink" title="Webstorm"></a>Webstorm</h3>ctrl+shift+A 快速查找并使用编辑器所有功能（必记）</li>
+</ol>
+<p>BUG</p>
+<ol>
+<li>contenteditable 输入光每输入一个字自动跳到开头</li>
+<li>input宽度没法自适应</li>
+<li>JSON.stringify() 如果一个被序列化的对象拥有 toJSON 方法，那么该 toJSON 方法就会覆盖该对象默认的序列化行为：不是那个对象被序列化，而是调用 toJSON 方法后的返回值会被序列化， <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  foo: &apos;foo&apos;,</span><br><span class="line">  toJSON: function () &#123;</span><br><span class="line">    return &apos;bar&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">JSON.stringify(obj);      // &apos;&quot;bar&quot;&apos;</span><br><span class="line">JSON.stringify(&#123;x: obj&#125;); // &apos;&#123;&quot;x&quot;:&quot;bar&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.尽量不要直接赋值<code>this.resume=user.resume</code>，而是用<code>Object.assign(this.resume,user.resume)</code>,逐个赋值如果user.resume有this.resume的属性就赋值这个属性，如果user.resume没有this.resume的属性，就保留this.resume的属性</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/05/11/简历制作工具/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/11/简历制作工具/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/11/简历制作工具/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/11/简历制作工具/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/05/09/Vue/">
+        Vue →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
