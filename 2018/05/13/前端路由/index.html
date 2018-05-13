@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>前端路由 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-13T06:20:45.000Z" itemprop="datePublished">
+          2018-05-13
+      </time>
+    
+</span>
+    <h1 class="post-title">前端路由</h1>
+    <section class="post-content">
+      <h4 id="利用hash来做路由"><a href="#利用hash来做路由" class="headerlink" title="利用hash来做路由"></a>利用hash来做路由</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let index = location.hash //从hash中读取状态index</span><br><span class="line">index=index.substring //分析hash，去掉hash中index字符串第一个字&quot;#&quot;</span><br><span class="line"></span><br><span class="line">location.hash=index //把状态index设置成hash</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">##### hashchange</span><br><span class="line">[hashchange](https://developer.mozilla.org/zh-CN/docs/Web/Events/hashchange)</span><br><span class="line">当URL的片段标识符更改时，将触发hashchange事件 (跟在＃符号后面的URL部分，包括＃符号)</span><br><span class="line">![hashchange](前端路由/hashchange.png)</span><br><span class="line"></span><br><span class="line">hash记录路由的缺点，不经意就改</span><br><span class="line"></span><br><span class="line">#### 利用pushState来做路由</span><br><span class="line">[pushState](https://developer.mozilla.org/zh-CN/docs/Web/API/History/pushState)</span><br><span class="line">在 HTML 文件中,  history.pushState() 方法向浏览器历史添加了一个状态。</span><br></pre></td></tr></table></figure>
+<p>//创建了一个新的由 state, title, 和 url设定的浏览器历史纪录.<br>var state = { ‘page_id’: 1, ‘user_id’: 5 };<br>var title = ‘Hello World’;<br>var url = ‘hello-world.html’;</p>
+<p>history.pushState(state, title, url);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">把一些ａ标签变成特殊的ａ标签，点击之后只改变url,不改变页面任何状态</span><br><span class="line">![pushState](前端路由/pushState.png)</span><br><span class="line">BUG:不能分享，所有url先过服务器一遍再过js</span><br><span class="line">解决办法：服务器把指定url过滤给JS</span><br><span class="line">![服务器](前端路由/服务器.png)</span><br><span class="line">或者完全不管url</span><br><span class="line">![服务器](前端路由/服务器２.png)</span><br><span class="line"></span><br><span class="line">前端路由和后端路由</span><br><span class="line">前端路由就是前端做的</span><br><span class="line">后端路由就是后端做的，给个path返回一个页面或者404</span><br><span class="line">![服务器](前端路由/前端路由和后端路由.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">路由就是给一个path,返回一个response，根据路径选择不同的页面展示给用户</span><br></pre></td></tr></table></figure></p>
+<p> if(path==’/style.css’){<br>  response.setHeader(‘Content-Type’,’text/css’);<br>  response.write(‘body{background-color:aqua}h1{color:darkblue}’);<br>  response.end();<br>}else if(path==”/main.js”){<br>  response.setHeader(‘Content-Type’,’text/javascript; charset=utf-8’);<br>  response.write(‘alert(“这是JS写的！”)’);<br>  response.end();<br>}else if(path==”/“){<br>  response.setHeader(‘Content-Type’, ‘text/html; charset=utf-8’);<br>  response.write(‘&lt;!DOCTYPE&gt;\n<html>‘  +<br>  ‘<head><link rel="stylesheet" href="/style.css">‘ +<br>  ‘</head><body>‘  +<br>  ‘<h1>你好</h1>‘ +<br>  ‘<script src="/main.js"></script>‘ +<br>  ‘</body></html>‘);<br>  response.end();<br>}else{<br>  response.statusCode=404;<br>  response.end();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### vue-router</span><br><span class="line"></span><br><span class="line">组件化后才能做路由化</span><br></pre></td></tr></table></figure></p>
+<p> <div id="app"><br>    <h2>Hello App!</h2><br>  <p><br>   <!-- 使用 router-link 组件来导航. --><br>    <!-- 通过传入 `to` 属性指定链接. --><br>    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 --><br>    <router-link to="/tab1">Go to tab1</router-link><br>    <hr><br>    <router-link to="/tab2">Go to tab2</router-link><br>  </p><br>  <!-- 路由出口 --><br>  <!-- 路由匹配到的组件将渲染在这里 --><br>  <router-view></router-view></div></p>
+<h2 id=""><a href="#" class="headerlink" title="  "></a>  </h2><p>const Tab1={template:’<div>content1</div>‘}<br>const Tab2={template:’<div>content2</div>‘}</p>
+<p>const routes=[<br>  {path:’/tab1’,component: Tab1 },<br>  {path:’/tab2’,component: Tab2 },<br>]</p>
+<p>const router=new VueRouter({<br>  routes:routes，<br>  +mode:’history’ //hash换成mode模式，必须有后端控制<br>})</p>
+<p>const app=new Vue({<br>  router:router,<br>  el: ‘#app’<br>})<br><code>`</code><br>router.push(location)<br>想要导航到不同的 URL，则使用 router.push 方法。这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。<br>当你点击 <code>&lt;router-link&gt;</code> 时，这个方法会在内部调用，所以说，点击 <code>&lt;router-link :to=&quot;...&quot;&gt;</code> 等同于调用 router.push(…)。<br>声明式：<code>&lt;router-link :to=&quot;...&quot;&gt;</code><br>编程式：router.push(…)<br>该方法的参数可以是一个字符串路径，或者一个描述地址的对象。</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/05/13/前端路由/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/13/前端路由/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/13/前端路由/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/13/前端路由/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/05/11/简历制作工具/">
+        简历制作工具 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
