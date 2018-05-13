@@ -84,7 +84,7 @@
 <li>JSON与javascript没有抄袭function，undefined和变量</li>
 <li>JSON的字符串首尾必须用””</li>
 </ol>
-<p><img src="/2018/04/22/AJAX/JSON与JavaScript的区别.png" alt="JSON与JavaScript的区别"></p>
+<p><img src="AJAX/JSON与JavaScript的区别.png" alt="JSON与JavaScript的区别"></p>
 <p>服务器第四部分永远都是返回字符串，只是字符串刚好符合JSON对象的语法<br>window.JSON.parse() 是浏览器提供的API,把符合JSON语法的字符串转换成JS对应的值</p>
 <h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>只有 协议+端口+域名 一模一样才允许发 AJAX 请求</p>
 <p>为什么form表单提交没有跨域问题，但ajax提交有跨域问题？<br>因为原页面用 form 提交到另一个域名之后，原页面的脚本无法获取新页面中的内容。所以浏览器认为这是安全的。<br>而 AJAX 是可以读取响应内容的，因此浏览器不能允许你这样做。<br>如果你细心的话你会发现，其实请求已经发送出去了，你只是拿不到响应而已。<br>所以浏览器这个策略的本质是，一个域名的 JS ，在未经允许的情况下，不得读取另一个域名的内容。但浏览器并不阻止你向另一个域名发送请求。</p>
@@ -103,10 +103,10 @@
 <li>JS 可以设置任意HTTP请求 header 吗<br> 第一部分 request.open(‘get’, ‘/xxx’)<br> 第二部分 request.setHeader(‘content-type’,’x-www-form-urlencoded’)<br> 第四部分 request.send(‘a=1&amp;b=2’)</li>
 <li>JS 可以获取任意HTTP响应 header 吗？<br> 第一部分 request.status / request.statusText<br> 第二部分 request.getResponseHeader() / request.getAllResponseHeaders()<br> 第四部分 request.responseText</li>
 </ol>
-<h3 id="写-window-jQuery-ajax"><a href="#写-window-jQuery-ajax" class="headerlink" title="写 window.jQuery.ajax"></a>写 window.jQuery.ajax</h3><p><img src="/2018/04/22/AJAX/封装AJAX函数.png" alt="封装AJAX函数"></p>
+<h3 id="写-window-jQuery-ajax"><a href="#写-window-jQuery-ajax" class="headerlink" title="写 window.jQuery.ajax"></a>写 window.jQuery.ajax</h3><p><img src="AJAX/封装AJAX函数.png" alt="封装AJAX函数"></p>
 <p>AJAX接受两种参数</p>
-<p><img src="/2018/04/22/AJAX/AJAX接受两种参数.png" alt="AJAX接受两种参数"></p>
-<h4 id="ES6析构赋值"><a href="#ES6析构赋值" class="headerlink" title="ES6析构赋值"></a>ES6析构赋值</h4><p><img src="/2018/04/22/AJAX/ES6析构赋值.png" alt="ES6析构赋值"></p>
+<p><img src="AJAX/AJAX接受两种参数.png" alt="AJAX接受两种参数"></p>
+<h4 id="ES6析构赋值"><a href="#ES6析构赋值" class="headerlink" title="ES6析构赋值"></a>ES6析构赋值</h4><p><img src="AJAX/ES6析构赋值.png" alt="ES6析构赋值"></p>
 <h4 id="回调是啥"><a href="#回调是啥" class="headerlink" title="回调是啥"></a>回调是啥</h4><p>call a function<br>call a function back<br>callback</p>
 <h4 id="回调的问题"><a href="#回调的问题" class="headerlink" title="回调的问题"></a>回调的问题</h4><p>问题是每个程序员的回调名不一样</p>
 <h4 id="Promise-解决了这个问题"><a href="#Promise-解决了这个问题" class="headerlink" title="Promise 解决了这个问题"></a>Promise 解决了这个问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function xxx()&#123;</span><br><span class="line">    return new Promise((f1, f2) =&gt; &#123;</span><br><span class="line">        doSomething()</span><br><span class="line">        setTimeout(()=&gt;&#123;</span><br><span class="line">            // 成功就调用 f1，失败就调用 f2</span><br><span class="line">        &#125;,3000)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">xxx().then(success, fail)</span><br><span class="line"></span><br><span class="line">// 链式操作</span><br><span class="line">xxx().then(success, fail).then(success, fail)</span><br></pre></td></tr></table></figure>
@@ -121,7 +121,7 @@
 <li>浏览器可以发请求</li>
 <li>浏览器可以收请求</li>
 <li>服务器可以发请求</li>
-<li>服务器可以收请求<br><img src="/2018/04/22/AJAX/客户端与服务器.png" alt="客户端与服务器"></li>
+<li>服务器可以收请求<br><img src="AJAX/客户端与服务器.png" alt="客户端与服务器"></li>
 </ol>
 <p>在<code>console.time()；
 console.timeend()</code>中间放入代码，可以得到代码运行的时间<br>因为jQuery发现你的返回值的content-type是text/json，他就会自动把字符串转成对象(window.JSON.parse)</p>

@@ -55,8 +55,7 @@
 <h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p><img src="简历制作工具/数据库.png" alt="数据库"></p>
 <h4 id="线框图"><a href="#线框图" class="headerlink" title="线框图"></a>线框图</h4><p><img src="简历制作工具/线框图.png" alt="线框图"></p>
 <p>遍历数组获取数据数组中的对象的key，并把输入框的value赋值给这个key<br><img src="简历制作工具/遍历数组获取数据数组中的对象的key.png" alt="遍历数组获取数据数组中的对象的key"></p>
-<p>###js</p>
-<ol>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><ol>
 <li>Location 对象是 Window 对象的一个部分.包含有关当前 URL 的信息，可通过 window.location 属性来访问。<br> <img src="简历制作工具/Location对象.png" alt="Location对象"></li>
 <li>window.print触发打印</li>
 </ol>
@@ -67,16 +66,9 @@
 <li>flex-wrap 属性规定flex容器是单行或者多行，同时横轴的方向决定了新行堆叠的方向。flex-wrap:wrap 规定灵活的项目在必要的时候拆行或拆列。</li>
 <li>lex-shrink 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。number=0 不收缩</li>
 <li>如果父元素是display:flex,子元素的float是无效的</li>
-<li><p>css实现强制不换行/自动换行/强制换行<br> //强制不换行<br> div{</p>
-<pre><code>white-space:nowrap;
-}
-</code></pre><p> //自动换行<br> div{ </p>
-<pre><code> word-wrap: break-word; 
- word-break: normal; 
-}
-</code></pre><p> //强制英文单词断行<br> div{</p>
-<pre><code>word-break:break-all;
-</code></pre></li>
+<li><p>css实现强制不换行/自动换行/强制换行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//强制不换行</span><br><span class="line">div&#123;</span><br><span class="line">    white-space:nowrap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//自动换行</span><br><span class="line">div&#123; </span><br><span class="line">    word-wrap: break-word; </span><br><span class="line">    word-break: normal; </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">//强制英文单词断行</span><br><span class="line">div&#123;</span><br><span class="line">    word-break:break-all;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>利用box-shadow可以做出窗口四周颜色，还可以点击下面的元素</p>
 </li>
 <li><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/print.css&quot; media=&quot;print&quot;&gt;</code>只在打印时应用该样式</li>
@@ -85,8 +77,9 @@
 <li>contenteditable 属性指定元素内容是否可编辑。<code>&lt;element contenteditable=&quot;true|false&quot;&gt;</code>  true指定元素是可编辑的</li>
 <li>登录注册不要在button上监听click事件，而在form元素监听submit事件，以为用户有可能直接回车确认，submit会自动跳转，所有要阻止默认事件额e.preventDefault()，</li>
 <li><code>&lt;textarea readonly&gt;sharedLink&lt;/textarea&gt;</code>只读不能改文本框内容，属性resize: none;不能拖拽文本框</li>
-<li>自定义标签名和属性名<code>&lt;aaa&gt;</code>或<code>&lt;aaa-aaa&gt;</code>,<code>&lt;aAaA&gt;</code>是不推荐的，Vue潜规则<code>&lt;aaa-aaa&gt;===&lt;aaaAaa&gt;</code><h3 id="Webstorm"><a href="#Webstorm" class="headerlink" title="Webstorm"></a>Webstorm</h3>ctrl+shift+A 快速查找并使用编辑器所有功能（必记）</li>
+<li>自定义标签名和属性名<code>&lt;aaa&gt;</code>或<code>&lt;aaa-aaa&gt;</code>,<code>&lt;aAaA&gt;</code>是不推荐的，Vue潜规则<code>&lt;aaa-aaa&gt;===&lt;aaaAaa&gt;</code></li>
 </ol>
+<h3 id="Webstorm"><a href="#Webstorm" class="headerlink" title="Webstorm"></a>Webstorm</h3><p>ctrl+shift+A 快速查找并使用编辑器所有功能（必记）</p>
 <p>BUG</p>
 <ol>
 <li>contenteditable 输入光每输入一个字自动跳到开头</li>
