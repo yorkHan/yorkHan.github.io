@@ -73,7 +73,7 @@
 <li>Cookie 保存在客户端，每次都随请求发送给 Server</li>
 <li>Session 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的</li>
 </ol>
-<h3 id="LocalStorage是什么"><a href="#LocalStorage是什么" class="headerlink" title="LocalStorage是什么"></a>LocalStorage是什么</h3><p>LocalStorage是HTML5提供的API，是浏览器上的哈希表<br>在有LocalStorage之前，所有的变量在页面刷新的时候，全部销毁，有了LocalStorage，把变量存到磁盘某些文件里面给以后使用<br><img src="Session、LocalStorage、Cache-Control/LocalStorage持久化存储.png" alt="LocalStorage持久化存储"></p>
+<h3 id="LocalStorage是什么"><a href="#LocalStorage是什么" class="headerlink" title="LocalStorage是什么"></a>LocalStorage是什么</h3><p>LocalStorage是HTML5提供的API，是浏览器上的哈希表<br>在有LocalStorage之前，所有的变量在页面刷新的时候，全部销毁，有了LocalStorage，把变量存到磁盘某些文件里面给以后使用<br><img src="/2018/04/28/Session、LocalStorage、Cache-Control/LocalStorage持久化存储.png" alt="LocalStorage持久化存储"></p>
 <h5 id="LocalStorage的用法"><a href="#LocalStorage的用法" class="headerlink" title="LocalStorage的用法"></a>LocalStorage的用法</h5><ol>
 <li>LocalStorage.setItem(key,value) 存储{key:key,value:value}的哈希表 </li>
 <li>LocalStorage.getItem(key) 根据key找到对应的value</li>
@@ -95,10 +95,10 @@
 <h5 id="SessionStorage（会话存储）"><a href="#SessionStorage（会话存储）" class="headerlink" title="SessionStorage（会话存储）"></a>SessionStorage（会话存储）</h5><p>1、2、3、4 同上</p>
 <p>5.SessionStorage 在用户关闭页面（会话结束）后就失效。<br>6.SessionStorage与Session一点关系都没有</p>
 <h5 id="LocalStorage与SessionStorage的区别"><a href="#LocalStorage与SessionStorage的区别" class="headerlink" title="LocalStorage与SessionStorage的区别"></a>LocalStorage与SessionStorage的区别</h5><p>SessionStorage在用户关闭页面（会话结束）后就失效，LocalStorage 永久有效，除非用户清理缓存</p>
-<h3 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h3><h4 id="Cache-Control-是什么"><a href="#Cache-Control-是什么" class="headerlink" title="Cache-Control 是什么"></a>Cache-Control 是什么</h4><p>Cache-Control可以让浏览器在一段时间内不访问服务器，直接用本地的内存或硬盘作为响应<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control MDN</a><br>web性能优化的一部分<br><img src="Session、LocalStorage、Cache-Control/Cache-Control.png" alt="Cache-Control"><br>response.setHeader(‘Cache-Control’,’max-age=30’) 30秒内不要再请求<br>首页不要设置Cache-Control：用户没法获取最新网页(尤其是html)<br>尽量把Cache-Control设置的时间很长<br>如何更新，只有在入口处(html文件)里面，更改URL可以不使用以前的缓存，浏览器会下载最新版缓存下来 (./main.css?v=4)</p>
+<h3 id="HTTP-缓存"><a href="#HTTP-缓存" class="headerlink" title="HTTP 缓存"></a>HTTP 缓存</h3><h4 id="Cache-Control-是什么"><a href="#Cache-Control-是什么" class="headerlink" title="Cache-Control 是什么"></a>Cache-Control 是什么</h4><p>Cache-Control可以让浏览器在一段时间内不访问服务器，直接用本地的内存或硬盘作为响应<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control MDN</a><br>web性能优化的一部分<br><img src="/2018/04/28/Session、LocalStorage、Cache-Control/Cache-Control.png" alt="Cache-Control"><br>response.setHeader(‘Cache-Control’,’max-age=30’) 30秒内不要再请求<br>首页不要设置Cache-Control：用户没法获取最新网页(尤其是html)<br>尽量把Cache-Control设置的时间很长<br>如何更新，只有在入口处(html文件)里面，更改URL可以不使用以前的缓存，浏览器会下载最新版缓存下来 (./main.css?v=4)</p>
 <h4 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a>Expire</h4><p>以前缓存用Expire<br>Cache-Control是多久过期，Expire是几分几秒(本地时间)过期，用户本地时间错乱了就完了<br>优先使用Cache-Control</p>
 <h4 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h4><p>MD5訊息摘要演算法（英语：MD5 Message-Digest Algorithm），一種被廣泛使用的密碼雜湊函數，可以產生出一個128位元（16位元組）的散列值（hash value），用于确保信息传输完整一致。<br>文件一个内容对应一个MD5，摘要演算法就是把一个文件变成字符串，如果这个文件有任何地方改了，MD5就会变成差异很大的字符串<br>MD5有个很重要的特征，内容差异越小，算出来的结果差异越大，把微小的差异放大。</p>
-<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>客户端请求之后，服务器可能会比较客户端的ETag和当前版本资源的ETag。 如果ETag值匹配，这就意味着资源没有改变，服务器便会发送回一个极短的响应，包含HTTP “304 未修改”的状态。 304状态告诉客户端，它的缓存版本是最新的，并应该使用它。<br><img src="Session、LocalStorage、Cache-Control/ETag.png" alt="ETag"></p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>客户端请求之后，服务器可能会比较客户端的ETag和当前版本资源的ETag。 如果ETag值匹配，这就意味着资源没有改变，服务器便会发送回一个极短的响应，包含HTTP “304 未修改”的状态。 304状态告诉客户端，它的缓存版本是最新的，并应该使用它。<br><img src="/2018/04/28/Session、LocalStorage、Cache-Control/ETag.png" alt="ETag"></p>
 <h5 id="Cache-Control与ETag的区别："><a href="#Cache-Control与ETag的区别：" class="headerlink" title="Cache-Control与ETag的区别："></a>Cache-Control与ETag的区别：</h5><p>用Cache-Control是直接不请求，用ETag是直接不下载，但是还是请求</p>
 
     </section>

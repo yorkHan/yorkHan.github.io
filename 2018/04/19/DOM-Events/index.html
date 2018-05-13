@@ -52,7 +52,7 @@
     <h1 class="post-title">DOM Events</h1>
     <section class="post-content">
       <ul>
-<li>DOM Level0 是各个浏览器公司自己私有的Events<br>  onclick=  onerror=  onload=  onmouseenter=<br>  onclick=“要执行的代码” 一旦用户点击，浏览器就eval(‘要执行的代码’)<br>  <img src="DOM-Events/onclick调用函数.png" alt="onclick调用函数"></li>
+<li>DOM Level0 是各个浏览器公司自己私有的Events<br>  onclick=  onerror=  onload=  onmouseenter=<br>  onclick=“要执行的代码” 一旦用户点击，浏览器就eval(‘要执行的代码’)<br>  <img src="/2018/04/19/DOM-Events/onclick调用函数.png" alt="onclick调用函数"></li>
 <li>DOM Level1 1998.10</li>
 <li><p>DOM Level2 2000.11.13Events专门拿出来整理，并添加很多新功能<br>  onclick= 不能写多个onclick，容易被覆盖<br>  xxx.addEventListener(‘click’,function(){}) 事件监听队列，可以在click事件上添加多个函数，先进先出<br>  xxx.removeEventListener(‘click’,function(){}） 在click事件上删除函数<br>  one(一次事件监听)： $btn.one(‘click’,fn)</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f1()&#123;</span><br><span class="line">    console.log(1);</span><br><span class="line">    xxx.removeEventListener(&apos;click&apos;,f1) </span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(&apos;click&apos;,f1)</span><br></pre></td></tr></table></figure>
@@ -60,9 +60,9 @@
 <li><p>DOM Level3 没有对Events做修订了</p>
 </li>
 </ul>
-<h4 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h4><p><img src="DOM-Events/事件模型.png" alt="事件模型"><br><img src="DOM-Events/事件捕获和事件冒泡.png" alt="事件捕获和事件冒泡"></p>
-<h5 id="如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行"><a href="#如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行" class="headerlink" title="如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行"></a>如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行</h5><p><img src="DOM-Events/document一次事件监听.png" alt="document一次事件监听"><br><code>function(e) {e.stopPropagation()}</code> 阻止冒泡</p>
-<h5 id="document等会执行"><a href="#document等会执行" class="headerlink" title="document等会执行"></a>document等会执行</h5><p><img src="DOM-Events/document等会执行.png" alt="document等会执行"></p>
+<h4 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h4><p><img src="/2018/04/19/DOM-Events/事件模型.png" alt="事件模型"><br><img src="/2018/04/19/DOM-Events/事件捕获和事件冒泡.png" alt="事件捕获和事件冒泡"></p>
+<h5 id="如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行"><a href="#如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行" class="headerlink" title="如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行"></a>如果一个事件既有捕获也有冒泡，那就先冒泡，如果是点击元素本身，谁先写谁先执行</h5><p><img src="/2018/04/19/DOM-Events/document一次事件监听.png" alt="document一次事件监听"><br><code>function(e) {e.stopPropagation()}</code> 阻止冒泡</p>
+<h5 id="document等会执行"><a href="#document等会执行" class="headerlink" title="document等会执行"></a>document等会执行</h5><p><img src="/2018/04/19/DOM-Events/document等会执行.png" alt="document等会执行"></p>
 
     </section>
     <footer class="post-footer">
