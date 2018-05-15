@@ -51,7 +51,36 @@
 </span>
     <h1 class="post-title">Web性能优化</h1>
     <section class="post-content">
-      
+      <p>Web性能优化<br>用户觉得你网站加载快<br>用户按下回车，发生的和前端有关的事</p>
+<ol>
+<li>缓存</li>
+<li>DNS查询</li>
+<li>建立TCP连接</li>
+<li>发生HTTP请求<br>后台处理 等…..</li>
+<li>接受响应</li>
+<li>接受完成-&gt;HTML</li>
+<li>查看DOCTYPE，根据DOCTYPE选择使用HTML还是XML</li>
+<li>逐行解析</li>
+<li>看到标签。IE直接渲染到页面，chrome会假设用户网速很快不渲染，等到css都加载完毕才渲染（因为现在渲染，后来加载到css又把标签样式改了，就要重新渲染）</li>
+<li>看到css，下载css，继续往下看还有没有css，同时下载下一个css，最多同时下载8个(chrome),IE6最多下载2个，IE最多下载4个，下载是并行的，解析是串行的，IE不会阻塞HTML渲染，chrome一定阻塞HTML渲染</li>
+<li>看到js，下载js，继续往下看还有没有js，同时下载下一个js，下载是并行的，解析是串行的，一定阻塞HTML渲染<br>网站用服务器的CPU的少，叫服务器性能优化</li>
+</ol>
+<p>对策</p>
+<ol>
+<li>DNS查询—尽量减少域名，减少DNS查询时间（比如引入库，尽量少用cdn引入，下载到本地从路径引入）</li>
+<li>建立TCP连接—TCP连接复用，在HTTP协议里面，加请求头keep-alive，那么服务器就会尽量复用这个TCP连接；使用HTTP2.0版本，多路复用，连接复用率更高</li>
+<li>发生HTTP请求—减少cookie体积，不要滥用cookie，CDN没有cookie，就可以减少cookie；如果使用cache-control，不发请求，直接用本地；同时发送多个HTTP请求（浏览器自己会做），如果想发送更多请求，增加域名数量，权衡，如果文件很少，尽量减少域名，如果文件很多，可以加域名，每个域名下可以请求多个文件</li>
+<li>接受响应—ETag可以做到304，服务器如果发现你的文件是最新，就不给你发文件，只给你发个304状态码，接收文件体积特别小；或者用G-ZIP压缩（缺点耗费CPU）</li>
+<li>DOCTYPE—不能不写，不能写错（浏览器会纠结，会把每种标记语言都试一遍）</li>
+<li>减少标签，不加多余的标签</li>
+<li>css与js第一个优化方式，就是使用CDN，增大同时下载的数量，CDN就是把一个很远的资源分发到世界各地，让全球各地的用户访问起来都很快；第二个优化方式，把css放在head里面，css就算放在后面，也会阻塞渲染，不如把css放在上面，提早下载，js放在body最后，就算页面没有js也是可以看得，用户操作之前就可以下载好js，放在后面，js可以获取到所有节点</li>
+<li>懒加载，预先加载第一屏，用户看不到先不加载，或者不滚动滚动条就不加载，动态加载js，懒加载和预加载是相辅相成；或者加个loading动画</li>
+<li>避免写<code>&lt;img src=&quot;&quot;&gt;</code>,如果想写<code>&lt;img src=&quot;about:blank&quot;&gt;</code>或者js创建出来</li>
+<li>不要把css和js写在html里面，单独写个文件，可以缓存</li>
+<li>chrome里面Audits，可以页面哪里可以优化</li>
+<li>尽量用事件委托，节省监听器</li>
+</ol>
+
     </section>
     <footer class="post-footer">
       <section class="author">
