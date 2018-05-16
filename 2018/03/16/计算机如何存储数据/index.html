@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>计算机如何存储数据 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-03-16T01:32:56.000Z" itemprop="datePublished">
+          2018-03-16
+      </time>
+    
+</span>
+    <h1 class="post-title">计算机如何存储数据</h1>
+    <section class="post-content">
+      <h3 id="为什么要学编程基础"><a href="#为什么要学编程基础" class="headerlink" title="为什么要学编程基础"></a>为什么要学编程基础</h3><p>//因为你首先是程序员，其次才是前端<br>一个程序员需要指导：</p>
+<ol>
+<li>硬件与软件的合作：计算机的运行原理（《编码》）；</li>
+<li>最大的软件：操作系统-windows ，Mac OS，LINUX（维基百科）；</li>
+<li>自己写软件：数据结构&amp;算法（《数据结构与算法》），研究排序算法，背一遍；</li>
+<li>多人写软件：软件工程（《代码大全》）；</li>
+</ol>
+<h3 id="前端为什么要学编程基础"><a href="#前端为什么要学编程基础" class="headerlink" title="前端为什么要学编程基础"></a>前端为什么要学编程基础</h3><ol>
+<li>操作系统运行在硬件上；</li>
+<li>浏览器运行在操作系统上；</li>
+<li>HTML/CSS/JS运行与浏览器之上；</li>
+<li>HTML/CSS/JS和数据都来自于服务器；<br>//防止成为井底之蛙！</li>
+</ol>
+<h3 id="计算机只能存0和1："><a href="#计算机只能存0和1：" class="headerlink" title="计算机只能存0和1："></a>计算机只能存0和1：</h3><p>####第一步：（内存）如何存储0和1？<br>电池-一排8位<br>存储：1就充电，0就不充电；<br>读取：电量大于50%就是1，电量小于50%就是0；</p>
+<h4 id="第二步-：如何存储数字"><a href="#第二步-：如何存储数字" class="headerlink" title="第二步 ：如何存储数字"></a>第二步 ：如何存储数字</h4><p>十进制变二进制-为了方便书写，一般会将二进制数写为十六进制数<br>//知识扩展，请自行了解：<br>//负数会以补码的形式存储；<br>//小数会以浮点数的形式存储；</p>
+<h4 id="第三步-：如何存储字符："><a href="#第三步-：如何存储字符：" class="headerlink" title="第三步 ：如何存储字符："></a>第三步 ：如何存储字符：</h4><p>将每个字符编号<br>ASCII美国信息交换标准代码；</p>
+<h4 id="第四步-：如何存储中文："><a href="#第四步-：如何存储中文：" class="headerlink" title="第四步 ：如何存储中文："></a>第四步 ：如何存储中文：</h4><p>GB 2312中国国家标准简体中文字符表；<br>微软推出 GBK字符集（国标扩展）；</p>
+<h4 id="第五步：如何存储所有字符："><a href="#第五步：如何存储所有字符：" class="headerlink" title="第五步：如何存储所有字符："></a>第五步：如何存储所有字符：</h4><p>将全球字符编号<br>Unicode 字符集<br>总共128237个字符</p>
+<h4 id="第六步：UTF-8"><a href="#第六步：UTF-8" class="headerlink" title="第六步：UTF-8"></a>第六步：UTF-8</h4><p>UTF-8是一种编码方式，不是字符集；<br>现实问题 ：<br>字符集问题-为什么有些古老的中文软件和网站喜欢GBK，不用Unicode；<br>编码问题-Javascript使用了Unicode字符集，但是没有使用UTF-8编码<br>//Javascript用了USC-2编码<br>//因为1995年UTF-16还没被发明出来，Javascript也不想使用UTF-32;<br>后果-ES5无法表示\uFFF之后的字符（如\u1D306），某些情况下会出现BUG；</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/03/16/计算机如何存储数据/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/03/16/计算机如何存储数据/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/16/计算机如何存储数据/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/16/计算机如何存储数据/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/04/06/git入门/">
+        ← Git入门
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
