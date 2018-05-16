@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>知识点 | York&#39;s Blog</title>
+  <title>Event Loop | York&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -44,53 +44,27 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2018-05-15T15:00:54.000Z" itemprop="datePublished">
-          2018-05-15
+      <time datetime="2018-05-16T05:01:10.000Z" itemprop="datePublished">
+          2018-05-16
       </time>
     
 </span>
-    <h1 class="post-title">知识点</h1>
+    <h1 class="post-title">Event Loop</h1>
     <section class="post-content">
-      <ol>
-<li>命令行</li>
-<li>HTTP</li>
-<li>HTML CSS</li>
-<li>JS</li>
-<li>DOM</li>
-<li>AJAX + LeanCloud</li>
-<li>跨域</li>
-<li>MVC</li>
-<li>Vue<br><img src="/2018/05/15/知识点/所有知识点.png" alt="所有知识点"></li>
+      <p>js引擎(单线程)同一时间只做一件事<br>但是可以调用其他线程帮js做事<br><img src="/2018/05/16/Event-Loop/JS引擎.png" alt="js引擎"></p>
+<p><a href="https://juejin.im/post/5ab7677f6fb9a028d56711d0" target="_blank" rel="noopener">Event Loop、计时器、nextTick</a></p>
+<p>Node.js Event Loop<br>处理回调信息<br>event loop是node.js使用c语言的代码<br>当 Node.js 启动时，会做这几件事</p>
+<ol>
+<li>初始化 event loop</li>
+<li>开始执行脚本（或者进入 REPL）。这些脚本有可能会调用一些异步 API、设定计时器或者调用 process.nextTick()</li>
+<li>开始处理 event loop</li>
 </ol>
-<h4 id="学习套路"><a href="#学习套路" class="headerlink" title="学习套路"></a>学习套路</h4><ol>
-<li>先了解概念，再学习细节</li>
-<li>工具、框架用 CRM 学习法</li>
-<li>数学家的笑话<br> 有一位美国数学家最怕坐飞机。他研究了近20年的统计数据，发现恐怖分子带炸弹上飞机的几率非常低。 但他还是不放心，又做进一步研究，发现两个人同时带炸弹上飞机的几率为零，于是他坐飞机都自己携带一枚炸弹。</li>
+<p>每一个阶段都有队列<br>timers阶段，处理setTimeout和setInterval里面到时的回调<br>poll阶段(轮询阶段)，停留这个阶段，什么都干除了timers阶段和check阶段的事，除了timers的回调，其他都是poll处理<br>poll 阶段有两个功能：</p>
+<ol>
+<li>如果发现计时器的时间到了，就绕回到 timers 阶段执行计时器的回调。</li>
+<li>然后再执行 poll 队列里的回调。<br>check阶段，只处理一个API，大部分情况setImmediate()比setTimeout先执行，只有第一次轮询是例外的<br>如果执行脚本到处理Event loop之间的时间超过4ms。计时器在第一次检查的时候就会被执行，如果时间很短，先到poll阶段，时间到了循环到timers之前，check阶段就把setImmediate()执行了<br>setTimeout(()=&gt;{},0)===setTimeout(()=&gt;{},4),因为setTimeout最小的时间间隔是4ms</li>
 </ol>
-<h4 id="学习心法"><a href="#学习心法" class="headerlink" title="学习心法"></a>学习心法</h4><ol>
-<li>踩坑（bug即经验）</li>
-<li>我是傻逼（找bug） 念出所有代码。新人80%的BUG是拼写错误</li>
-<li>学会调试<ol>
-<li>CSS border</li>
-<li>JS log 断点 debugger</li>
-<li>手机：WIFT + http-server</li>
-</ol>
-</li>
-</ol>
-<h4 id="职业规划该怎么做？"><a href="#职业规划该怎么做？" class="headerlink" title="职业规划该怎么做？"></a>职业规划该怎么做？</h4><ol>
-<li>半年让leader放心（提升自己能力）</li>
-<li>输出组件给别人用（帮助他人）</li>
-<li>半 leader（提升团队）</li>
-</ol>
-<h4 id="书籍推荐"><a href="#书籍推荐" class="headerlink" title="书籍推荐"></a>书籍推荐</h4><ol>
-<li>算法相关：《图解算法》、Matrix67 的博客、《啊哈!算法》</li>
-<li>计算机原理相关：《编码》</li>
-<li>设计模式：《大话设计模式》</li>
-<li>MVC相关：《基于MVC的JavaScript Web富应用开发》</li>
-<li>做人相关：《我不是教你诈》（刘墉）</li>
-<li>美学相关：《写给大家看的设计书》</li>
-<li>你现在可以花半年时间，边（找）工作边看完《JavaScript 高级程序设计》了</li>
-</ol>
+<h4 id="process-nextTick"><a href="#process-nextTick" class="headerlink" title="process.nextTick()"></a>process.nextTick()</h4><p>从技术上来讲 process.nextTick() 并不是 event loop 的一部分，不管 event loop 当前处于哪个阶段，nextTick 队列都是在当前阶段后就被执行了，在任何一个阶段调用 process.nextTick(回调)，回调都会在当前阶段继续运行前被调用。</p>
 
     </section>
     <footer class="post-footer">
@@ -100,18 +74,18 @@
 </section>
       <section class="share">
     <h4>Share this post</h4>
-    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/05/15/知识点/" target="_blank">
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2018/05/16/Event-Loop/" target="_blank">
         <span class="hidden">weibo</span>
     </a>
-    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/15/知识点/"
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/16/Event-Loop/"
        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <span class="hidden">Twitter</span>
     </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/15/知识点/"
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/16/Event-Loop/"
        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <span class="hidden">Facebook</span>
     </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/15/知识点/"
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/16/Event-Loop/"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <span class="hidden">Google+</span>
     </a>
@@ -121,14 +95,14 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2018/05/16/Node-js-入门/">
-        ← Node.js 入门
+    <a class="newer-posts" href="/2018/05/16/MacroTask-v-s-MicroTask/">
+        ← MacroTask v.s. MicroTask
     </a>
     
     <span class="icon-logo">•</span>
     
-    <a class="older-posts" href="/2018/05/15/Web性能优化/">
-        Web性能优化 →
+    <a class="older-posts" href="/2018/05/16/Node-js-入门/">
+        Node.js 入门 →
     </a>
     
 </nav>

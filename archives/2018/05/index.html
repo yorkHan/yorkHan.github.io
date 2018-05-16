@@ -45,6 +45,91 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2018-05-16T05:51:25.000Z" itemprop="datePublished">
+          2018-05-16
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/16/MacroTask-v-s-MicroTask/">MacroTask v.s. MicroTask</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        妈（Ma）咪 （Mi）MacroTask(宏任务)MicroTask(微任务)通过Event Loop实现
+
+macrotasks 有 setTimeout setInterval setImmediate I/O UI渲染
+microtasks 有 Promise process.nextTick Object.observe MutationObserver
+
+
+先执行 Ma 再执行 Mi。宏任务和微任务轮流执行,Mi任务每次都清空
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/16/MacroTask-v-s-MicroTask/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-16T05:01:10.000Z" itemprop="datePublished">
+          2018-05-16
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/16/Event-Loop/">Event Loop</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        js引擎(单线程)同一时间只做一件事但是可以调用其他线程帮js做事
+Event Loop、计时器、nextTick
+Node.js Event Loop处理回调信息event loop是node.js使用c语言的代码当 Node.js 启动时，会做这几件事
+
+初始化 event loop
+开始执行脚本（或者进入 REPL）。这些脚本有可能会调用一些异步 API、设定计时器或者调用 process.nextTick()
+开始处理 even
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/16/Event-Loop/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-16T01:47:40.000Z" itemprop="datePublished">
+          2018-05-16
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/16/Node-js-入门/">Node.js 入门</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        
+fs 模块fs.readFile(path[, options], callback)异步1234567const fs = require(&apos;fs&apos;);fs.readFile(&apos;/etc/passwd&apos;, (err, data) =&gt; &#123;  if (err) throw err;  console.log(data);&#125;);//回调有两个参数 (err, data)，
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/16/Node-js-入门/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2018-05-15T15:00:54.000Z" itemprop="datePublished">
           2018-05-15
       </time>
@@ -254,94 +339,6 @@ CSS
       
       <p>
           <a href="/2018/05/09/Vue/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-05T00:51:29.000Z" itemprop="datePublished">
-          2018-05-05
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/05/网易云音乐/">网易云音乐</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        用例图用例图专门需求分析/产品经理分析用户需求的最常用的图
-线框图
-架构图
-命令行npm init创建package.json命令行git init创建.git
-根目录创建.gitignore，进入配置需要屏蔽上传到github的文件
-ACL(Access Control Layer)访问控制层
-SDK(Software Development Kit)软件开发套件，一套API
-URL/URI 不能包含汉子，特殊字符  http://x
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/05/网易云音乐/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-02T04:43:44.000Z" itemprop="datePublished">
-          2018-05-02
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/02/React/">React</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        安装 create-react-app123npm install -g create-react-appcreate-react-app . //用 create-react-app 初始化这个目录yarn start
-ReactDOM.render(p1, p2) 的作用：将 p1 插入到 p2 中。只不过 p1 虽然在 JS 文件中，却可以使用 HTML 的语法（这就是 JSX 语法）。
-部署到 GitHub12345git ad
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/02/React/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-02T00:51:23.000Z" itemprop="datePublished">
-          2018-05-02
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/02/面试/">面试</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        纯应试向押题
-套路
-举例
-将不会的变成会的
-侃侃而谈
-
-HTML 押题
-（必考） 你是如何理解 HTML 语义化的？第一种举例，段落用 p，边栏用 aside，主要内容用 main 标签第二种最开始是 PHP 后端写 HTML，不会 CSS，于是就用 table 来布局。table 使用展示表格的。严重违反了 HTML 语义化。后来有了专门的写 CSS 的前端，他们会使用 DIV + CSS 布局，主要是用 float 和绝对定位布局。
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/02/面试/" class="excerpt-link">Read More...</a>
       </p>
       
     </section>
