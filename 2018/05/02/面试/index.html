@@ -58,25 +58,33 @@
 <li>侃侃而谈</li>
 </ol>
 <h3 id="HTML-押题"><a href="#HTML-押题" class="headerlink" title="HTML 押题"></a>HTML 押题</h3><ol>
-<li>（必考） 你是如何理解 HTML 语义化的？<br>第一种举例，段落用 p，边栏用 aside，主要内容用 main 标签<br>第二种<br>最开始是 PHP 后端写 HTML，不会 CSS，于是就用 table 来布局。table 使用展示表格的。严重违反了 HTML 语义化。<br>后来有了专门的写 CSS 的前端，他们会使用 DIV + CSS 布局，主要是用 float 和绝对定位布局。稍微符合了 HTML 语义化。<br>再后来，前端专业化，知道 HTML 的各个标签的用法，于是会使用恰当的标签来展示内容，而不是傻傻的全用 div，会尽量使用 h1、ul、p、main、header 等标签<br>语义化的好处是已读、有利于SEO等。<br>第三种：对面试官说请看我的博客 <a href="https://zhuanlan.zhihu.com/p/32570423" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32570423</a></li>
+<li>（必考） 你是如何理解 HTML 语义化的？<br>第一种举例，段落用 p，边栏用 aside，主要内容用 main 标签<br>第二种<br>最开始是 PHP 后端写 HTML，不会 CSS，于是就用 table 来布局。table 使用展示表格的。严重违反了 HTML 语义化。<br>后来有了专门的写 CSS 的前端，他们会使用 DIV + CSS 布局，主要是用 float 和绝对定位布局。稍微符合了 HTML 语义化。<br>再后来，前端专业化，知道 HTML 的各个标签的用法，于是会使用恰当的标签来展示内容，而不是傻傻的全用 div，会尽量使用 h1、ul、p、main、header 等标签<br>语义化的好处是已读、有利于SEO(搜索引擎优化)等。<br>第三种：对面试官说请看我的博客 <a href="https://zhuanlan.zhihu.com/p/32570423" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32570423</a></li>
 <li>meta viewport 是做什么用的，怎么写？<br> 死背： <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><br> 控制页面在移动端不要缩小显示。<br> 侃侃而谈<br>  一开始，所有页面都是给PC准备的，乔布斯推出 iPhone 3GS，页面是不适应手机屏幕的，所以乔布斯的工程师想了一个办法，默认把手机模拟成 980px，页面缩小。<br>  后来，智能手机普及，这个功能在部分网站不需要了，所以我们就用 meta:vp 让手机不要缩小我的网页。</li>
 <li>canvas 元素是干什么的？<br> 项目丢给他。<br> 看 MDN 的 canvas 入门手册。</li>
 </ol>
 <h3 id="CSS-押题"><a href="#CSS-押题" class="headerlink" title="CSS 押题"></a>CSS 押题</h3><ol>
 <li>（必考） 说说盒模型。<br> 举例：<br> content-box: width == 内容区宽度<br> border-box: width == 内容区宽度 + padding 宽度 + border 宽度<br> (不管IE *{box-sizing:border-box}</li>
 <li>css reset 和 normalize.css 有什么区别？<br> 考英文：<br> reset 重置，之前的样式我不要，a{color: red;}，抛弃默认样式<br> normalize 让所有浏览器的标签都跟标准规定的默认样式一致，各浏览器上的标签默认样式基本统一。</li>
-<li>（必考）如何居中？<br> 平时总结：<br> *水平居中：<pre><code>*内联：爸爸身上写 text-align:center;
-*块级：margin-left: auto; margin-right: auto;
-</code></pre> *垂直居中： <a href="https://jscode.me/t/topic/1936" target="_blank" rel="noopener">https://jscode.me/t/topic/1936</a></li>
+<li>（必考）如何居中？<br> 平时总结：<ul>
+<li>水平居中：<ul>
+<li>内联：爸爸身上写 text-align:center;</li>
+<li>块级：margin-left: auto; margin-right: auto;</li>
+</ul>
+</li>
+<li>垂直居中： <a href="https://jscode.me/t/topic/1936" target="_blank" rel="noopener">https://jscode.me/t/topic/1936</a></li>
+</ul>
+</li>
 <li>选择器优先级如何确定？<ol>
 <li>选择器越具体，优先级越高。 #xxx 大于 .yyy</li>
 <li>同样优先级，写在后面的覆盖前面的。</li>
 <li>color: red !important; 优先级最高。</li>
 </ol>
 </li>
-<li>BFC 是什么？<br> *举例：<pre><code>*overflow:hidden 清除浮动。（方方总是用 .clearfix 清除浮动，坚决不用 overflow:hidden 清除浮动）
-*overflow:hidden 取消父子 margin 合并。http://jsbin.com/conulod/1/edit?html,css,js,output （方方用 padding-top: 1px;）
-</code></pre></li>
+<li>BFC 是什么？<br> 举例：<ul>
+<li>overflow:hidden 清除浮动。（方方总是用 .clearfix 清除浮动，坚决不用 overflow:hidden 清除浮动）</li>
+<li>overflow:hidden 取消父子 margin 合并。<a href="http://jsbin.com/conulod/1/edit?html,css,js,output" target="_blank" rel="noopener">http://jsbin.com/conulod/1/edit?html,css,js,output</a> （方方用 padding-top: 1px;）</li>
+</ul>
+</li>
 <li>如何清除浮动？<ol>
 <li>overflow: hidden （方方反对）</li>
 <li>.clearfix 清除浮动写在爸爸身上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line">     content: &apos;&apos;; </span><br><span class="line">     display: block; </span><br><span class="line">     clear:both;</span><br><span class="line"> &#125;</span><br><span class="line"> .clearfix&#123;</span><br><span class="line">     zoom: 1; /* IE 兼容 */</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
@@ -86,12 +94,17 @@
 </ol>
 <h3 id="JS-押题"><a href="#JS-押题" class="headerlink" title="JS 押题"></a>JS 押题</h3><ol>
 <li>JS 有哪些数据类型？<br> string number bool undefined null object symbol<br> object 包括了数组、函数、正则、日期等对象<br> 一旦出现（数组、函数、正则、日期、NaN）直接0分</li>
-<li><p>（必考） Promise 怎么使用？<br> *then</p>
+<li><p>（必考） Promise 怎么使用？</p>
+<ul>
+<li><p>then</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(...).then(成功函数, 失败函数)</span><br></pre></td></tr></table></figure>
-<p> *链式 then</p>
+</li>
+<li><p>链式 then</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(...).then(成功函数, 失败函数).then(成功函数2, 失败函数2)</span><br></pre></td></tr></table></figure>
-<p>  *如何自己生成 Promise 对象</p>
+<p>*如何自己生成 Promise 对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function xxx()&#123;</span><br><span class="line">    return new Promise(function(resolve, reject)&#123;</span><br><span class="line">        setTimeout(()=&gt;&#123;</span><br><span class="line">            resolve() 或者 reject()</span><br><span class="line">        &#125;,3000)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">xxx().then(...)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 <li><p>（必考） AJAX 手写一下？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let xhr = new XMLHttpRequest()</span><br><span class="line">xhr.open(&apos;POST&apos;, &apos;/xxxx&apos;)</span><br><span class="line">xhr.onreadystatechange = function()&#123;</span><br><span class="line">    if(xhr.readyState === 4 &amp;&amp; xhr.status === 200)&#123;</span><br><span class="line">        console.log(xhr.responseText)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(&apos;a=1&amp;b=2&apos;)</span><br></pre></td></tr></table></figure>
