@@ -82,6 +82,10 @@
 <li>href=”/..”浏览器发起 GET/HTTP/1.1的请求</li>
 <li>href=”javascript:alert(1);”可以在用户点击a时执行一段javascript代码，href=”javascript:;”为伪协议，可以实现“点击后没有任何动作的a标签”，满足一些奇葩需求</li>
 <li>href=”qq.com”浏览器会根据当前协议，补全无协议链接的协议，如果用file:// 协议浏览页面，就会访问到 file://qq.com，这是一个不存在的路径，应该尽量不适用file：//协议预览网页，以免无协议链接出错</li>
+<li>点击a标签发送邮件的 href <code>&lt;a href=&quot;mailto:youemail@mail.com?subject=邮件标题&amp;body=邮件内容&quot;&gt;告诉我们&lt;/a&gt;</code></li>
+<li><code>&lt;a href=&quot;tel:400-888-6633&quot;&gt;拨打电话&lt;a&gt;</code></li>
+<li><code>&lt;a href=&quot;sms:19956321564&quot;&gt;发送短信&lt;a&gt;</code></li>
+<li><code>&lt;a target=blank href=&quot;tencent://message/?uin=2858182383&amp;Site=论坛地址&amp;Menu=yes&quot;&gt;&lt;img border=&quot;0&quot; SRC=&quot;&quot; alt=&quot;广告专用QQ&quot;&gt;发起QQ回话&lt;/a&gt;</code></li>
 </ul>
 <h5 id="form标签"><a href="#form标签" class="headerlink" title="form标签:"></a>form标签:</h5><p>action属性的作用：指定请求路径<br>method属性的作用：指定请求动词</p>
 <p>form可以在下列情况下可以被用户提交：(input和button的区别，input没有子元素，button是有子元素的)</p>
