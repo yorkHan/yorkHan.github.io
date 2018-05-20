@@ -45,6 +45,278 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2018-05-16T05:01:10.000Z" itemprop="datePublished">
+          2018-05-16
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/16/Event-Loop/">Event Loop</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        js引擎(单线程)同一时间只做一件事但是可以调用其他线程帮js做事
+Event Loop、计时器、nextTick
+Node.js Event Loop处理回调信息event loop是node.js使用c语言的代码当 Node.js 启动时，会做这几件事
+
+初始化 event loop
+开始执行脚本（或者进入 REPL）。这些脚本有可能会调用一些异步 API、设定计时器或者调用 process.nextTick()
+开始处理 even
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/16/Event-Loop/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-16T01:47:40.000Z" itemprop="datePublished">
+          2018-05-16
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/16/Node-js-入门/">Node.js 入门</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        
+fs 模块fs.readFile(path[, options], callback)异步1234567const fs = require(&apos;fs&apos;);fs.readFile(&apos;/etc/passwd&apos;, (err, data) =&gt; &#123;  if (err) throw err;  console.log(data);&#125;);//回调有两个参数 (err, data)，
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/16/Node-js-入门/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-15T15:00:54.000Z" itemprop="datePublished">
+          2018-05-15
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/15/知识点/">知识点</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        
+命令行
+HTTP
+HTML CSS
+JS
+DOM
+AJAX + LeanCloud
+跨域
+MVC
+Vue
+
+学习套路
+先了解概念，再学习细节
+工具、框架用 CRM 学习法
+数学家的笑话 有一位美国数学家最怕坐飞机。他研究了近20年的统计数据，发现恐怖分子带炸弹上飞机的几率非常低。 但他还是不放心，又做进一步研究，发现两个人同时带炸弹上飞机的几率为零，于是他坐飞机都自己携带一枚炸弹。
+
+学习心法
+踩坑（bug即经验）
+我是傻逼（找bug
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/15/知识点/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-15T10:54:23.000Z" itemprop="datePublished">
+          2018-05-15
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/15/Web性能优化/">Web性能优化</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        Web性能优化用户觉得你网站加载快用户按下回车，发生的和前端有关的事
+
+缓存
+DNS查询
+建立TCP连接
+发生HTTP请求后台处理 等…..
+接受响应
+接受完成-&gt;HTML
+查看DOCTYPE，根据DOCTYPE选择使用HTML还是XML
+逐行解析
+看到标签。IE直接渲染到页面，chrome会假设用户网速很快不渲染，等到css都加载完毕才渲染（因为现在渲染，后来加载到css又把标签样式改了，就要重新渲染）
+看到css，下载css，
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/15/Web性能优化/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-15T09:50:48.000Z" itemprop="datePublished">
+          2018-05-15
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/15/mixin、柯里化和高阶函数/">mixin、柯里化和高阶函数</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        mixin(混入)mixin(混入)模式就是把b的属性一个一个拷贝到a身上12345var mixin=function(a,b)&#123;    for(let key in b)&#123;        a[key]=b[key]    &#125;&#125;
+Object.assign(a,b)也是mixin
+curry 柯里化又称部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/15/mixin、柯里化和高阶函数/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-15T07:14:01.000Z" itemprop="datePublished">
+          2018-05-15
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/15/继承/">继承</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        继承是类和类之间的关系继承可以使得子类别具有父类别的各种属性和方法a.valueOf() 面向对象叫成员属性，js叫原型链继承Object和Array两个类之间没有任何关系但是Object.prototype和Array.prototype有一个重要的关系，所有的对象都是从new Object()构造出来的，Array.prototype也是new Object()构造出来的Array.prototype.proto===Object.
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/15/继承/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-13T06:20:45.000Z" itemprop="datePublished">
+          2018-05-13
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/13/前端路由/">前端路由</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        利用hash来做路由1234let index = location.hash //从hash中读取状态indexindex=index.substring //分析hash，去掉hash中index字符串第一个字&quot;#&quot;location.hash=index //把状态index设置成hash
+hashchangehashchange当URL的片段标识符更改时，将触发hashchange事件 (跟在＃符号后面的URL
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/13/前端路由/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-11T01:09:45.000Z" itemprop="datePublished">
+          2018-05-11
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/11/简历制作工具/">简历制作工具</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        用例图
+数据库
+线框图
+遍历数组获取数据数组中的对象的key，并把输入框的value赋值给这个key
+js
+Location 对象是 Window 对象的一个部分.包含有关当前 URL 的信息，可通过 window.location 属性来访问。 
+window.print触发打印
+
+CSS
+@media 使用 @media 查询，你可以针对不同的媒体类型定义不同的样式。 @media  (min-width: 500px){…..} 
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/11/简历制作工具/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-09T07:34:07.000Z" itemprop="datePublished">
+          2018-05-09
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/09/Vue/">Vue</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        学习要点
+
+把基础学好
+把教程看到「自定义指令」
+响应式机制和组件生命周期是重点（一定要反复看）
+学习 vue-router 和 vuex
+学习 Node 工具
+
+创建Vue实例：new Vue(selector)Vue实例的生命周期钩子：beforeCreate ，created ， beforeMount ， mounted ， beforeUpdate ， updated ， beforeDestroy ， destroyedda
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/09/Vue/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2018-05-05T00:51:29.000Z" itemprop="datePublished">
           2018-05-05
       </time>
@@ -73,94 +345,10 @@ URL/URI 不能包含汉子，特殊字符  http://x
     </section>
   </article>
   
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-02T04:43:44.000Z" itemprop="datePublished">
-          2018-05-02
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/02/React/">React</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        安装 create-react-app123npm install -g create-react-appcreate-react-app . //用 create-react-app 初始化这个目录yarn start
-ReactDOM.render(p1, p2) 的作用：将 p1 插入到 p2 中。只不过 p1 虽然在 JS 文件中，却可以使用 HTML 的语法（这就是 JSX 语法）。
-部署到 GitHub12345git ad
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/02/React/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-02T00:51:23.000Z" itemprop="datePublished">
-          2018-05-02
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/02/面试/">面试</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        纯应试向押题
-套路
-举例
-将不会的变成会的
-侃侃而谈
-
-HTML 押题
-（必考） 你是如何理解 HTML 语义化的？第一种举例，段落用 p，边栏用 aside，主要内容用 main 标签第二种最开始是 PHP 后端写 HTML，不会 CSS，于是就用 table 来布局。table 使用展示表格的。严重违反了 HTML 语义化。后来有了专门的写 CSS 的前端，他们会使用 DIV + CSS 布局，主要是用 float 和绝对定位布局。
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/02/面试/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-01T00:56:26.000Z" itemprop="datePublished">
-          2018-05-01
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/01/MVVM/">MVVM</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        axois
-
-比jQuery.ajax功能更多
-除了ajax功能之外，没有其他功能(更专注ajax)12345678910111213141516171819202122232425262728293031323334let book=&#123;    name:&apos;javascript 高级程序设计&apos;    number:2,    id:1    &#125;    //interceptors:在真正返回res
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/01/MVVM/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
   <nav class="pagination" role="pagination">
     <a class="newer-posts" href="/archives/2018/05/">← Newer Posts</a>
-    <span class="page-number">Page 2 of 2</span>
-    
+    <span class="page-number">Page 2 of 3</span>
+    <a class="older-posts" href="/archives/2018/05/page/3/">Older Posts →</a>
   </nav>
 </main>
 
