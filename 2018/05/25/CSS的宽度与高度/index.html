@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>CSS的宽度与高度 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(http://p8rwg9io5.bkt.clouddn.com/3_gaitubao_com_1920x500.jpg) 0 0%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-25T04:17:59.000Z" itemprop="datePublished">
+          2018-05-25
+      </time>
+    
+</span>
+    <h1 class="post-title">CSS的宽度与高度</h1>
+    <section class="post-content">
+      <ol>
+<li>文档流（Normal Flow）<br>内联元素的宽高<br> 内联元素的高度是由行高决定的，内联元素的宽度是由内容，margin，padding，border决定的<br>块级元素的宽高<ol>
+<li>如果div里面只有一个内联元素，那么div的高度是由内联元素这一行的字体乘以字体建议行高确定，和font-size没关系</li>
+<li>如果div里面有多行内联元素，那么div高度由每一行的行高加起来,div的宽度不是由文字决定的<br> div的高度是由内部文档流中元素的总和决定的</li>
+<li>字和字是中线对齐，默认行高是字体设计师建议的,空格的宽度是由字体设计师确定的，HTML会把所有内联元素之外的空格与回车都舍弃，内联元素之间的空格和回车都缩减为一个空格，不要用inline-block，因为两个内联元素之间一定有空格</li>
+<li>如果内联元素足够多，一行容纳不下，那么就从左到右排列，宽度不够自动换行，块级元素每个占一行，从上到下排列，这就叫文档流<br>水平居中text-align：center；<br>垂直居中line-height加padding，当文字很多时不会出现BUG<br>文字溢出省略（搜索 CSS multi line text ellipsis）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//一行</span><br><span class="line">div&#123;</span><br><span class="line">white-space：nowrap;</span><br><span class="line">overflow:hidden;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">&#125;</span><br><span class="line">//多行</span><br><span class="line">div&#123;</span><br><span class="line">display:-webkit-box;</span><br><span class="line">-webkit-line-clamp:2; //要第几行加省略号就写几</span><br><span class="line">-webkit-box-orient:vertical;</span><br><span class="line">overflow:hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p>margin合并<br>    如果父元素没有什么东西(比如border，padding)挡住margin，子元素的外边距就会和父元素合并起来，解决margin合并，加border,padding，overflow:hidden尽量不要使用<br>脱离文档流(算高度别叫上我)：</p>
+<pre><code>1. float: left;
+2. postion: fixed;
+3. postion: absolute;
+</code></pre><ol start="2">
+<li>盒模型<br> 一比一的 div<br> div{<br> padding-top:100%;<br> border:1px solid black;<br> }<br> outline<br> border 调试大法</li>
+</ol>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><ol>
+<li>span对齐<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">span&#123;</span><br><span class="line">    width:5em;</span><br><span class="line">    display:inline-block;</span><br><span class="line">    text-align:justify;</span><br><span class="line">    overfloat:hidden;</span><br><span class="line">    height:20px;</span><br><span class="line">&#125;</span><br><span class="line">span::after&#123;</span><br><span class="line">    content:&apos;&apos;,</span><br><span class="line">    display:inline-block;</span><br><span class="line">    width:100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/2018/05/25/CSS的宽度与高度/span对齐.png" alt="span对齐"></p>
+<ol start="2">
+<li>text-align：justify 多行首尾对齐</li>
+<li><code>&amp;nbsp;</code>(no break space)</li>
+<li>在父元素加clearfix，不加的话，父元素不能把float的子元素包起来<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line">    content:&apos;&apos;;</span><br><span class="line">    display:block;</span><br><span class="line">    clear:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>鸟随鸾凤飞腾远，人伴贤良品自高。</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/05/25/CSS的宽度与高度/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/25/CSS的宽度与高度/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/25/CSS的宽度与高度/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/25/CSS的宽度与高度/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/05/25/CSS的学习思路/">
+        CSS的学习思路 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

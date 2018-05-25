@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>CSS的学习思路 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(http://p8rwg9io5.bkt.clouddn.com/3_gaitubao_com_1920x500.jpg) 0 0%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-25T00:56:12.000Z" itemprop="datePublished">
+          2018-05-25
+      </time>
+    
+</span>
+    <h1 class="post-title">CSS的学习思路</h1>
+    <section class="post-content">
+      <h3 id="CSS-学习的难点"><a href="#CSS-学习的难点" class="headerlink" title="CSS 学习的难点"></a>CSS 学习的难点</h3><p>CSS 一开始设计出来的时候并没有想到大家会这么依赖 CSS，所以设计的时候想得特别简单：你要什么功能我就加什么属性。<br>没有CSS的时候用元素自带属性，比如<code>&lt;body bgcolor=&quot;yellow&quot;&gt;&lt;/body&gt;</code>,居中就用<code>&lt;center&gt;&lt;/center&gt;</code>,字变红就用<code>&lt;font color=&quot;red&quot;&gt;&lt;/font&gt;</code>，写的时候很麻烦，内容和样式混在一起<br>CSS发明了选择器，属性，值，一开始用style标签把样式包起来，为了让写内容的人专注于内容，于是把样式单独分出一个文件，用link标签引用进页面，CSS一开始就带媒体查询功能，<code>&lt;link media=&quot;print&quot;&gt;</code>只有在打印时，使用该样式</p>
+<p>你要颜色，就有 color: red; background-color: red;<br>你要图文混排(文字环绕图片)，就有 float: left<br><img src="/2018/05/25/CSS的学习思路/图文混排.png" alt="图文混排"><br>你要绝对定位，就有 position: absolute</p>
+<p>虽然 CSS 有一些核心概念，还是我们主要接触的还是一些表面的「技巧」，比如如何布局、如何做出一个小效果。<br>即使你不了解核心概念，也能把效果搞（抄）出来。</p>
+<p>原因很简单：写 CSS 不需要复杂的逻辑。<br>如果你看见别人用 CSS 写出了一个五角星，那么你只要抄到你的页面里，同样的样式，那么你也有一个五角星。</p>
+<p>这就使得很多人不打算深入了解 CSS。</p>
+<h4 id="如果你不深入了解-CSS"><a href="#如果你不深入了解-CSS" class="headerlink" title="如果你不深入了解 CSS"></a>如果你不深入了解 CSS</h4><p>如果你不深入了解 CSS，那么你会发现 CSS 不正交，因而有些反直觉。不正交主要表现在两点：</p>
+<ol>
+<li><p>各属性之间互相影响<br> margin V.S. border</p>
+<pre><code>两个兄弟div之间都有margin，那么margin就会合并。在两个div之间加入一个div，只写border不等于0，或者写display:table/flex,就可以阻断两个div之间的margin合并
+![兄弟margin合并](CSS的学习思路/兄弟margin合并.png)
+父子元素，子元素有margin-top，父元素也会有，border和padding，display: inline-block/flex/table，overflow：hidden，可以阻断父子div的margin合并
+![父子margin合并](CSS的学习思路/父子margin合并.png)
+![阻断父子margin合并](CSS的学习思路/阻断父子margin合并.png)
+</code></pre><p> 小圆点 V.S. display</p>
+<pre><code>display:block 会影响`&lt;li&gt;&lt;/li&gt;`的自带样式，消除小圆点
+</code></pre><p> position: absolute V.S. display: inline</p>
+<pre><code>如果元素是display: inline，给个position: absolute会导致display: block
+</code></pre></li>
+<li><p>各元素之间互相影响<br> position: fixed V.S. transform</p>
+<pre><code>父元素加transform：scale（），会导致position：fixed的子元素不再相对于视口定位，而是又相对于父元素定位
+</code></pre><p> float 影响 inline 元素</p>
+<pre><code>float不影响样式，但是影响inline里面的文字
+![float](CSS的学习思路/float.png)
+</code></pre></li>
+</ol>
+<h3 id="CSS-学习的易点"><a href="#CSS-学习的易点" class="headerlink" title="CSS 学习的易点"></a>CSS 学习的易点</h3><ol>
+<li>背套路即可应付日常工作<br>如何布局？<br><img src="/2018/05/25/CSS的学习思路/布局.png" alt="布局"><br>水平居中<br> 块级元素：<ol>
+<li>如果子元素width不确定，margin-left：20px；margin-right：20px;就可以居中</li>
+<li>如果子元素width确定，margin-left：auto；margin-right：auto;就可以居中<br>liline元素：<br>在父元素加text-align：center<br>垂直居中<br>如果子元素height确定或者不确定，在父元素上加padding-top：20px；padding-bottom：20px;就可以居中<br>避免出现父元素height确定，如果父元素height确定，兼容IE用table/div(table)，兼容chrome或手机端，用flex就可以居中</li>
+</ol>
+</li>
+<li>巧用工具<br><a href="http://css3generator.com/" target="_blank" rel="noopener">CSS 3 Generator</a><br><a href="http://www.colorzilla.com/gradient-editor/" target="_blank" rel="noopener">CSS Gradient Generator(渐变)</a><br><a href="https://www.cssmatic.com/box-shadow" target="_blank" rel="noopener">CSS box-shadow</a></li>
+</ol>
+<h3 id="想学好-CSS？"><a href="#想学好-CSS？" class="headerlink" title="想学好 CSS？"></a>想学好 CSS？</h3><ol>
+<li>通读 specs<a href="http://www.ayqy.net/doc/css2-1/cover.html" target="_blank" rel="noopener">CSS2.1规范文档</a></li>
+<li>20篇以上博客<a href="http://www.zhangxinxu.com/wordpress/category/css/" target="_blank" rel="noopener">(张鑫旭)</a></li>
+<li>做好「学了但是没有什么卵用」的心理准备</li>
+</ol>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>鸟随鸾凤飞腾远，人伴贤良品自高。</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/05/25/CSS的学习思路/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/25/CSS的学习思路/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/25/CSS的学习思路/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/25/CSS的学习思路/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/05/25/CSS的宽度与高度/">
+        ← CSS的宽度与高度
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/05/20/Vue组件基础/">
+        Vue组件基础 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
