@@ -45,6 +45,69 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2018-05-27T10:40:34.000Z" itemprop="datePublished">
+          2018-05-27
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/27/BFC/">BFC</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        CSS规范中对 BFC 的描述
+9.4.1 块格式化上下文
+
+
+浮动，绝对定位元素，非块盒的块容器（例如，inline-blocks，table-cells和table-captions）和’overflow’不为’visible’的块盒会为它们的内容建立一个新的块格式化上下文
+
+
+在一个块格式化上下文中，盒在竖直方向一个接一个地放置，从包含块的顶部开始。两个兄弟盒之间的竖直距离由’margin’属性决定。同一个块格式化上下文中的相邻块
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/27/BFC/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-27T04:36:54.000Z" itemprop="datePublished">
+          2018-05-27
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/27/布局套路/">CSS-布局套路</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        布局流程图
+原则
+不到万不得已，不要写死 width 和 height,可以写calc(% - px) (测试浏览器兼容)
+尽量用高级语法，如 calc、flex
+如果是 IE，就全部写死
+
+口诀
+float(兼容IE5以上) 1.子元素全加 float: left （right） 2.父元素加 .clearfix
+ 123456789.clearfix:after&#123;    content: &apos;&apos;;    
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/27/布局套路/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2018-05-27T00:57:54.000Z" itemprop="datePublished">
           2018-05-27
       </time>
@@ -276,54 +339,6 @@ z-index: +如果是兄弟元素(如文字)重叠，那么后面的盖在前面�
       
       <p>
           <a href="/2018/05/20/Vue表单输入绑定/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-20T15:12:53.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/20/Vue事件处理/">Vue事件处理</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        监听时间可以用 v-on 指令监听 DOM 事件，并在触发时运行一些 JavaScript 代码。然而许多事件处理逻辑会更为复杂，所以直接把 JavaScript 代码写在 v-on 指令中是不可行的。因此 v-on 还可以接收一个需要调用的方法名称。123456789101112131415161718192021222324252627//HTML&lt;div id=&quot;example-2&quot;&gt;  &lt;!
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/20/Vue事件处理/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-20T15:11:55.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/20/Vue列表渲染/">Vue列表渲染</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        用 v-for 把一个数组对应为一组元素我们用 v-for 指令根据一组数组的选项列表进行渲染。v-for 指令需要使用 item in items 形式的特殊语法，items 是源数据数组并且 item 是数组元素迭代的别名。123456789101112131415&lt;ul id=&quot;example-1&quot;&gt;  &lt;li v-for=&quot;item in items&quot;&gt;    &#
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/20/Vue列表渲染/" class="excerpt-link">Read More...</a>
       </p>
       
     </section>
