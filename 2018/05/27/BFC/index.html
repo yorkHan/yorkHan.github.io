@@ -99,7 +99,8 @@
 <li>它没有定义</li>
 <li>它只有特性/功能</li>
 </ol>
-<h4 id="功能1：爸爸管儿子"><a href="#功能1：爸爸管儿子" class="headerlink" title="功能1：爸爸管儿子"></a>功能1：爸爸管儿子</h4><p>用 BFC 包住浮动元素。(这不是清除浮动，.clearfix 才是清除浮动）</p>
+<h4 id="功能1：爸爸管儿子"><a href="#功能1：爸爸管儿子" class="headerlink" title="功能1：爸爸管儿子"></a>功能1：爸爸管儿子</h4><p>用 BFC 包住浮动元素。(这不是清除浮动，.clearfix 才是清除浮动）<br>子元素float，父元素不能包住子元素，解决方法：<br>让父元素变成float，position:absolute，非块盒的块容器（例如，display：inline-blocks，display：flow-root，display：table-cells和display：table-captions）或’overflow’不为’visible’</p>
+<p><strong>display：flow-root 让当前元素触发BFC，不会有任何其他问题，解决了BFC不正交的问题(不正交：调整一样东西，会触发其他不可预知的问题)</strong></p>
 <h4 id="功能2：兄弟之间划清界限"><a href="#功能2：兄弟之间划清界限" class="headerlink" title="功能2：兄弟之间划清界限"></a>功能2：兄弟之间划清界限</h4><p>用 float + div 做左右自适应布局</p>
 
     </section>
