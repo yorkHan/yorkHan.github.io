@@ -66,7 +66,11 @@
 2. postion: fixed;
 3. postion: absolute;
 </code></pre><ol start="2">
-<li>盒模型<br> 一比一的 div<br> div{<br> padding-top:100%;<br> border:1px solid black;<br> }<br> outline<br> border 调试大法</li>
+<li>盒模型<br> 一比一的 div<br> div{<br> padding-top:100%;<br> border:1px solid black;<br> }<br> outline<br> outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。<br> outline与border的区别：<ol>
+<li>border 可应用于几乎所有有形的html元素，而 outline 是针对链接、表单控件和ImageMap等元素设计。</li>
+<li>outline 不会象border那样影响元素的尺寸或者位置，outline不占据空间。<br>border 调试大法</li>
+</ol>
+</li>
 </ol>
 <h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><ol>
 <li>span对齐<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">span&#123;</span><br><span class="line">    width:5em;</span><br><span class="line">    display:inline-block;</span><br><span class="line">    text-align:justify;</span><br><span class="line">    overfloat:hidden;</span><br><span class="line">    height:20px;</span><br><span class="line">&#125;</span><br><span class="line">span::after&#123;</span><br><span class="line">    content:&apos;&apos;,</span><br><span class="line">    display:inline-block;</span><br><span class="line">    width:100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -107,6 +111,10 @@
     </footer>
   </article>
   <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/05/25/CSS-堆叠上下文/">
+        ← CSS-堆叠上下文
+    </a>
     
     <span class="icon-logo">•</span>
     

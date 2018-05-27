@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>移动端页面(响应式) | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(http://p8rwg9io5.bkt.clouddn.com/3_gaitubao_com_1920x500.jpg) 0 0%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-26T13:39:01.000Z" itemprop="datePublished">
+          2018-05-26
+      </time>
+    
+</span>
+    <h1 class="post-title">移动端页面(响应式)</h1>
+    <section class="post-content">
+      <h3 id="手机端页面的做法"><a href="#手机端页面的做法" class="headerlink" title="手机端页面的做法"></a>手机端页面的做法</h3><h4 id="学会-media-query"><a href="#学会-media-query" class="headerlink" title="学会 media query"></a>学会 media query</h4><p><img src="/2018/05/26/CSS-移动端页面-响应式/媒体查询.png" alt="媒体查询"></p>
+<h4 id="学会要设计图（没图不做）"><a href="#学会要设计图（没图不做）" class="headerlink" title="学会要设计图（没图不做）"></a>学会要设计图（没图不做）</h4><p>实在要做也行，丑可别怪我</p>
+<h4 id="学会隐藏元素"><a href="#学会隐藏元素" class="headerlink" title="学会隐藏元素"></a>学会隐藏元素</h4><p>moblie first(先设计手机端页面)<br>desktop first(先设计pc端页面)</p>
+<h4 id="手机端要加一个-meta"><a href="#手机端要加一个-meta" class="headerlink" title="手机端要加一个 meta"></a>手机端要加一个 meta</h4><p><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><br>为什么要加meta：</p>
+<ol>
+<li>防止手机页面模拟 980 像素宽度</li>
+<li>防止页面在用户双击的时候放大</li>
+<li>防止用户两指缩放页面</li>
+</ol>
+<h4 id="手机端的交互方式不一样"><a href="#手机端的交互方式不一样" class="headerlink" title="手机端的交互方式不一样"></a>手机端的交互方式不一样</h4><ol>
+<li>没有 hover</li>
+<li>有 touch 事件<br>touch左划右划<br><a href="https://github.com/mattbryson/TouchSwipe-Jquery-Plugin" target="_blank" rel="noopener">jQuery TouchSwipe</a></li>
+<li>没有 resize</li>
+<li>没有滚动条</li>
+</ol>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>鸟随鸾凤飞腾远，人伴贤良品自高。</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/05/26/CSS-移动端页面-响应式/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/26/CSS-移动端页面-响应式/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/26/CSS-移动端页面-响应式/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/26/CSS-移动端页面-响应式/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/05/27/CSS-Flex布局/">
+        ← CSS-Flex布局
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/05/26/CSS-icon/">
+        CSS-icon →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>

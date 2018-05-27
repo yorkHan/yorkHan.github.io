@@ -45,6 +45,145 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2018-05-27T00:57:54.000Z" itemprop="datePublished">
+          2018-05-27
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/27/CSS-Flex布局/">CSS-Flex布局</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        阮一峰-Flex 布局教程：语法篇
+Flex之前主要使用
+
+normal flow(正常流，也叫文档流)
+float+clear
+position relative+absolute
+display inline-block
+负margin
+
+Flex来了一种新的布局方式-Flex布局
+
+块级布局侧重垂直方向、行内布局侧重水平方向，flex布局是与方向无关的 。
+flex布局可以实现空间自动分配、自动对齐（flexible：弹性的、灵活
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/27/CSS-Flex布局/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-26T13:39:01.000Z" itemprop="datePublished">
+          2018-05-26
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/26/CSS-移动端页面-响应式/">移动端页面(响应式)</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        手机端页面的做法学会 media query
+学会要设计图（没图不做）实在要做也行，丑可别怪我
+学会隐藏元素moblie first(先设计手机端页面)desktop first(先设计pc端页面)
+手机端要加一个 meta为什么要加meta：
+
+防止手机页面模拟 980 像素宽度
+防止页面在用户双击的时候放大
+防止用户两指缩放页面
+
+手机端的交互方式不一样
+没有 hover
+有 touch 事件touch左划右划jQuery Touc
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/26/CSS-移动端页面-响应式/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-26T11:08:23.000Z" itemprop="datePublished">
+          2018-05-26
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/26/CSS-icon/">CSS-icon</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        PSD怎么切图:
+
+在右下角图层选择器上右键Duplicate Layer（复制图层），Document选择New
+Image里选择Trim…（裁剪）
+Image里选择Canvas Size（画布大小），调整图片尺寸
+File里选择Export（导出成PNG）
+
+PNG怎么抠图:
+
+选择好图片区域，Image里选择Crop（剪切）
+Quick Selection Tool（快速选择工具），按住shift选择其他你想要的地方，右键Sele
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/26/CSS-icon/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2018-05-25T11:34:43.000Z" itemprop="datePublished">
+          2018-05-25
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2018/05/25/CSS-堆叠上下文/">CSS-堆叠上下文</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        堆叠顺序从里到外：
+
+background
+border
+块级元素
+浮动元素，如果浮动元素里面有文字，那么等级没有外面的文字高
+内联元素
+z-index: 0 === position:relative/absolute； 
+z-index: +如果是兄弟元素(如文字)重叠，那么后面的盖在前面的身上。z-index只能给定位元素加
+
+堆叠上下文堆叠上下文可以理解为堆叠作用域。跟 BFC 一样，我们只知道一些属性会触发堆叠上下文，但并不知
+      
+      </p>
+      
+      <p>
+          <a href="/2018/05/25/CSS-堆叠上下文/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2018-05-25T04:17:59.000Z" itemprop="datePublished">
           2018-05-25
       </time>
@@ -185,106 +324,6 @@
       
       <p>
           <a href="/2018/05/20/Vue列表渲染/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-20T15:10:40.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/20/Vue条件渲染/">Vue条件渲染</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        v-if在 Vue 中，使用 v-if 指令实现功能：1&lt;h1 v-if=&quot;ok&quot;&gt;Yes&lt;/h1&gt;
-也可以用 v-else 添加一个“else 块”：12&lt;h1 v-if=&quot;ok&quot;&gt;Yes&lt;/h1&gt;&lt;h1 v-else&gt;No&lt;/h1&gt;
-v-else 元素必须紧跟在带 v-if 或者 v-else-if 的元素的后面，否则它将
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/20/Vue条件渲染/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-20T15:09:38.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/20/Vue-Class-与-Style-绑定/">Vue Class 与 Style 绑定</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        绑定 HTML Class对象语法我们可以传给 v-bind:class 一个对象，以动态地切换 class：1&lt;div v-bind:class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;
-你可以在对象中传入更多属性来动态切换多个 class。此外，v-bind:class 指令也可以与普通的 class 属性共存。12345678910111213141
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/20/Vue-Class-与-Style-绑定/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-20T15:07:31.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/20/Vue计算属性和侦听器/">Vue计算属性和侦听器</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        计算属性对于任何复杂逻辑，你都应当使用计算属性12345678910111213141516171819202122&lt;div id=&quot;example&quot;&gt;  &lt;p&gt;Original message: &quot;&#123;&#123; message &#125;&#125;&quot;&lt;/p&gt;  &lt;p&gt;Computed reversed message: &quot;
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/20/Vue计算属性和侦听器/" class="excerpt-link">Read More...</a>
-      </p>
-      
-    </section>
-  </article>
-  
-  <article class="post">
-    <header class="post-header">
-      <span class="post-meta">
-      <time datetime="2018-05-20T15:06:22.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
-    
-</span>
-      <h2 class="post-title"><a href="/2018/05/20/Vue模板语法/">Vue模板语法</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>
-      
-        Vue.js 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。所有 Vue.js 的模板都是合法的 HTML ，所以能被遵循规范的浏览器和 HTML 解析器解析。在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。
-插值文本数据绑定最常见的形式就是使用“Mustache”语法 (双大括号
-      
-      </p>
-      
-      <p>
-          <a href="/2018/05/20/Vue模板语法/" class="excerpt-link">Read More...</a>
       </p>
       
     </section>
