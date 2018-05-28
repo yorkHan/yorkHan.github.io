@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Bootstrap | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(http://p8rwg9io5.bkt.clouddn.com/3_gaitubao_com_1920x500.jpg) 0 0%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-05-28T07:36:55.000Z" itemprop="datePublished">
+          2018-05-28
+      </time>
+    
+</span>
+    <h1 class="post-title">Bootstrap</h1>
+    <section class="post-content">
+      <p>Bootstrap(UI框架)<br>Bootstrap必须搭配jQuery使用<br><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap官网</a><br><a href="http://www.bootcss.com" target="_blank" rel="noopener">Bootstrap中文网</a><br>V2.0版本兼容IE6<br>生产环境：如果你的程序是给真实的用户使用的，那么这个程序所在的机器或者操作系统叫生产环境，比喻成工厂.<br>测试环境：如果你的程序是给自己或者公司同事用的，那么这个程序所在的机器或者操作系统叫开发环境，又叫本地环境</p>
+<h3 id="Bootstrap-引入"><a href="#Bootstrap-引入" class="headerlink" title="Bootstrap 引入"></a>Bootstrap 引入</h3><p><a href="https://v3.bootcss.com/getting-started/" target="_blank" rel="noopener">Bootstrap起步</a></p>
+<ol>
+<li>在官网起步里，下载用于生产环境的 Bootstrap</li>
+<li>解压并复制里面的三个文件夹，css，js，font到你的文件夹里面</li>
+<li>bootstrap.css和bootstrap.js是源代码，bootstrap.min.css和bootstrap.min.js是去掉空格和回车，js再把长变量名改成短变量名，压缩过后的代码</li>
+<li>在命令行当前文件目录下安装jQuery<code>npm i jquery</code>，在html文件里面用script引入jquery.min.js</li>
+<li>用link标签引入bootstrap.min.css，用script引入bootstrap.min.js，jquery.min.js要在bootstrap.min.js之前</li>
+</ol>
+<h3 id="网格-栅栏系统"><a href="#网格-栅栏系统" class="headerlink" title="网格/栅栏系统"></a>网格/栅栏系统</h3><p>网格系统给页面分块（比如960网格系统、1024网格系统）,通过对网页的划分，写网页时有内在的对齐感</p>
+<blockquote>
+<p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。<br>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。<br><img src="/2018/05/28/Bootstrap/grid-system.png" alt="grid-system"><br>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//.container 类用于固定宽度并支持响应式布局的容器。默认左右居中</span><br><span class="line">//PC端用，固定布局</span><br><span class="line">&lt;div class=&quot;container&quot;&gt; </span><br><span class="line">  ...</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。</span><br><span class="line">//手机端用，流动布局</span><br><span class="line">&lt;div class=&quot;container-fluid&quot;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><img src="/2018/05/28/Bootstrap/栅格参数实例.png" alt="栅格参数实例"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;row&quot;&gt; //.row默认有-15px的左右margin</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-1&quot;&gt;.col-md-1&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-8&quot;&gt;.col-md-8&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>.row默认有-15px的左右margin</em></strong><br>如果超过12列，就会自动换行</p>
+<h4 id="列偏移"><a href="#列偏移" class="headerlink" title="列偏移"></a>列偏移</h4><p>使用 .col-md-offset-* 类可以将列向右侧偏移。<br><img src="/2018/05/28/Bootstrap/列偏移实例.png" alt="列偏移实例"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-4 col-md-offset-4&quot;&gt;.col-md-4 .col-md-offset-4&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-3 col-md-offset-3&quot;&gt;.col-md-3 .col-md-offset-3&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-3 col-md-offset-3&quot;&gt;.col-md-3 .col-md-offset-3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-md-6 col-md-offset-3&quot;&gt;.col-md-6 .col-md-offset-3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="响应式怎么用"><a href="#响应式怎么用" class="headerlink" title="响应式怎么用"></a>响应式怎么用</h3><h4 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h4><p>bootstrap优先使用小型屏幕布局<br>0-768 xs 超小号 (手机)<br>768-992 sm 小号（ipad）<br>992-1200 md 中号（电脑）<br>1200-～ lg 大号（超宽）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;col-lg-1 col-md-2 col-sm-4 col-xs-12&quot;&gt;.col-md-8&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-lg-1 col-md-2 col-sm-4 col-xs-12&quot;&gt;.col-md-8&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;col-lg-1 col-md-2 col-sm-4 col-xs-12&quot;&gt;.col-md-8&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">//在大屏幕上每行显示12个，在电脑上每行显示6个，在iPad上每行显示3个，在手机上每行显示1个</span><br></pre></td></tr></table></figure></p>
+<p>如果想自己加样式，新建个div把代码块包起来</p>
+<h3 id="Bootstrap-CSS-组件怎么用"><a href="#Bootstrap-CSS-组件怎么用" class="headerlink" title="Bootstrap CSS 组件怎么用"></a>Bootstrap CSS 组件怎么用</h3><p><img src="/2018/05/28/Bootstrap/媒体查询.png" alt="媒体查询"><br>想用那个组件，右键copy-outerHTML</p>
+<h4 id="Bootstrap-CSS主题"><a href="#Bootstrap-CSS主题" class="headerlink" title="Bootstrap CSS主题"></a>Bootstrap CSS主题</h4><p><a href="https://github.com/therebelrobot/awesome-bootstrap" target="_blank" rel="noopener">awesome-bootstrap</a><br>使用方法就是复制粘贴</p>
+<h3 id="Bootstrap-jQuery-组件怎么用"><a href="#Bootstrap-jQuery-组件怎么用" class="headerlink" title="Bootstrap jQuery 组件怎么用"></a>Bootstrap jQuery 组件怎么用</h3><p>使用方法就是复制粘贴</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>鸟随鸾凤飞腾远，人伴贤良品自高。</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/05/28/Bootstrap/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/28/Bootstrap/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/28/Bootstrap/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/28/Bootstrap/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2018/05/28/IFC/">
+        ← IFC
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/05/27/动态REM/">
+        动态REM →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
