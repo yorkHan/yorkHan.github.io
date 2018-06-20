@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>IFC | York&#39;s Blog</title>
+  <title>微信小程序简介 | York&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -44,28 +44,20 @@
 <main class="content" role="main">
   <article class="post">
     <span class="post-meta">
-      <time datetime="2018-05-28T07:37:35.000Z" itemprop="datePublished">
-          2018-05-28
+      <time datetime="2018-06-20T15:24:40.000Z" itemprop="datePublished">
+          2018-06-20
       </time>
     
 </span>
-    <h1 class="post-title">IFC</h1>
+    <h1 class="post-title">微信小程序简介</h1>
     <section class="post-content">
-      <h3 id="IFC-inline-formatting-content"><a href="#IFC-inline-formatting-content" class="headerlink" title="IFC(inline formatting content)"></a>IFC(inline formatting content)</h3><p>IFC是BFC的兄弟</p>
-<ol>
-<li>font-size 定义的是（em-square）活字印刷模子的高度 </li>
-<li>line-height 决定内联元素的实际占地高度，内联元素自动居中 字体设计师推荐的</li>
-<li>为什么两种字体同样都是line-height：100px； 100px -&gt; 103px：内联元素和内联元素默认用字体的baseline对齐，两种字体的baseline是错开的</li>
-<li>vertical-align不靠谱的属性，都是和字体有关的<br> vertical-align: top;实际可占用面积顶端与父元素的默认字体对齐<br> vertical-align: middle;实际位置对齐，不是字体居中对齐<br>  bottom text-top text-bottom</li>
-<li>图片下面有空隙：img是内联元素，默认和父元素默认字体的baseline对齐<br> 怎么解决：<ol>
-<li>vertical-align: top、middle或其他</li>
-<li>img{display: block;}</li>
-<li>font-size: 0 傻逼采用</li>
-</ol>
-</li>
-<li>inline-block 元素对不齐 ——无解 —— 用 flex 或 float</li>
-<li>inline-block 之间有空隙 ——用 flex 或 float</li>
-</ol>
+      <h3 id="微信小程序的特点"><a href="#微信小程序的特点" class="headerlink" title="微信小程序的特点"></a>微信小程序的特点</h3><p>1.“触手可及”<br>2.“用完即走”<br>3.“无需安装卸载”</p>
+<h3 id="小程序与应用程序的区别"><a href="#小程序与应用程序的区别" class="headerlink" title="小程序与应用程序的区别"></a>小程序与应用程序的区别</h3><p>1.无需安装<br>2.不占内存<br>3.易传播</p>
+<h3 id="小程序代码结构与基本配置"><a href="#小程序代码结构与基本配置" class="headerlink" title="小程序代码结构与基本配置"></a>小程序代码结构与基本配置</h3><p>app.js ：注册微信小程序的应用<br>app.json ：微信小程序全局配置(比如网络请求超时时间，一些窗口的表现，各个页面注册的路径等)<br>app.wxss ：设置微信小程序全局样式<br>project.config.json ：保存微信开发者工具的配置信息<br>pages ：存放所有小程序页面（js文件，json文件，wxml文件和wxss文件）<br>    js文件 ：处理微信小程序页面的逻辑和一些数据交互<br>    json文件 ：配置微信小程序的配置信息<br>    wxml文件 ：展示小程序页面的一些元素和内容<br>    wxss文件 ：设置小程序页面的样式<br>utils ：存放工具函数，达到代码复用的一个目的<br><img src="/2018/06/20/微信小程序简介/全局和局部.jpg" alt="全局和局部"></p>
+<h4 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h4><p>Pages ：注册微信小程序所有页面<br>tabBar ：制定tab栏的表现<br>networkTimeout ：各个网络请求超时时间<br>debug ：在微信的开发者工具控制台打印出需要的调试信息<br>navigationStyle ：导航栏相关设置信息</p>
+<h4 id="window"><a href="#window" class="headerlink" title="window"></a>window</h4><p>navigationBarBackground ：导航栏的背景颜色<br>navigationBarTextStyle ：导航栏的标题颜色<br>navigationBarTitleText ：导航栏的标题文字内容<br>backgroundColor ：背景颜色<br>backgroundTextStyle ：下拉背景字体、loading 图的样式，仅支持 dark/light<br>onReachBottomDistance ：页面上拉触底事件触发时距页面底部距离，单位为px<br>enablePullDownRefresh ：设置全局或单个页面的下拉刷新的表现</p>
+<h4 id="page"><a href="#page" class="headerlink" title="page"></a>page</h4><p>disableScroll 设置页面是否开启滚动</p>
+<p><strong>如果微信小程序的全局和单个页面的window的一些配置项重复，页面配置项会覆盖全局配置项</strong></p>
 
     </section>
     <footer class="post-footer">
@@ -75,18 +67,18 @@
 </section>
       <section class="share">
     <h4>Share this post</h4>
-    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/05/28/IFC/" target="_blank">
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/06/20/微信小程序简介/" target="_blank">
         <span class="hidden">weibo</span>
     </a>
-    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/05/28/IFC/"
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/06/20/微信小程序简介/"
        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <span class="hidden">Twitter</span>
     </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/28/IFC/"
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/20/微信小程序简介/"
        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <span class="hidden">Facebook</span>
     </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/28/IFC/"
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/20/微信小程序简介/"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <span class="hidden">Google+</span>
     </a>
@@ -96,14 +88,10 @@
   </article>
   <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2018/05/29/ES6/">
-        ← ES6
-    </a>
-    
     <span class="icon-logo">•</span>
     
-    <a class="older-posts" href="/2018/05/28/Bootstrap/">
-        Bootstrap →
+    <a class="older-posts" href="/2018/05/29/ES6/">
+        ES6 →
     </a>
     
 </nav>
