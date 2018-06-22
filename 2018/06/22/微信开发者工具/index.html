@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>微信开发者工具 | York&#39;s Blog</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="York's Blog">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(http://p8rwg9io5.bkt.clouddn.com/3_gaitubao_com_1920x500.jpg) 0 0%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">York's Blog</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-06-22T15:24:06.000Z" itemprop="datePublished">
+          2018-06-22
+      </time>
+    
+</span>
+    <h1 class="post-title">微信开发者工具</h1>
+    <section class="post-content">
+      <h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>头像 ：个人中心展示小程序系统版本更新之后的推送消息，方便切换小程序账号<br>模拟器 ：可以切换调试设备的机型模拟在各个手机上的不同表现，也可以切换网络状态和屏幕缩放<br>编辑器 ：<br>调试器 ：分为7个模块面板</p>
+<pre><code>1. Console ：打印小程序页面的一些调试log信息
+2. Sources ：列出微信小程序页面所有的脚本文件，可以对这些脚本文件进行断点调试
+3. Network ：展示各个网络请求的状态信息以及所请求资源的响应数据等等
+4. Storage ：在小程序里面调用wx.setStorage和wx.setStorageSync函数设置缓存的时候，可以动态地修改这些缓存数据
+5. AppData ：微信小程序页面上真实展示的一个数据，可以动态的修改来查看小程序页面在模拟器上不同设备的一个兼容性的情况
+6. Wxml ：展示微信小程序页面的各个组件元，以及可以通过对这些组件元素进行一个样式属性的修改
+7. Sensor ：主要是地理位置信息和设备旋转角度的一个展示，可以动态的修改地理位置信息，来模拟小程序页面在不同的地理位置下的表现。
+</code></pre><p>编译 ：添加编译模式自定义编译条件(比如启动页面和页面的启动参数以及需要进入的一些场景值)<br>预览 ：让本地代码实时在真机上预览<br>远程调试 ：真机的远程调试功能会通过网络连接对手机运行的小程序进行调试<br>切后台 ：快速切到不同的场景值，通过场景值去个性化一些需求功能<br>清缓存 ：清除开发者工具和调试设备的数据缓存，文件缓存，授权缓存，网络缓存和登陆状态<br>上传 ：把小程序代码上传到管理后台，默认设置为一个开发版本(需要填入本次版本的版本号和项目备注)</p>
+<p><img src="/2018/06/22/微信开发者工具/小程序版本.jpg" alt="小程序版本"></p>
+<pre><code>小程序版本分为：预览版本，体验版本，开发版本，审核版本，线上版本
+</code></pre><p>测试 ：每24小时生成测试报告，微信随机分配4到8种机型来测试小程序页面的首屏加载时间，CPU占比等一些指数<br>腾讯云 ：可以快速构建一个小程序的开发环境和线上环境的第三方平台</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>York Han</h4>
+    <p>鸟随鸾凤飞腾远，人伴贤良品自高。</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=鸟随鸾凤飞腾远，人伴贤良品自高。 ?url=http://yoursite.com/2018/06/22/微信开发者工具/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2018/06/22/微信开发者工具/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/22/微信开发者工具/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/22/微信开发者工具/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="icon-logo">•</span>
+    
+    <a class="older-posts" href="/2018/06/20/微信小程序简介/">
+        微信小程序简介 →
+    </a>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">York's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
